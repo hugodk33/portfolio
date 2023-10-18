@@ -48,33 +48,36 @@ function App() {
           </div>
         </Sessao>
         <Sessao>
-          <div className="flex justify-center items-center flex-col mr-auto ml-auto" style={{ maxWidth: '600px' }}>
-            <h1 className="mr-auto ml-auto w-full mt-4 white text-3xl text-white">
-              skills/bio
-            </h1>
-            <p className="mr-auto ml-auto w-full mt-4 white text-md text-white">
-              sub-texto
-            </p>
+          <div className="flex w-full relative justify-center items-center flex-col mr-auto ml-auto">
+            <span className="flex absolute top-2 w-full" >
+              <hr className="flex" style={{marginTop: '2rem',width: 'Calc(50% - 5rem)' , borderColor: '#b9b9b9'}}/>
+              <h1 className="block items-center mr-auto ml-auto text-center ml-auto mt-4 white text-3xl text-white" style={{width:'10rem'}}>
+                bio
+              </h1>
+              <hr className="flex" style={{marginTop: '2rem',width: 'Calc(50% - 5rem)', borderColor: '#b9b9b9'}}/>
+            </span>
           </div>
         </Sessao>
         <Sessao>
-          <div className="flex justify-center items-center flex-col mr-auto ml-auto" style={{ maxWidth: '600px' }}>
-            <h1 className="mr-auto ml-auto w-full mt-4 white text-3xl text-white">
-              Portfólio
-            </h1>
-            <p className="mr-auto ml-auto w-full mt-4 white text-md text-white">
-              sub-texto
-            </p>
+          <div className="flex w-full relative justify-center items-center flex-col mr-auto ml-auto">
+            <span className="flex absolute top-2 w-full" >
+              <hr className="flex" style={{marginTop: '2rem',width: 'Calc(50% - 5rem)' , borderColor: '#b9b9b9'}}/>
+              <h1 className="block items-center mr-auto ml-auto text-center ml-auto mt-4 white text-3xl text-white" style={{width:'10rem'}}>
+                portfólio
+              </h1>
+              <hr className="flex" style={{marginTop: '2rem',width: 'Calc(50% - 5rem)', borderColor: '#b9b9b9'}}/>
+            </span>
           </div>
         </Sessao>
         <Sessao>
-          <div className="flex justify-center items-center flex-col mr-auto ml-auto" style={{ maxWidth: '600px' }}>
-            <h1 className="mr-auto ml-auto w-full mt-4 white text-3xl text-white">
-              Carreira
-            </h1>
-            <p className="mr-auto ml-auto w-full mt-4 white text-md text-white">
-              sub-texto
-            </p>
+          <div className="flex w-full relative justify-center items-center flex-col mr-auto ml-auto">
+            <span className="flex absolute top-2 w-full" >
+              <hr className="flex" style={{marginTop: '2rem',width: 'Calc(50% - 5rem)' , borderColor: '#b9b9b9'}}/>
+              <h1 className="block items-center mr-auto ml-auto text-center ml-auto mt-4 white text-3xl text-white" style={{width:'10rem'}}>
+                carreira
+              </h1>
+              <hr className="flex" style={{marginTop: '2rem',width: 'Calc(50% - 5rem)', borderColor: '#b9b9b9'}}/>
+            </span>
           </div>
         </Sessao>
       </div>
