@@ -1,0 +1,283 @@
+{
+    "carrer":
+    [
+        {
+            "year": "< 2018",
+            "services": [
+                {
+                    "title": "  ",
+                    "service": " ",
+                    "status": "",
+                    "techs": [
+    
+                    ],
+                    "challenge": "",
+                    "description": ""
+                },
+                {
+                    "title": " ",
+                    "service": " ",
+                    "techs": [
+    
+                    ],
+                    "challenge": "",
+                    "description": ""
+                },
+                {
+                    "title": " ",
+                    "service": " ",
+                    "techs": [
+    
+                    ],
+                    "challenge": "",
+                    "description": ""
+                },
+                {
+                    "title": " ",
+                    "service": " ",
+                    "techs": [
+ 
+                    ],
+                    "challenge": null,
+                    "description": ""
+                }
+            ]
+        },
+        {
+            "year": 2019,
+            "services": [
+                {
+                    "title": "  ",
+                    "service": " ",
+                    "status": "",
+                    "techs": [
+    
+                    ],
+                    "challenge": "",
+                    "description": ""
+                },
+                {
+                    "title": " ",
+                    "service": " ",
+                    "techs": [
+    
+                    ],
+                    "challenge": "",
+                    "description": ""
+                },
+                {
+                    "title": " ",
+                    "service": " ",
+                    "techs": [
+    
+                    ],
+                    "challenge": "",
+                    "description": ""
+                },
+                {
+                    "title": " ",
+                    "service": " ",
+                    "techs": [
+ 
+                    ],
+                    "challenge": null,
+                    "description": ""
+                }
+            ]
+        },
+        {
+            "year": 2020,
+            "services": [
+                {
+                    "title": " ",
+                    "service": " ",
+                    "status": "",
+                    "techs": [
+    
+                    ],
+                    "challenge": "",
+                    "description": ""
+                },
+                {
+                    "title": " ",
+                    "service": " ",
+                    "techs": [
+    
+                    ],
+                    "challenge": "",
+                    "description": ""
+                },
+                {
+                    "title": " ",
+                    "service": " ",
+                    "techs": [
+    
+                    ],
+                    "challenge": "",
+                    "description": ""
+                },
+                {
+                    "title": " ",
+                    "service": " ",
+                    "techs": [ 
+
+                    ],
+                    "challenge": null,
+                    "description": " "
+                }
+            ]
+        },
+        {
+            "year": 2021,
+            "services": [
+                {
+                    "title": " ",
+                    "service": " ",
+                    "status": "",
+                    "techs": [
+    
+                    ],
+                    "challenge": "",
+                    "description": ""
+                },
+                {
+                    "title": " ",
+                    "service": " ",
+                    "techs": [
+    
+                    ],
+                    "challenge": "",
+                    "description": ""
+                },
+                {
+                    "title": " ",
+                    "service": " ",
+                    "techs": [
+    
+                    ],
+                    "challenge": "",
+                    "description": ""
+                },
+                {
+                    "title": " ",
+                    "service": " ",
+                    "techs": [
+                       
+                    ],
+                    "challenge": null,
+                    "description": " "
+                }
+            ]
+        },
+        {
+            "year": 2022,
+            "services": [
+                {
+                    "title": " ",
+                    "service": " ",
+                    "status": " ",
+                    "techs": [
+    
+                    ],
+                    "challenge": "",
+                    "description": ""
+                },
+                {
+                    "title": " ",
+                    "service": " ",
+                    "techs": [
+    
+                    ],
+                    "challenge": "",
+                    "description": ""
+                },
+                {
+                    "title": " ",
+                    "service": " ",
+                    "techs": [
+    
+                    ],
+                    "challenge": "",
+                    "description": ""
+                },
+                {
+                    "title": " ",
+                    "service": " ",
+                    "techs": [
+
+                    ],
+                    "challenge": null,
+                    "description": ""
+                }
+            ]
+        },
+        {
+            "year": 2023,
+            "services": [
+                {
+                    "title": "Mob Telecom | Grupo Alloha",
+                    "service": "suporte e desenvolvimento de software",
+                    "techs": [
+                        "node",
+                        "adonis",
+                        "express",
+                        "react",
+                        "javascript",
+                        "mysql",
+                        "aws"
+                    ],
+                    "challenge": "",
+                    "description": "Atuação na manutenção de endpoints das integrações, do manutenção site e desenvolvimento , acompanhamento de novas soluções."
+                },
+                {
+                    "title": "Fábrica Tataluga",
+                    "service": "ecommerce integrado",
+                    "techs": [
+                        "wordpress",
+                        "html",
+                        "css",
+                        "php",
+                        "javascript",
+                        "jquery",
+                        "csharp",
+                        "dotnet"
+                    ],
+                    "challenge": null,
+                    "description": "Criar uma loja virtual baseada em wordpress e woocommerce que tenha integração com um sistema usado nas lojas da marca e da indústria, a ideia era que a loja compartilhasse um dos estoques cadastrados no sistema instalado em desktop através de uma integração web/desktop. <br />Além da integração, a loja foi configurada para seguir as regras de negócio do cliente através de plugins e inserções nos códigos."
+                },
+                {
+                    "title": "ONG Maria Sooder",
+                    "service": "planejamento e desenvolvimento de software completo",
+                    "status": "",
+                    "techs": [
+                        "node",
+                        "adonis",
+                        "aws",
+                        "next",
+                        "react",
+                        "javascript",
+                        "mysql"
+                    ],
+                    "challenge": "realizar o deploy da aplicação em núvem do zero",
+                    "description": "Atuando em todas as etapas na criação de software, de levantamento de requisitos, desenvolvimento do back end, front e deploy da aplicação em nuvem."
+                },
+                {
+                    "title": "Fábrica Kero Mais",
+                    "service": "software",
+                    "techs": [
+                        "node",
+                        "csharp",
+                        "dotnet",
+                        "aws",
+                        "react",
+                        "javascript",
+                        "mysql",
+                        "tailwind"
+                    ],
+                    "challenge": "",
+                    "description": "Criar uma loja virtual baseada em wordpress e woocommerce que tenha integração com um sistema usado nas lojas da marca e da indústria, a ideia era que a loja compartilhasse um dos estoques cadastrados no sistema instalado em desktop através de uma integração web/desktop. <br />Além da integração, a loja foi configurada para seguir as regras de negócio do cliente através de plugins e inserções nos códigos."
+                }
+            ]
+        }
+    ]
+} 

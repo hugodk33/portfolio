@@ -64,18 +64,36 @@ body , html {
   background-image: url('./assets/space.jpg');
   background-size: 100% auto;
   text-shadow: #000000 2px 2px 4px;
+  background-repeat: no-repeat;
 }
 
 .Sessao:nth-child(2) {
-  background-color: rgb(0, 0, 0);
+  background-image: radial-gradient(circle at 50% -10%, #393939 , black)
+  /* background: radial-gradient(circle, rgba(136,159,255,1) 0%, rgba(18,176,81,1) 87%, rgba(57,52,49,1) 100%); */
+}
+
+.Sessao:nth-child(2) img {
+  max-width: 170px;
+}
+
+@media screen and (max-width: 550px) {
+  .Sessao:nth-child(2) img {
+    max-width: 100px ! important;
+    margin-top: 7rem;
+  }
+  .Sessao:first-child {
+    background-size: auto 100%;
+    background-position: center center;
+  }
 }
 
 .Sessao:nth-child(3) {
-  background-color: rgb(22, 54, 113);
+  background-color: #1f2c59;
+  background-image: radial-gradient(circle at 50% -10%, #203479 , #1f2c59)
 }
 
 .Sessao:nth-child(4) {
-  background-color: rgb(115, 0, 65);
+  background-color: #1F1F1F;
 }
 
 .borded {
@@ -84,6 +102,61 @@ body , html {
   -2px 2px 0 #00000096,
   -2px -2px 0 #00000096,
   2px -2px 0 #00000096;
+}
+
+#steppter {
+  font-size: 10px ! important;
+}
+
+.cor-azul {
+  color: #6778be
+}
+
+.mgnt {
+  color: #ff4766;
+  border-color: #ff4766;
+}
+
+.mgnt-bg {
+  background-color: #EB4D60;
+  border-color: #EB4D60;
+  color: white;
+}
+
+.lrj-bg {
+  background-color: #FF9F4B;
+  border-color: #FF9F4B;
+  color: white;
+}
+
+.mgnt-bg2 {
+  background-color: #ff3b5c;
+  border-color: #ff3b5c;
+  color: rgb(0, 0, 0);
+}
+
+.azl-bg {
+  background-color: #398eff;
+  color: white;
+}
+
+.vrd {
+  color: #32D377;
+  border-color: #32D377;
+}
+
+.vrd-2 {
+  color: #c9ffe1;
+  border-color: #c9ffe1;
+}
+
+.azl {
+  color: #398eff
+}
+
+.lrj {
+  color: #FF9F4B;
+  border-color: #FF9F4B;
 }
 
 @keyframes App-logo-spin {
