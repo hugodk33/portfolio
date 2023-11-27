@@ -226,7 +226,7 @@
                         "mysql",
                         "aws"
                     ],
-                    "challenge": "",
+                    "challenge": "Participar de todos os processos de uma grande empresa com vários departamentos distintintos e dinâmicos.",
                     "description": "Atuação na manutenção de endpoints das integrações, do manutenção site e desenvolvimento , acompanhamento de novas soluções."
                 },
                 {
@@ -242,8 +242,8 @@
                         "csharp",
                         "dotnet"
                     ],
-                    "challenge": null,
-                    "description": "Criar uma loja virtual baseada em wordpress e woocommerce que tenha integração com um sistema usado nas lojas da marca e da indústria, a ideia era que a loja compartilhasse um dos estoques cadastrados no sistema instalado em desktop através de uma integração web/desktop. <br />Além da integração, a loja foi configurada para seguir as regras de negócio do cliente através de plugins e inserções nos códigos."
+                    "challenge": "O ecommerce deveria compartilhar com os estoques já cadastrados no sistema em ambiente desktop através de uma integração web/desktop",
+                    "description": "Criar uma loja virtual baseada em wordpress e woocommerce , onde integra-se com um sistema já usado em todos os processos da marca. A loja, após scriada, foi configurada para seguir as regras de negócio do cliente através de plugins e inserções nos códigos."
                 },
                 {
                     "title": "ONG Maria Sooder",
@@ -258,7 +258,7 @@
                         "javascript",
                         "mysql"
                     ],
-                    "challenge": "realizar o deploy da aplicação em núvem do zero",
+                    "challenge": "tratar de todos os processos da criação do software, desde os requisitos até o deploy, realizar o deploy da aplicação em núvem do zero",
                     "description": "Atuando em todas as etapas na criação de software, de levantamento de requisitos, desenvolvimento do back end, front e deploy da aplicação em nuvem."
                 },
                 {
@@ -274,7 +274,7 @@
                         "mysql",
                         "tailwind"
                     ],
-                    "challenge": "",
+                    "challenge": null,
                     "description": "Criar uma loja virtual baseada em wordpress e woocommerce que tenha integração com um sistema usado nas lojas da marca e da indústria, a ideia era que a loja compartilhasse um dos estoques cadastrados no sistema instalado em desktop através de uma integração web/desktop. <br />Além da integração, a loja foi configurada para seguir as regras de negócio do cliente através de plugins e inserções nos códigos."
                 }
             ]

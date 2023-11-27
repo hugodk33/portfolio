@@ -281,15 +281,19 @@ function App() {
               <p className="flex text-sm mb-1 mt-1 text-left text-left text-white text-lg flex-wrap font-medium vrd">
                 {generateTechOutput(timeLine.carrer[actualTime].services[actualService].techs)}
               </p>
-              <hr className='w-full mt-3 mb-3 vrd' />
+              <hr className='w-full mt-3 mb-1 vrd' />
               { 
                 timeLine.carrer[actualTime].services[actualService].challenge?
-                  <div class="flex items-center azl-bg text-white text-sm font-bold px-4 py-3 mt-2 mb-2" role="alert">
+                <>
+                  <label className='text-blue-300 mt-1 uppercase' style={{fontSize: 9}}>desafio:</label>
+                  <div class="flex items-center azl-bg text-white text-sm font-bold px-4 py-3 mt-1 mb-2" role="alert">
                     <GoAlert className='text-white text-2xl mr-2'/>
                     <p>{timeLine.carrer[actualTime].services[actualService].challenge}</p>
                   </div>
+                </>
                 :null
               }
+              <label className='text-blue-300 mt-1 uppercase' style={{fontSize: 9}}>descrição:</label>
               <div className="text-gray-200">{transformarQuebraDeLinhaEmParagrafo(timeLine.carrer[actualTime].services[actualService].description)}</div>
             </div>
           </div>
