@@ -79,7 +79,7 @@ body , html {
 @media screen and (max-width: 550px) {
   .Sessao:nth-child(2) img {
     max-width: 100px ! important;
-    margin-top: 7rem;
+    /* margin-top: 7rem; */
   }
   .Sessao:first-child {
     background-size: auto 100%;
