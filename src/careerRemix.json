@@ -2,52 +2,10 @@
     "carrer":
     [
         {
-            "year": "< 2018",
-            "services": [
-                {
-                    "title": "  ",
-                    "service": " ",
-                    "status": "",
-                    "techs": [
-    
-                    ],
-                    "challenge": "",
-                    "description": ""
-                },
-                {
-                    "title": " ",
-                    "service": " ",
-                    "techs": [
-    
-                    ],
-                    "challenge": "",
-                    "description": ""
-                },
-                {
-                    "title": " ",
-                    "service": " ",
-                    "techs": [
-    
-                    ],
-                    "challenge": "",
-                    "description": ""
-                },
-                {
-                    "title": " ",
-                    "service": " ",
-                    "techs": [
- 
-                    ],
-                    "challenge": null,
-                    "description": ""
-                }
-            ]
-        },
-        {
             "year": 2019,
             "services": [
                 {
-                    "title": "  ",
+                    "title": "Soluthec",
                     "service": " ",
                     "status": "",
                     "techs": [
@@ -72,15 +30,6 @@
     
                     ],
                     "challenge": "",
-                    "description": ""
-                },
-                {
-                    "title": " ",
-                    "service": " ",
-                    "techs": [
- 
-                    ],
-                    "challenge": null,
                     "description": ""
                 }
             ]
@@ -89,41 +38,15 @@
             "year": 2020,
             "services": [
                 {
-                    "title": " ",
+                    "title": "Cliente de freela",
                     "service": " ",
                     "status": "",
                     "techs": [
-    
+                        "react",
+                        "javascript"
                     ],
                     "challenge": "",
                     "description": ""
-                },
-                {
-                    "title": " ",
-                    "service": " ",
-                    "techs": [
-    
-                    ],
-                    "challenge": "",
-                    "description": ""
-                },
-                {
-                    "title": " ",
-                    "service": " ",
-                    "techs": [
-    
-                    ],
-                    "challenge": "",
-                    "description": ""
-                },
-                {
-                    "title": " ",
-                    "service": " ",
-                    "techs": [ 
-
-                    ],
-                    "challenge": null,
-                    "description": " "
                 }
             ]
         },
@@ -131,41 +54,37 @@
             "year": 2021,
             "services": [
                 {
-                    "title": " ",
+                    "title": "Alpha Systemas",
                     "service": " ",
                     "status": "",
                     "techs": [
-    
+                        "wordpress",
+                        "html",
+                        "css",
+                        "php",
+                        "node",
+                        "javascript",
+                        "typescript",
+                        "jquery",
+                        "csharp",
+                        "dotnet"
                     ],
                     "challenge": "",
                     "description": ""
                 },
                 {
-                    "title": " ",
+                    "title": "Shopping Fortaleza Sul",
                     "service": " ",
                     "techs": [
-    
+                        "wordpress",
+                        "html",
+                        "css",
+                        "php",
+                        "javascript",
+                        "jquery"
                     ],
                     "challenge": "",
                     "description": ""
-                },
-                {
-                    "title": " ",
-                    "service": " ",
-                    "techs": [
-    
-                    ],
-                    "challenge": "",
-                    "description": ""
-                },
-                {
-                    "title": " ",
-                    "service": " ",
-                    "techs": [
-                       
-                    ],
-                    "challenge": null,
-                    "description": " "
                 }
             ]
         },
@@ -173,41 +92,35 @@
             "year": 2022,
             "services": [
                 {
-                    "title": " ",
-                    "service": " ",
-                    "status": " ",
+                    "title": "Tecla T",
+                    "service": "desenvolvimento de software",
                     "techs": [
-    
+                        "node",
+                        "adonis",
+                        "aws",
+                        "next",
+                        "react",
+                        "javascript",
+                        "typescript",
+                        "mysql"
                     ],
                     "challenge": "",
                     "description": ""
                 },
                 {
-                    "title": " ",
-                    "service": " ",
+                    "title": "Água Santa Sophia",
+                    "service": "site institucional",
+                    "status": "concluído",
                     "techs": [
-    
-                    ],
-                    "challenge": "",
-                    "description": ""
-                },
-                {
-                    "title": " ",
-                    "service": " ",
-                    "techs": [
-    
-                    ],
-                    "challenge": "",
-                    "description": ""
-                },
-                {
-                    "title": " ",
-                    "service": " ",
-                    "techs": [
-
+                        "wordpress",
+                        "html",
+                        "css",
+                        "php",
+                        "javascript",
+                        "jquery"
                     ],
                     "challenge": null,
-                    "description": ""
+                    "description": "Elaborar um site institucional para a marca"
                 }
             ]
         },
@@ -274,7 +187,7 @@
                         "mysql",
                         "tailwind"
                     ],
-                    "challenge": null,
+                    "challenge": "transformar a ideia abstrata do cliente em uma projeto viável",
                     "description": "Criar uma loja virtual baseada em wordpress e woocommerce que tenha integração com um sistema usado nas lojas da marca e da indústria, a ideia era que a loja compartilhasse um dos estoques cadastrados no sistema instalado em desktop através de uma integração web/desktop. <br />Além da integração, a loja foi configurada para seguir as regras de negócio do cliente através de plugins e inserções nos códigos."
                 }
             ]

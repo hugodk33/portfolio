@@ -1,63 +1,178 @@
 {
-    "a2019": {
-
-    },
-    "d2019": {
-
-    },
-    "d2020": {
-
-    },
-    "d2021": {
-
-    },
-    "d2022": {
-
-    },
-    "d2023": {
-        "services": [
-            {
-                "title": "ONG Maria Sooder",
-                "service": "software",
-                "status": "",
-                "techs": [
-
-                ],
-                "challenge": "",
-                "description": ""
-            },
-            {
-                "title": "fábrica Kero Mais",
-                "service": "software",
-                "techs": [
-
-                ],
-                "challenge": "",
-                "description": ""
-            },
-            {
-                "title": "Mob Telecom | Grupo Alloha",
-                "service": "software",
-                "techs": [
-
-                ],
-                "challenge": "",
-                "description": ""
-            },
-            {
-                "title": "Fábrica Tataluga",
-                "service": "ecommerce",
-                "techs": [
-                    "wordpress",
-                    "html",
-                    "css",
-                    "php",
-                    "javascript",
-                    "jquery"
-                ],
-                "challenge": null,
-                "description": "Criar uma loja virtual baseada em wordpress e woocommerce que tenha integração com um sistema usado nas lojas da marca e da indústria, a ideia era que a loja compartilhasse um dos estoques cadastrados no sistema instalado em desktop através de uma integração web/desktop. <br />Além da integração, a loja foi configurada para seguir as regras de negócio do cliente através de plugins e inserções nos códigos."
-            }
-        ]
-    }
+    "carrer":
+    [
+        {
+            "year": "<= 2021",
+            "services": [
+                {
+                    "title": "Alpha Systemas",
+                    "service": "Desenvolvedor React e C#",
+                    "link": "https://alphasystemas.com.br/",
+                    "techs": [
+                        "wordpress",
+                        "html",
+                        "css",
+                        "php",
+                        "node",
+                        "javascript",
+                        "typescript",
+                        "jquery",
+                        "csharp",
+                        "dotnet"
+                    ],
+                    "challenge": "Dominar stacks obsoletas e legado sem documentação.",
+                    "description": "Atuava em vários projetos diferentes, dentre eles a elaboração de novas soluções e manutenção legado, acompanhar e aprender como funcionam todos os setores do TI, até atendimento, instalação."
+                },
+                {
+                    "title": "Soluthec",
+                    "service": " ",
+                    "link": "https://soluthec.com.br/",
+                    "techs": [
+                        "wordpress",
+                        "html",
+                        "css",
+                        "php",
+                        "javascript",
+                        "jquery"
+                    ],
+                    "challenge": null,
+                    "description": "Site institucional simples."
+                },
+                {
+                    "title": "Cliente de freela",
+                    "service": "front end",
+                    "link": "https://codepen.io/Hugodk33/details/vYEammO",
+                    "techs": [
+                        "react",
+                        "javascript"
+                    ],
+                    "challenge": null,
+                    "description": "desenvolver uma interface que correspondesse a espectativa do cliente."
+                },
+                {
+                    "title": "Shopping Fortaleza Sul",
+                    "service": "Site com busca de lojas",
+                    "link": "https://shoppingfortalezasul.com.br/",
+                    "techs": [
+                        "wordpress",
+                        "html",
+                        "css",
+                        "php",
+                        "javascript",
+                        "jquery"
+                    ],
+                    "challenge": null,
+                    "description": "Criação de um site onde a interface fosse fácil de conhecer as lojas e obter informações, como mídas, telefone e localização dentro do condomínio; Foi desenvolvido um plugin para wordpress em que era possível atualizar sem necessidade de programador."
+                }
+            ]
+        },
+        {
+            "year": 2022,
+            "services": [
+                {
+                    "title": "Tecla T",
+                    "service": "desenvolvimento de software",
+                    "link": "https://codepen.io/Hugodk33/details/vYEammO",
+                    "techs": [
+                        "node",
+                        "adonis",
+                        "aws",
+                        "next",
+                        "react",
+                        "javascript",
+                        "typescript",
+                        "mysql"
+                    ],
+                    "challenge": "Desafios de alto nível de uma software house com alta demanda",
+                    "description": "Atuando como desenvolvedor front end, atuando em vários objetos ao longo de um ano e meio."
+                },
+                {
+                    "title": "Água Santa Sophia",
+                    "service": "site institucional",
+                    "link": null,
+                    "techs": [
+                        "wordpress",
+                        "html",
+                        "css",
+                        "php",
+                        "javascript",
+                        "jquery"
+                    ],
+                    "challenge": null,
+                    "description": "Elaborar um site institucional para a marca"
+                }
+            ]
+        },
+        {
+            "year": 2023,
+            "services": [
+                {
+                    "title": "Mob Telecom | Grupo Alloha",
+                    "service": "suporte e desenvolvimento de software",
+                    "link": "https://mobtelecom.com.br/",
+                    "techs": [
+                        "node",
+                        "adonis",
+                        "express",
+                        "react",
+                        "javascript",
+                        "mysql",
+                        "aws"
+                    ],
+                    "challenge": "Participar de todos os processos de uma grande empresa com vários departamentos distintintos e dinâmicos.",
+                    "description": "Atuação na manutenção de endpoints das integrações, do manutenção site e desenvolvimento , acompanhamento de novas soluções."
+                },
+                {
+                    "title": "Fábrica Tataluga",
+                    "service": "ecommerce integrado",
+                    "link": "https://www.tataluga.com.br/",
+                    "techs": [
+                        "wordpress",
+                        "html",
+                        "css",
+                        "php",
+                        "javascript",
+                        "jquery",
+                        "csharp",
+                        "dotnet"
+                    ],
+                    "challenge": "O ecommerce funcionaria compartilhando com os estoques já cadastrados no sistema em ambiente desktop através de uma integração web/desktop",
+                    "description": "Criar uma loja virtual baseada em wordpress e woocommerce , onde integra-se com um sistema já usado em todos os processos da marca. A loja, após scriada, foi configurada para seguir as regras de negócio do cliente através de plugins e inserções nos códigos."
+                },
+                {
+                    "title": "ONG Maria Sooder",
+                    "service": "planejamento e desenvolvimento de software completo",
+                    "link": "https://soodermaria.org/v1/pt/",
+                    "techs": [
+                        "node",
+                        "adonis",
+                        "aws",
+                        "next",
+                        "react",
+                        "javascript",
+                        "mysql"
+                    ],
+                    "challenge": "tratar de todos os processos da criação do software, desde os requisitos até o deploy, realizar o deploy da aplicação em núvem do zero",
+                    "description": "Transformar um processo burocrático da ong em um sistema; Foi realizado tudo, de levantamento de requisitos, desenvolvimento do back end, front e deploy da aplicação em nuvem."
+                },
+                {
+                    "title": "Fábrica Kero Mais",
+                    "link": "http://pskeromais.com.br/",
+                    "service": "software",
+                    "techs": [
+                        "node",
+                        "csharp",
+                        "dotnet",
+                        "aws",
+                        "react",
+                        "javascript",
+                        "mysql",
+                        "tailwind"
+                    ],
+                    "challenge": "transformar a ideia abstrata em um projeto viável",
+                    "description": "software completo, levantamento de requisitos, design, kernel, front , banco e deploy "
+                }
+            ]
+        }
+    ]
 } 
