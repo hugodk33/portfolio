@@ -11,10 +11,6 @@ body {
   font-family: 'Source Sans 3', sans-serif;
 }
 
-/* font-family: 'Anonymous Pro', monospace;
-font-family: 'Playfair Display', serif;
-font-family: 'Source Sans 3', sans-serif; */
-
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -73,7 +69,7 @@ body , html {
 }
 
 .Sessao:nth-child(2) img {
-  max-width: 170px;
+  
 }
 
 @media screen and (max-width: 550px) {

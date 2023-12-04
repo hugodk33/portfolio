@@ -19,6 +19,7 @@ import { RiToolsLine } from "react-icons/ri";
 
 import career from './career.json'
 import knight from './assets/knight.png'
+import huguim from './img/huguim.jpg'
 
 function App() {
 
@@ -108,38 +109,43 @@ function App() {
   const bannerMenu = [
     {
       label: 'bio & skills',
-      
+      link: '#bio'
     },
     {
       label: 'Carreira',
+      link: '#carreira'
 
     },
     {
       label: 'Portfólio',
-
+      link: '#portfolio'
     },
   ];
 
   const bannerMenu2 = [
     {
       label: 'wpp',
-  
+      link: 'https://wa.me/5585997313090?text=Hello!'
     },
     {
       label: 'linkedin',
-   
+      link: 'https://www.linkedin.com/in/hugo-arruda-852aa8161/'
     },
     {
       label: 'github',
+      link: 'https://github.com/hugodk33'
     },
     {
       label: 'gitlab',
+      link: 'https://gitlab.com/hugodk33'
     },
     {
       label: 'codepen',
+      link: 'https://codepen.io/hugodk33'
     },
     {
       label: 'email',
+      link: 'mailto:hugodk33@gmail.com'
     },
   ];
 
@@ -203,6 +209,11 @@ function App() {
     }
   }, [arrayMenu2 , pageScroll]);
 
+  useEffect(() => {
+    console.log('arrayMenu2')
+    console.log(arrayMenu2)
+  },[arrayMenu2])
+
   return (  
     <div className="App">
       <header className="App-header">
@@ -225,21 +236,18 @@ function App() {
               <span id="header-3" className='flex gap-2 mt-1 mb-1'>
                 {
                   arrayMenu.map((a, b) => (
-                    <button className='btn bg-blue-600 text-white px-3 py-1 rounded-md'>
+                    <a className='btn bg-blue-600 text-white px-3 py-1 rounded-md' href={a.link}>
                       { a.label }
-                    </button >
+                    </a >
                   ))
                 } 
-                {/* <button className='btn bg-blue-600 text-white px-3 py-1 rounded-md'>
-                  bio & skills
-                </button > */}
               </span>
               <p  id="header-4" className="flex justify-center items-center gap-2 mr-auto ml-auto w-full mt-2 white text-md text-white" style={{ fontSize: '2rem' }}>
                 {
                   arrayMenu2.map((item, index) => (
-                    <Btn key={index}>
+                    <a className={"flex p-2 bg-opacity-75 bg-purple-900 rounded-full"} key={index} href={item.link}>
                       {item.icon}
-                    </Btn>
+                    </a>
                   ))
                 }
               </p>
@@ -250,8 +258,8 @@ function App() {
           </div>
         </Sessao>
         <Sessao>
-          <div className="flex w-full relative justify-center items-center flex-col mr-auto ml-auto md:pr-6 md:pl-6" ref={myRef1}>
-            <div className="flex w-full absolute top-2 text-center" style={{ maxWidth: 600 }}>
+          <div id="bio" className="flex w-full relative justify-center items-center flex-col mr-auto ml-auto md:pr-6 md:pl-6" ref={myRef1}>
+            <div className="flex w-full absolute top-2 text-center" style={{ maxWidth: 600 , zIndex: 10}}>
               <div className='h-1 w-full flex bg-white mt-9' style={{ height: 2 }} />
               <h1 className="w-full mt-4 flex justify-center text-2xl text-white">
                 skills/bio
@@ -259,9 +267,10 @@ function App() {
               <div className='h-1 w-full flex bg-white mt-9' style={{ height: 2 }} />
               <div />
             </div>
-            <div className="flex flex-wrap w-full">
-              <div className="flex items-center justify-center md:w-1/3 w-full">
-                <img className='flex' src={knight} style={{ maxWidth: 210 }} />
+            <img className='absolute flex' style={{height: '90vh', zIndex: 0, left: '-12rem' , top: 0}} src={knight}/>
+            <div className="flex flex-wrap w-full" style={{zIndex: 10}}>
+              <div className="flex items-center justify-center md:w-1/3 w-full p-10">
+                <img className='flex rounded-full w-full border-2 border-white' src={huguim}/>
               </div>
               <div className="md:w-2/3 sm:w-full white text-left pt-5 pb-6">
                 <div className='flex'>
@@ -350,7 +359,7 @@ function App() {
           </div>
         </Sessao>
         <Sessao>
-          <div className="flex relative items-center flex-col mr-auto ml-auto md:pr-6 md:pl-6 pt-4" ref={myRef2}>
+          <div id="carreira" className="flex relative items-center flex-col mr-auto ml-auto md:pr-6 md:pl-6 pt-4" ref={myRef2}>
             <div className="flex w-full absolute top-2 text-center" style={{ width: 600 }}>
               <div className='h-1 w-full flex bg-white mt-9' style={{ height: 2 }} />
               <h1 className="w-full mt-4 flex justify-center white text-2xl text-white">
@@ -439,7 +448,7 @@ function App() {
           </div>
         </Sessao>
         <Sessao>
-          <div className="flex relative justify-center items-center flex-col mr-auto ml-auto" ref={myRef3}>
+          <div id="portfolio" className="flex relative justify-center items-center flex-col mr-auto ml-auto" ref={myRef3}>
             <div className="flex w-full absolute top-2 text-center" style={{ width: 600 }}>
               <div className='h-1 w-full flex bg-white mt-9' style={{ height: 2 }} />
               <h1 className="w-full mt-4 flex justify-center white text-2xl text-white">
