@@ -1,10 +1,11 @@
 {
   "files": {
-    "main.css": "/portfolio/static/css/main.0b69a72d.css",
-    "main.js": "/portfolio/static/js/main.7c7a3a9e.js",
+    "main.css": "/portfolio/static/css/main.51e17cfe.css",
+    "main.js": "/portfolio/static/js/main.ccdb2faf.js",
     "static/js/787.1ed0c42c.chunk.js": "/portfolio/static/js/787.1ed0c42c.chunk.js",
     "static/media/space.jpg": "/portfolio/static/media/space.80fb1a7fa025fff4b9de.jpg",
     "static/media/knight.png": "/portfolio/static/media/knight.669cd894ff5f7a624aa1.png",
+    "static/media/huguim.jpg": "/portfolio/static/media/huguim.5d67d52d258b823218ac.jpg",
     "static/media/logo-animada-14.svg": "/portfolio/static/media/logo-animada-14.b0911853c460a07272a7373a2188e1a8.svg",
     "static/media/logo-animada-20.svg": "/portfolio/static/media/logo-animada-20.6c5182ba650d8cfe3fbea1c560f752c3.svg",
     "static/media/logo-animada-12.svg": "/portfolio/static/media/logo-animada-12.6fef4b017dbe734be37f620456fd5e1c.svg",
@@ -27,12 +28,12 @@
     "static/media/logo-animada-01.svg": "/portfolio/static/media/logo-animada-01.2cb0a1ede180da1b284b03e3519138c9.svg",
     "static/media/logo-animada-02.svg": "/portfolio/static/media/logo-animada-02.85d9cfe56d9812e218cc65b96694cb08.svg",
     "index.html": "/portfolio/index.html",
-    "main.0b69a72d.css.map": "/portfolio/static/css/main.0b69a72d.css.map",
-    "main.7c7a3a9e.js.map": "/portfolio/static/js/main.7c7a3a9e.js.map",
+    "main.51e17cfe.css.map": "/portfolio/static/css/main.51e17cfe.css.map",
+    "main.ccdb2faf.js.map": "/portfolio/static/js/main.ccdb2faf.js.map",
     "787.1ed0c42c.chunk.js.map": "/portfolio/static/js/787.1ed0c42c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.0b69a72d.css",
-    "static/js/main.7c7a3a9e.js"
+    "static/css/main.51e17cfe.css",
+    "static/js/main.ccdb2faf.js"
   ]
 }
