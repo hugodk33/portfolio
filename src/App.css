@@ -79,7 +79,6 @@ body , html {
 @media screen and (max-width: 550px) {
   .Sessao:nth-child(2) img {
     max-width: 100px ! important;
-    /* margin-top: 7rem; */
   }
   .Sessao:first-child {
     background-size: auto 100%;
@@ -159,11 +158,34 @@ body , html {
   border-color: #FF9F4B;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#header-1 {
+  animation-name: header-1-anima;
+  animation-duration: 1.5s; 
+  transition: width 2s, height 4s, opacity 1s;
+}
+
+@keyframes header-1-anima {
+  0% {letter-spacing: -11px; opacity: 0}
+  100% {letter-spacing: 1px; opacity: 1}
+}
+
+#header-2  {
+  animation-name: header-1-anima;
+  animation-duration: 1.5s;
+}
+
+@keyframes header-1-anima {
+  0% {letter-spacing: -11px; opacity: 0}
+  100% {letter-spacing: 0px; opacity: 1}
+}
+
+#header-3  button , #header-4  button {
+  animation-name:  header-anima-btn;
+  animation-duration: 2s;
+  transform:  scale(1);
+}
+
+@keyframes header-anima-btn {
+  0% {opacity: 0}
+  100% {opacity: 1}
 }

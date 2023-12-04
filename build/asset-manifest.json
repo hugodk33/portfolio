@@ -1,18 +1,38 @@
 {
   "files": {
-    "main.css": "/portfolio/static/css/main.4583a4e8.css",
-    "main.js": "/portfolio/static/js/main.c381e0a3.js",
+    "main.css": "/portfolio/static/css/main.0b69a72d.css",
+    "main.js": "/portfolio/static/js/main.7c7a3a9e.js",
     "static/js/787.1ed0c42c.chunk.js": "/portfolio/static/js/787.1ed0c42c.chunk.js",
     "static/media/space.jpg": "/portfolio/static/media/space.80fb1a7fa025fff4b9de.jpg",
     "static/media/knight.png": "/portfolio/static/media/knight.669cd894ff5f7a624aa1.png",
-    "static/media/logo.svg": "/portfolio/static/media/logo.742855fa6092cccc65d05e54f6594a47.svg",
+    "static/media/logo-animada-14.svg": "/portfolio/static/media/logo-animada-14.b0911853c460a07272a7373a2188e1a8.svg",
+    "static/media/logo-animada-20.svg": "/portfolio/static/media/logo-animada-20.6c5182ba650d8cfe3fbea1c560f752c3.svg",
+    "static/media/logo-animada-12.svg": "/portfolio/static/media/logo-animada-12.6fef4b017dbe734be37f620456fd5e1c.svg",
+    "static/media/logo-animada-18.svg": "/portfolio/static/media/logo-animada-18.083ff1bca81cd1c1cd061dabd49c85ab.svg",
+    "static/media/logo-animada-19.svg": "/portfolio/static/media/logo-animada-19.fb2e46f4b321d3901208995b90d62062.svg",
+    "static/media/logo-animada-13.svg": "/portfolio/static/media/logo-animada-13.78ecda1014df8355dc9a3b18b2aabb01.svg",
+    "static/media/logo-animada-21.svg": "/portfolio/static/media/logo-animada-21.955b0c08f3eca037b3540141d3b07529.svg",
+    "static/media/logo-animada-17.svg": "/portfolio/static/media/logo-animada-17.42e3ff0be8b36670137c219805c317e7.svg",
+    "static/media/logo-animada-16.svg": "/portfolio/static/media/logo-animada-16.7c5f4210dbe14d70949ffb7137ad3d25.svg",
+    "static/media/logo-animada-11.svg": "/portfolio/static/media/logo-animada-11.bf2019c25ad70bc28f14910d327a408b.svg",
+    "static/media/logo-animada-15.svg": "/portfolio/static/media/logo-animada-15.24bd64d67bd8913e4b4b016392f6c5da.svg",
+    "static/media/logo-animada-10.svg": "/portfolio/static/media/logo-animada-10.155a37c789f880b932dc9415ece942f5.svg",
+    "static/media/logo-animada-09.svg": "/portfolio/static/media/logo-animada-09.bf2aa2bb89f9a1ca1a0444ff7ca21a5b.svg",
+    "static/media/logo-animada-08.svg": "/portfolio/static/media/logo-animada-08.9b7ee43d556ff64f91f424df3a509dae.svg",
+    "static/media/logo-animada-07.svg": "/portfolio/static/media/logo-animada-07.d4fb5b7170a91565056ad995c0ac777e.svg",
+    "static/media/logo-animada-05.svg": "/portfolio/static/media/logo-animada-05.f75bc92b305073f9308d18a4fc057504.svg",
+    "static/media/logo-animada-06.svg": "/portfolio/static/media/logo-animada-06.137e5508f786511776e3cdabdf85053e.svg",
+    "static/media/logo-animada-04.svg": "/portfolio/static/media/logo-animada-04.0232e63d88beac491ba4932719fb0764.svg",
+    "static/media/logo-animada-03.svg": "/portfolio/static/media/logo-animada-03.fc23c14d141a10cbcc6189a45be6a81d.svg",
+    "static/media/logo-animada-01.svg": "/portfolio/static/media/logo-animada-01.2cb0a1ede180da1b284b03e3519138c9.svg",
+    "static/media/logo-animada-02.svg": "/portfolio/static/media/logo-animada-02.85d9cfe56d9812e218cc65b96694cb08.svg",
     "index.html": "/portfolio/index.html",
-    "main.4583a4e8.css.map": "/portfolio/static/css/main.4583a4e8.css.map",
-    "main.c381e0a3.js.map": "/portfolio/static/js/main.c381e0a3.js.map",
+    "main.0b69a72d.css.map": "/portfolio/static/css/main.0b69a72d.css.map",
+    "main.7c7a3a9e.js.map": "/portfolio/static/js/main.7c7a3a9e.js.map",
     "787.1ed0c42c.chunk.js.map": "/portfolio/static/js/787.1ed0c42c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.4583a4e8.css",
-    "static/js/main.c381e0a3.js"
+    "static/css/main.0b69a72d.css",
+    "static/js/main.7c7a3a9e.js"
   ]
 }

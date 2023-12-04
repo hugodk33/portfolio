@@ -136,8 +136,8 @@
                         "csharp",
                         "dotnet"
                     ],
-                    "challenge": "O ecommerce funcionaria compartilhando com os estoques já cadastrados no sistema em ambiente desktop através de uma integração web/desktop",
-                    "description": "Criar uma loja virtual baseada em wordpress e woocommerce , onde integra-se com um sistema já usado em todos os processos da marca. A loja, após scriada, foi configurada para seguir as regras de negócio do cliente através de plugins e inserções nos códigos."
+                    "challenge": "O ecommerce funcionaria compartilhando com os estoques já cadastrados no sistema desktop",
+                    "description": "Criar uma loja virtual baseada em wordpress e woocommerce , onde integra-se com um sistema já era usado em todos os processos da marca, além de incorporar regras de CRM."
                 },
                 {
                     "title": "ONG Maria Sooder",

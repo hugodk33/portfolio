@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect , useRef } from 'react';
 
-import logo from './logo.svg';
+import LogoAnima from './logo.js';
 import './App.css';
 import { Btn } from './components/Btn';
 import { Sessao } from './components/Section'
@@ -15,17 +15,48 @@ import { DiPhotoshop, DiIllustrator } from 'react-icons/di'
 import { FiFigma } from 'react-icons/fi'
 import { TbBrandNextjs, TbWorldWww } from 'react-icons/tb'
 import { GoAlert } from "react-icons/go";
+import { RiToolsLine } from "react-icons/ri";
 
-import careerRemix from './careerRemix.json'
 import career from './career.json'
 import knight from './assets/knight.png'
-import logoknight from './assets/logo/logo.svg'
 
 function App() {
 
   const [timeLine,] = useState(career)
   const [actualTime, setActualTime] = useState(timeLine.carrer.length - 1)
   const [actualService, setActualService] = useState(0)
+  const [pageScroll, setPageScroll] = useState([false, false, false, false]);
+  const [pageLoaded, setPageLoaded] = useState(false);
+  const [arrayMenu, setArrayMenu] = useState([]);
+  const [arrayMenu2, setArrayMenu2] = useState([]);
+
+  const myRef = useRef(null);
+  const myRef1 = useRef(null);
+  const myRef2 = useRef(null);
+  const myRef3 = useRef(null);
+
+  const checkPosition = () => {
+    if (myRef.current || myRef1.current || myRef2.current || myRef3.current) {
+      const rect = myRef.current.getBoundingClientRect();
+      const rect1 = myRef1.current.getBoundingClientRect();
+      const rect2 = myRef2.current.getBoundingClientRect();
+      const rect3 = myRef3.current.getBoundingClientRect();
+
+      const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+  
+      if (rect.top >= 0 && rect.bottom <= windowHeight) {
+        setPageScroll([true, false, false, false])
+      } else if(rect1.top >= 0 && rect1.bottom <= windowHeight) {
+        setPageScroll([false, true, false, false])
+        setArrayMenu([])
+        setArrayMenu2([])
+      } else if(rect2.top >= 0 && rect2.bottom <= windowHeight) {
+        setPageScroll([false, false, true, false])
+      } else if(rect3.top >= 0 && rect3.bottom <= windowHeight) {
+        setPageScroll([false, false, false, true])
+      }
+    }
+  };
 
   function changeTimeLine(value) {
     setActualTime(value)
@@ -74,57 +105,152 @@ function App() {
     express: <SiExpress className='vrd-2' />
   };
 
+  const bannerMenu = [
+    {
+      label: 'bio & skills',
+      
+    },
+    {
+      label: 'Carreira',
+
+    },
+    {
+      label: 'Portfólio',
+
+    },
+  ];
+
+  const bannerMenu2 = [
+    {
+      label: 'wpp',
+  
+    },
+    {
+      label: 'linkedin',
+   
+    },
+    {
+      label: 'github',
+    },
+    {
+      label: 'gitlab',
+    },
+    {
+      label: 'codepen',
+    },
+    {
+      label: 'email',
+    },
+  ];
+
+  const iconMap = {
+    wpp: <BsWhatsapp style={{ fontSize: '0.6em' }} />,
+    linkedin: <BsLinkedin style={{ fontSize: '0.6em' }} />,
+    github: <BsGithub style={{ fontSize: '0.6em' }} />,
+    gitlab: <AiFillGitlab style={{ fontSize: '0.6em' }} />,
+    codepen: <AiFillCodepenCircle style={{ fontSize: '0.6em' }} />,
+    email: <HiOutlineMail style={{ fontSize: '0.6em' }} />,
+  };
+
   useEffect(() => {
-    console.log('timeLine')
-    console.log(timeLine)
-    console.log('actualTime')
-    console.log(actualTime)
+    const handleScroll = () => {
+      checkPosition();
+    };
 
-  }, [timeLine])
+    window.addEventListener('scroll', handleScroll);
+    checkPosition();
 
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [ ]); 
 
-  return (
+  useEffect(() => {
+    const onPageLoad = () => {
+      setPageLoaded(true);
+    };
+    if (document.readyState === 'complete') {
+      onPageLoad();
+    } else {
+      window.addEventListener('load', onPageLoad, false);
+      
+      return () => window.removeEventListener('load', onPageLoad);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (arrayMenu.length < 3 && pageScroll[0] === true ) {
+      const MenuDump = bannerMenu[arrayMenu.length];
+  
+      const timerId = setTimeout(() => {
+        setArrayMenu((prevArray) => [...prevArray, MenuDump]);
+      }, 300);
+  
+      return () => clearTimeout(timerId);
+    }
+  }, [arrayMenu , pageScroll]);
+
+  useEffect(() => {
+    if (arrayMenu2.length < 6 && pageScroll[0] === true ) {
+      const MenuDump = bannerMenu2[arrayMenu2.length];
+      const icon = iconMap[MenuDump.label];
+  
+      const timerId = setTimeout(() => {
+        setArrayMenu2((prevArray) => [...prevArray, { ...MenuDump, icon }]);
+      }, 200);
+  
+      return () => clearTimeout(timerId);
+    }
+  }, [arrayMenu2 , pageScroll]);
+
+  return (  
     <div className="App">
       <header className="App-header">
       </header>
       <div className="Main">
         <Sessao>
-          <div className="flex items-center justify-center mr-auto ml-auto" style={{ maxWidth: '600px' }}>
+          <div className="flex items-center justify-center mr-auto ml-auto" style={{ maxWidth: '600px' }}  ref={myRef}>
             <div className="flex justify-center items-center flex-col p-5 rounded-md">
-              <img id='knight' src={logoknight} />
-              <h1 className="bg-opacity-70 bg-black p-3 borded mr-auto ml-auto w-full mt-1 mb-1 bg-transparency-2 text-3xl text-white rounded-md" style={{ fontSize: '1.7rem' }}>
+              {pageScroll[0] && pageLoaded? 
+              <> 
+              <LogoAnima />
+              <h1 id="header-1" className="bg-opacity-70 bg-black px-3 py-0 borded mr-auto ml-auto w-full mt-1 mb-1 bg-transparency-2 text-3xl text-white rounded-md" style={{ fontSize: '1.7rem' }}>
                 Victor Hugo Amorim Arruda
               </h1>
-              <span className='bg-black bg-opacity-50 mt-1 mb-1 pr-4 pl-4 rounded-full'>
-                <p className="mr-auto ml-auto w-full text-rose-500 text-3xl text-white" style={{ fontSize: '1.575rem' }}>
-                  FullStack Developer
+              <span className='bg-black bg-opacity-50 mt-1 mb-1 pr-4 pl-4 rounded-md'>
+                <p  id="header-2" className="mr-auto ml-auto w-full mgnt text-rose-500 text-3xl text-white" style={{ fontSize: '1.575rem' }}>
+                  - FullStack Developer -
                 </p>
               </span>
-              <p className="flex justify-center items-center gap-2 mr-auto ml-auto w-full mt-2 white text-md text-white" style={{ fontSize: '2rem' }}>
-                <Btn>
-                  <BsWhatsapp style={{ fontSize: '0.6em' }} />
-                </Btn>
-                <Btn>
-                  <BsLinkedin style={{ fontSize: '0.6em' }} />
-                </Btn>
-                <Btn>
-                  <BsGithub style={{ fontSize: '0.6em' }} />
-                </Btn>
-                <Btn>
-                  <AiFillGitlab style={{ fontSize: '0.6em' }} />
-                </Btn>
-                <Btn>
-                  <AiFillCodepenCircle style={{ fontSize: '0.6em' }} />
-                </Btn>
-                <Btn>
-                  <HiOutlineMail style={{ fontSize: '0.6em' }} />
-                </Btn>
+              <span id="header-3" className='flex gap-2 mt-1 mb-1'>
+                {
+                  arrayMenu.map((a, b) => (
+                    <button className='btn bg-blue-600 text-white px-3 py-1 rounded-md'>
+                      { a.label }
+                    </button >
+                  ))
+                } 
+                {/* <button className='btn bg-blue-600 text-white px-3 py-1 rounded-md'>
+                  bio & skills
+                </button > */}
+              </span>
+              <p  id="header-4" className="flex justify-center items-center gap-2 mr-auto ml-auto w-full mt-2 white text-md text-white" style={{ fontSize: '2rem' }}>
+                {
+                  arrayMenu2.map((item, index) => (
+                    <Btn key={index}>
+                      {item.icon}
+                    </Btn>
+                  ))
+                }
               </p>
+              </>
+              :null
+              }
             </div>
           </div>
         </Sessao>
         <Sessao>
-          <div className="flex w-full relative justify-center items-center flex-col mr-auto ml-auto md:pr-6 md:pl-6">
+          <div className="flex w-full relative justify-center items-center flex-col mr-auto ml-auto md:pr-6 md:pl-6" ref={myRef1}>
             <div className="flex w-full absolute top-2 text-center" style={{ maxWidth: 600 }}>
               <div className='h-1 w-full flex bg-white mt-9' style={{ height: 2 }} />
               <h1 className="w-full mt-4 flex justify-center text-2xl text-white">
@@ -224,7 +350,7 @@ function App() {
           </div>
         </Sessao>
         <Sessao>
-          <div className="flex relative items-center flex-col mr-auto ml-auto md:pr-6 md:pl-6 pt-4">
+          <div className="flex relative items-center flex-col mr-auto ml-auto md:pr-6 md:pl-6 pt-4" ref={myRef2}>
             <div className="flex w-full absolute top-2 text-center" style={{ width: 600 }}>
               <div className='h-1 w-full flex bg-white mt-9' style={{ height: 2 }} />
               <h1 className="w-full mt-4 flex justify-center white text-2xl text-white">
@@ -270,7 +396,7 @@ function App() {
               {
                 timeLine.carrer[actualTime].services.map((a, b) => {
                   return (
-                    <button className={"outline outline-offset-2 outline-1 border-gray-300 font-semibold w-5 h-5 rounded-full text-gray-300" + (b === actualService ? ' bg-blue-500 ' : ' ')} onClick={() => setActualService(b)}>{b + 1}</button>
+                    <button key={'timeline-' + b} className={"outline outline-offset-2 outline-1 border-gray-300 font-semibold w-5 h-5 rounded-full text-gray-300" + (b === actualService ? ' bg-blue-500 ' : ' ')} onClick={() => setActualService(b)}>{b + 1}</button>
                   )
                 })
               }
@@ -287,7 +413,7 @@ function App() {
                 timeLine.carrer[actualTime].services[actualService].challenge ?
                   <>
                     <label className='text-blue-300 mt-1 uppercase' style={{ fontSize: 9 }}>desafio:</label>
-                    <div class="flex items-center azl-bg text-white text-sm font-bold px-4 py-3 mt-1 mb-2" role="alert">
+                    <div className="flex items-center azl-bg text-white px-2 py-1 mt-1 mb-2 uppercase" style={{fontSize: 10}} role="alert">
                       <GoAlert className='text-white text-2xl mr-2' />
                       <p>{timeLine.carrer[actualTime].services[actualService].challenge}</p>
                     </div>
@@ -301,7 +427,7 @@ function App() {
                   <a
                     href={timeLine.carrer[actualTime].services[actualService].link}
                     target="_blank" rel="noopener noreferrer"
-                    className='flex flex-row mgnt-bg2 py-2 mt-2 px-5 rounded-full'
+                    className='flex flex-row bg-blue-600 text-white py-2 mt-2 px-5 rounded-full'
                     style={{ maxWidth: '130px'}}
                   >
                     <TbWorldWww className='mr-2 text-xl' style={{ marginTop: '2px'}} />
@@ -313,7 +439,7 @@ function App() {
           </div>
         </Sessao>
         <Sessao>
-          <div className="flex relative justify-center items-center flex-col mr-auto ml-auto">
+          <div className="flex relative justify-center items-center flex-col mr-auto ml-auto" ref={myRef3}>
             <div className="flex w-full absolute top-2 text-center" style={{ width: 600 }}>
               <div className='h-1 w-full flex bg-white mt-9' style={{ height: 2 }} />
               <h1 className="w-full mt-4 flex justify-center white text-2xl text-white">
@@ -322,9 +448,10 @@ function App() {
               <div className='h-1 w-full flex bg-white mt-9' style={{ height: 2 }} />
               <div />
             </div>
-            <p className="mr-auto ml-auto w-full mt-4 white text-md text-white">
-              sub-texto
-            </p>
+            <div className="flex flex-col gap-3 mr-auto ml-auto w-full mt-4 white text-xl text-center justify-center items-center text-white p-5" style={{border: "3px dotted gray"}}>
+              <RiToolsLine className='text-3xl'/>
+              <h1>área em <br />manutenção</h1>
+            </div>
           </div>
         </Sessao>
       </div>
