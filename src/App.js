@@ -28,7 +28,7 @@ function App() {
   const [timeLine,] = useState(career)
   const [actualTime, setActualTime] = useState(timeLine.carrer.length - 1)
   const [actualService, setActualService] = useState(0)
-  const [pageScroll, setPageScroll] = useState([false, false, false, false]);
+  const [pageScroll, setPageScroll] = useState([true, false, false, false]);
   const [pageLoaded, setPageLoaded] = useState(false);
   const [arrayMenu, setArrayMenu] = useState([]);
   const [arrayMenu2, setArrayMenu2] = useState([]);
