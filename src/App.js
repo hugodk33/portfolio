@@ -1,4 +1,4 @@
-import React, { useState, useEffect , useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 import LogoAnima from './logo.js';
 import './App.css';
@@ -8,7 +8,7 @@ import { BsWhatsapp, BsLinkedin, BsGithub, BsWordpress, BsFiletypeCss, BsFiletyp
 import { BiLogoJavascript, BiLogoTypescript, BiLogoGithub, BiLogoReact, BiLogoAngular, BiLogoVuejs, BiLogoPhp, BiLogoTailwindCss, BiLogoBootstrap, BiLogoGitlab } from 'react-icons/bi'
 import { FaGitSquare } from 'react-icons/fa'
 import { AiFillGitlab, AiFillCodepenCircle } from 'react-icons/ai'
-import { HiOutlineMail } from 'react-icons/hi'
+import { HiOutlineMail , HiOutlineUserCircle , HiOutlineIdentification , HiOutlineFastForward } from 'react-icons/hi'
 import { SiCsharp, SiExpress, SiDotnet, SiNestjs, SiAdonisjs, SiMysql, SiAmazonaws, SiMongodb, SiJquery } from 'react-icons/si'
 import { FaNodeJs } from 'react-icons/fa'
 import { DiPhotoshop, DiIllustrator } from 'react-icons/di'
@@ -20,6 +20,8 @@ import { RiToolsLine } from "react-icons/ri";
 import career from './career.json'
 import knight from './assets/knight.png'
 import huguim from './img/huguim.jpg'
+import logobranca from './assets/logo/logo-branca-01.svg'
+import sign from './assets/logo/sign-01.svg'
 
 function App() {
 
@@ -44,16 +46,16 @@ function App() {
       const rect3 = myRef3.current.getBoundingClientRect();
 
       const windowHeight = window.innerHeight || document.documentElement.clientHeight;
-  
+
       if (rect.top >= 0 && rect.bottom <= windowHeight) {
         setPageScroll([true, false, false, false])
-      } else if(rect1.top >= 0 && rect1.bottom <= windowHeight) {
+      } else if (rect1.top >= 0 && rect1.bottom <= windowHeight) {
         setPageScroll([false, true, false, false])
         setArrayMenu([])
         setArrayMenu2([])
-      } else if(rect2.top >= 0 && rect2.bottom <= windowHeight) {
+      } else if (rect2.top >= 0 && rect2.bottom <= windowHeight) {
         setPageScroll([false, false, true, false])
-      } else if(rect3.top >= 0 && rect3.bottom <= windowHeight) {
+      } else if (rect3.top >= 0 && rect3.bottom <= windowHeight) {
         setPageScroll([false, false, false, true])
       }
     }
@@ -120,6 +122,10 @@ function App() {
       label: 'Portfólio',
       link: '#portfolio'
     },
+    {
+      label: 'Curriculo',
+      link: '#'
+    }
   ];
 
   const bannerMenu2 = [
@@ -169,7 +175,7 @@ function App() {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [ ]); 
+  }, []);
 
   useEffect(() => {
     const onPageLoad = () => {
@@ -179,87 +185,104 @@ function App() {
       onPageLoad();
     } else {
       window.addEventListener('load', onPageLoad, false);
-      
+
       return () => window.removeEventListener('load', onPageLoad);
     }
   }, []);
 
   useEffect(() => {
-    if (arrayMenu.length < 3 && pageScroll[0] === true ) {
+    if (arrayMenu.length < 3 && pageScroll[0] === true) {
       const MenuDump = bannerMenu[arrayMenu.length];
-  
+
       const timerId = setTimeout(() => {
         setArrayMenu((prevArray) => [...prevArray, MenuDump]);
       }, 300);
-  
+
       return () => clearTimeout(timerId);
     }
-  }, [arrayMenu , pageScroll]);
+  }, [arrayMenu, pageScroll]);
 
   useEffect(() => {
-    if (arrayMenu2.length < 6 && pageScroll[0] === true ) {
+    if (arrayMenu2.length < 6 && pageScroll[0] === true) {
       const MenuDump = bannerMenu2[arrayMenu2.length];
       const icon = iconMap[MenuDump.label];
-  
+
       const timerId = setTimeout(() => {
         setArrayMenu2((prevArray) => [...prevArray, { ...MenuDump, icon }]);
       }, 200);
-  
+
       return () => clearTimeout(timerId);
     }
-  }, [arrayMenu2 , pageScroll]);
+  }, [arrayMenu2, pageScroll]);
 
   useEffect(() => {
     console.log('arrayMenu2')
     console.log(arrayMenu2)
-  },[arrayMenu2])
+  }, [arrayMenu2])
 
-  return (  
-    <div className="App">
+  return (
+    <div className="App flex flex-row">
       <header className="App-header">
       </header>
-      <div className="Main">
+      <nav class="bg-black flex flex-col border-gray-200 fixed" style={{width: 30 , height: "100vh" , paddingTop: 7, shadow: "2px 2px 3px black"}}>
+        <img src={logobranca} className='mr-auto ml-auto' style={{width: 15}}/>
+        <span className='flex flex-wrap text-white gap-2 w-full pt-1 mt-3 mr-auto ml-auto' style={{height: 70}}>
+          <a className={pageScroll[0]?"flex justify-center items-center azl-bg w-full h-5 ":null + ' mr-auto ml-auto text-white w-full h-5'} href="#inicio">
+            <HiOutlineUserCircle className={pageScroll[0]?" text-black ":" azl " + "mr-auto ml-auto shadow"}/>
+            {pageScroll[0]?<img src={sign} className="absolute" style={{right: "-7px" , width: 7}}/>:null}
+          </a>
+          <a className={pageScroll[1]?"flex justify-center items-center azl-bg w-full h-5 ":null + ' mr-auto ml-auto text-white w-full h-5'} href="#bio">
+            <HiOutlineIdentification className={pageScroll[1]?" text-black ":" azl " + "mr-auto ml-auto shadow"}/>
+            {pageScroll[1]?<img src={sign} className="absolute" style={{right: "-7px" , width: 7}}/>:null}
+          </a>
+          <a className={pageScroll[2]?"flex justify-center items-center azl-bg w-full h-5 ":null + ' mr-auto ml-auto text-white w-full h-5'} href="#carreira">
+            <HiOutlineFastForward className={pageScroll[2]?" text-black ":" azl " + "mr-auto ml-auto shadow"}/>
+            {pageScroll[2]?<img src={sign} className="absolute" style={{right: "-7px" , width: 7}}/>:null}
+          </a>
+        </span>
+      </nav>
+      <div className="Main w-full" style={{marginLeft: 30}}>
         <Sessao>
-          <div className="flex items-center justify-center mr-auto ml-auto" style={{ maxWidth: '600px' }}  ref={myRef}>
+          <div id="inicio" className="flex items-center justify-center mr-auto ml-auto overflow-hidden" style={{ maxWidth: '600px' }} ref={myRef}>
             <div className="flex justify-center items-center flex-col p-5 rounded-md">
-              {pageScroll[0] && pageLoaded? 
-              <> 
-              <LogoAnima />
-              <h1 id="header-1" className="bg-opacity-70 bg-black px-3 py-0 borded mr-auto ml-auto w-full mt-1 mb-1 bg-transparency-2 text-3xl text-white rounded-md" style={{ fontSize: '1.7rem' }}>
-                Victor Hugo Amorim Arruda
-              </h1>
-              <span className='bg-black bg-opacity-50 mt-1 mb-1 pr-4 pl-4 rounded-md'>
-                <p  id="header-2" className="mr-auto ml-auto w-full mgnt text-rose-500 text-3xl text-white" style={{ fontSize: '1.575rem' }}>
-                  - FullStack Developer -
-                </p>
-              </span>
-              <span id="header-3" className='flex gap-2 mt-1 mb-1'>
-                {
-                  arrayMenu.map((a, b) => (
-                    <a className='btn bg-blue-600 text-white px-3 py-1 rounded-md' href={a.link}>
-                      { a.label }
-                    </a >
-                  ))
-                } 
-              </span>
-              <p  id="header-4" className="flex justify-center items-center gap-2 mr-auto ml-auto w-full mt-2 white text-md text-white" style={{ fontSize: '2rem' }}>
-                {
-                  arrayMenu2.map((item, index) => (
-                    <a className={"flex p-2 bg-opacity-75 bg-purple-900 rounded-full"} key={index} href={item.link}>
-                      {item.icon}
-                    </a>
-                  ))
-                }
-              </p>
-              </>
-              :null
+              {pageScroll[0] && pageLoaded ?
+                <>
+                  <LogoAnima />
+                  <h1 id="header-1" className="bg-opacity-70 bg-black px-3 py-0 borded mr-auto ml-auto w-full mt-1 mb-1 bg-transparency-2 text-2xl text-white rounded-md">
+                    Victor Hugo Amorim Arruda
+                  </h1>
+                  <span className='bg-black bg-opacity-50 mt-1 mb-1 pr-4 pl-4 rounded-md'>
+                    <p id="header-2" className="mr-auto ml-auto w-full azl text-rose-500 text-xl text-white">
+                      - softwareDeveloper -
+                    </p>
+                  </span>
+                  <span id="header-3" className='flex gap-2 mt-1 mb-1'>
+                    {
+                      arrayMenu.map((a, b) => (
+                        <a className='btn bg-gray-800 text-white px-3 py-1 rounded-md text-sm' href={a.link} style={{fontSize: 10}}>
+                          {a.label}
+                        </a >
+                      ))
+                    }
+                  </span>
+                  <p id="header-4" className="flex justify-center items-center gap-2 mr-auto ml-auto w-full mt-2 white text-md text-white" style={{ fontSize: '2rem' }}>
+                    {
+                      arrayMenu2.map((item, index) => (
+                        <a className={"flex p-2 bg-opacity-75 bg-blue-600 rounded-full text-xl"} key={index} href={item.link}>
+                          {item.icon}
+                        </a>
+                      ))
+                    }
+                  </p>
+                </>
+                : null
               }
             </div>
           </div>
         </Sessao>
         <Sessao>
-          <div id="bio" className="flex w-full relative justify-center items-center flex-col mr-auto ml-auto md:pr-6 md:pl-6" ref={myRef1}>
-            <div className="flex w-full absolute top-2 text-center" style={{ maxWidth: 600 , zIndex: 10}}>
+          <div id="bio" className="flex w-full relative justify-center items-center flex-col mr-auto ml-auto md:pr-6 md:pl-6 overflow-hidden" ref={myRef1}>
+            <div className="flex w-full absolute top-2 text-center" style={{ maxWidth: 600, zIndex: 10 }}>
               <div className='h-1 w-full flex bg-white mt-9' style={{ height: 2 }} />
               <h1 className="w-full mt-4 flex justify-center text-2xl text-white">
                 skills/bio
@@ -267,14 +290,13 @@ function App() {
               <div className='h-1 w-full flex bg-white mt-9' style={{ height: 2 }} />
               <div />
             </div>
-            <img className='absolute flex' style={{height: '90vh', zIndex: 0, left: '-12rem' , top: 0}} src={knight}/>
-            <div className="flex flex-wrap w-full" style={{zIndex: 10}}>
-              <div className="flex items-center justify-center md:w-1/3 w-full p-10">
-                <img className='flex rounded-full w-full border-2 border-white' src={huguim}/>
+            <div className="flex flex-wrap w-full" style={{ zIndex: 10 }}>
+              <div className="flex items-center justify-center md:w-1/3 w-full md:p-10 sm:p-0">
+                <img className='flex rounded-full w-full border-2 border-white avatar' src={huguim} />
               </div>
               <div className="md:w-2/3 sm:w-full white text-left pt-5 pb-6">
                 <div className='flex'>
-                  <h1 className="text-xl mb-1 mt-4 text-white tracking-widest mgnt">JavaScript Developer</h1>
+                  <h1 className="text-xl mb-1 mt-4 text-white tracking-widest text-blue-300">JavaScript Developer</h1>
                 </div>
                 <p className="text-sm text-gray-400 pt-2 mb-2 max-w-xl">Profisional desenvolvedor desde <b>2019</b>, especialista na
                   criação de sites, <b>templates</b> e <b>plugins</b> para <b>wordpress</b>, aplicativos web em frameworks baseados
@@ -284,24 +306,24 @@ function App() {
                     <label className='text-sm flex mb-1 text-white w-full azl'>primary stack</label>
                     <hr className="w-full" />
                     <div className='flex flex-row gap-3 mb-2'>
-                      <BiLogoJavascript className='vrd text-md' />
-                      <FaNodeJs className='vrd text-md' />
-                      <BiLogoTypescript className='vrd text-md' />
-                      <BsWordpress className='vrd text-md' />
-                      <BsFiletypeCss className='vrd text-md' />
-                      <BsFiletypeHtml className='vrd text-md' />
+                      <BiLogoJavascript className='text-blue-300 text-md' />
+                      <FaNodeJs className='text-blue-300 text-md' />
+                      <BiLogoTypescript className='text-blue-300 text-md' />
+                      <BsWordpress className='text-blue-300 text-md' />
+                      <BsFiletypeCss className='text-blue-300 text-md' />
+                      <BsFiletypeHtml className='text-blue-300 text-md' />
                     </div>
                   </div>
                   <div className='flex flex-col gap-2'>
                     <label className='text-sm mb-1 text-white w-full azl'>secondary stack</label>
                     <hr className="w-full" />
                     <div className='flex flex-row gap-3 mb-2'>
-                      <SiCsharp className='vrd text-md' />
-                      <SiDotnet className='vrd text-md' />
-                      <BiLogoPhp className='vrd text-md' />
-                      <SiMysql className='vrd text-md' />
-                      <SiMongodb className='vrd text-md' />
-                      <SiAmazonaws className='vrd text-md' />
+                      <SiCsharp className='text-blue-300 text-md' />
+                      <SiDotnet className='text-blue-300 text-md' />
+                      <BiLogoPhp className='text-blue-300 text-md' />
+                      <SiMysql className='text-blue-300 text-md' />
+                      <SiMongodb className='text-blue-300 text-md' />
+                      <SiAmazonaws className='text-blue-300 text-md' />
                     </div>
                   </div>
                 </div>
@@ -313,9 +335,9 @@ function App() {
                     </label>
                     <hr className="w-full" />
                     <div className='flex flex-row gap-3 mb-1'>
-                      <SiExpress className='vrd text-md' />
-                      <SiNestjs className='vrd text-md' />
-                      <SiAdonisjs className='vrd text-md' />
+                      <SiExpress className='text-blue-300 text-md' />
+                      <SiNestjs className='text-blue-300 text-md' />
+                      <SiAdonisjs className='text-blue-300 text-md' />
                     </div>
                   </div>
                   <div className='flex flex-col gap-2'>
@@ -324,11 +346,11 @@ function App() {
                     </label>
                     <hr className="w-full" />
                     <div className='flex flex-row gap-3 mb-1'>
-                      <BiLogoReact className='vrd text-md' />
-                      <BiLogoAngular className='vrd text-md' />
-                      <BiLogoVuejs className='vrd text-md' />
-                      <TbBrandNextjs className='vrd text-md' />
-                      <BiLogoTailwindCss className='vrd text-md' />
+                      <BiLogoReact className='text-blue-300 text-md' />
+                      <BiLogoAngular className='text-blue-300 text-md' />
+                      <BiLogoVuejs className='text-blue-300 text-md' />
+                      <TbBrandNextjs className='text-blue-300 text-md' />
+                      <BiLogoTailwindCss className='text-blue-300 text-md' />
                     </div>
                   </div>
                   <div className='flex flex-col gap-2'>
@@ -337,9 +359,9 @@ function App() {
                     </label>
                     <hr className="w-full" />
                     <div className='flex flex-row gap-3'>
-                      <FaGitSquare className='vrd text-md' />
-                      <BiLogoGithub className='vrd text-md' />
-                      <BiLogoGitlab className='vrd text-md' />
+                      <FaGitSquare className='text-blue-300 text-md' />
+                      <BiLogoGithub className='text-blue-300 text-md' />
+                      <BiLogoGitlab className='text-blue-300 text-md' />
                     </div>
                   </div>
                   <div className='flex flex-col gap-2'>
@@ -348,9 +370,9 @@ function App() {
                     </label>
                     <hr className="w-full" />
                     <div className='flex flex-row gap-3'>
-                      <FiFigma className='vrd text-md' />
-                      <DiPhotoshop className='vrd text-md' />
-                      <DiIllustrator className='vrd text-md' />
+                      <FiFigma className='text-blue-300 text-md' />
+                      <DiPhotoshop className='text-blue-300 text-md' />
+                      <DiIllustrator className='text-blue-300 text-md' />
                     </div>
                   </div>
                 </div>
@@ -359,7 +381,7 @@ function App() {
           </div>
         </Sessao>
         <Sessao>
-          <div id="carreira" className="flex relative items-center flex-col mr-auto ml-auto md:pr-6 md:pl-6 pt-4" ref={myRef2}>
+          <div id="carreira" className="flex relative items-center flex-col mr-auto ml-auto md:pr-6 md:pl-6 pt-4 overflow-hidden" ref={myRef2}>
             <div className="flex w-full absolute top-2 text-center" style={{ width: 600 }}>
               <div className='h-1 w-full flex bg-white mt-9' style={{ height: 2 }} />
               <h1 className="w-full mt-4 flex justify-center white text-2xl text-white">
@@ -412,7 +434,7 @@ function App() {
             </div>
             <div className="md:w-2/3 white text-left pt-2 pb-3 mr-auto ml-auto" style={{ maxWidth: 650 }}>
               <hr className='w-full mt-1 mb-3 vrd' />
-              <p className="text-xl mgnt mb-1 mt-1 text-left tracking-widest">{timeLine.carrer[actualTime].services[actualService].title}</p>
+              <p className="text-xl text-white mb-1 mt-1 text-left tracking-widest">{timeLine.carrer[actualTime].services[actualService].title}</p>
               <p className="flex text-md mb-1 mt-1 text-left text-justify bold text-white font-semibold azl">{timeLine.carrer[actualTime].services[actualService].service}</p>
               <p className="flex text-sm mb-1 mt-1 text-left text-left text-white text-lg flex-wrap font-medium vrd">
                 {generateTechOutput(timeLine.carrer[actualTime].services[actualService].techs)}
@@ -422,7 +444,7 @@ function App() {
                 timeLine.carrer[actualTime].services[actualService].challenge ?
                   <>
                     <label className='text-blue-300 mt-1 uppercase' style={{ fontSize: 9 }}>desafio:</label>
-                    <div className="flex items-center azl-bg text-white px-2 py-1 mt-1 mb-2 uppercase" style={{fontSize: 10}} role="alert">
+                    <div className="flex items-center azl-bg text-white px-2 py-1 mt-1 mb-2 uppercase" style={{ fontSize: 10 }} role="alert">
                       <GoAlert className='text-white text-2xl mr-2' />
                       <p>{timeLine.carrer[actualTime].services[actualService].challenge}</p>
                     </div>
@@ -437,9 +459,9 @@ function App() {
                     href={timeLine.carrer[actualTime].services[actualService].link}
                     target="_blank" rel="noopener noreferrer"
                     className='flex flex-row bg-blue-600 text-white py-2 mt-2 px-5 rounded-full'
-                    style={{ maxWidth: '130px'}}
+                    style={{ maxWidth: '130px' }}
                   >
-                    <TbWorldWww className='mr-2 text-xl' style={{ marginTop: '2px'}} />
+                    <TbWorldWww className='mr-2 text-xl' style={{ marginTop: '2px' }} />
                     ver site.
                   </a>
                   : null
@@ -448,7 +470,7 @@ function App() {
           </div>
         </Sessao>
         <Sessao>
-          <div id="portfolio" className="flex relative justify-center items-center flex-col mr-auto ml-auto" ref={myRef3}>
+          <div id="portfolio" className="flex relative justify-center items-center flex-col mr-auto ml-auto overflow-hidden" ref={myRef3}>
             <div className="flex w-full absolute top-2 text-center" style={{ width: 600 }}>
               <div className='h-1 w-full flex bg-white mt-9' style={{ height: 2 }} />
               <h1 className="w-full mt-4 flex justify-center white text-2xl text-white">
@@ -457,8 +479,8 @@ function App() {
               <div className='h-1 w-full flex bg-white mt-9' style={{ height: 2 }} />
               <div />
             </div>
-            <div className="flex flex-col gap-3 mr-auto ml-auto w-full mt-4 white text-xl text-center justify-center items-center text-white p-5" style={{border: "3px dotted gray"}}>
-              <RiToolsLine className='text-3xl'/>
+            <div className="flex flex-col gap-3 mr-auto ml-auto w-full mt-4 white text-xl text-center justify-center items-center text-white p-5" style={{ border: "3px dotted gray" }}>
+              <RiToolsLine className='text-3xl' />
               <h1>área em <br />manutenção</h1>
             </div>
           </div>

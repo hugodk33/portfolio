@@ -36,7 +36,7 @@ body {
 }
 
 #knight {
-  max-width: 120px;
+  max-width: 90px;
 }
 
 h1 , h2 , h3 , h4 , h5 {
@@ -68,14 +68,22 @@ body , html {
   /* background: radial-gradient(circle, rgba(136,159,255,1) 0%, rgba(18,176,81,1) 87%, rgba(57,52,49,1) 100%); */
 }
 
-.Sessao:nth-child(2) img {
-  
+.Sessao:nth-child(2) .avatar {
+  max-width: 200px;
 }
 
 @media screen and (max-width: 550px) {
-  .Sessao:nth-child(2) img {
-    max-width: 100px ! important;
+  .Sessao:nth-child(2) .avatar {
+    max-width: 100px;
+    margin-top: 80px;
   }
+  
+  .Sessao:nth-child(2) .horse {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 550px) {
   .Sessao:first-child {
     background-size: auto 100%;
     background-position: center center;
@@ -84,7 +92,7 @@ body , html {
 
 .Sessao:nth-child(3) {
   background-color: #1f2c59;
-  background-image: radial-gradient(circle at 50% -10%, #203479 , #1f2c59)
+  /* background-image: radial-gradient(circle at 50% -10%, #203479 , #1f2c59) */
 }
 
 .Sessao:nth-child(4) {
