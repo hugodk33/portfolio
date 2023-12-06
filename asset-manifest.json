@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/portfolio/static/css/main.51e17cfe.css",
-    "main.js": "/portfolio/static/js/main.ccdb2faf.js",
+    "main.css": "/portfolio/static/css/main.067fa9c1.css",
+    "main.js": "/portfolio/static/js/main.ac95c028.js",
     "static/js/787.1ed0c42c.chunk.js": "/portfolio/static/js/787.1ed0c42c.chunk.js",
     "static/media/space.jpg": "/portfolio/static/media/space.80fb1a7fa025fff4b9de.jpg",
     "static/media/knight.png": "/portfolio/static/media/knight.669cd894ff5f7a624aa1.png",
@@ -28,12 +28,14 @@
     "static/media/logo-animada-01.svg": "/portfolio/static/media/logo-animada-01.2cb0a1ede180da1b284b03e3519138c9.svg",
     "static/media/logo-animada-02.svg": "/portfolio/static/media/logo-animada-02.85d9cfe56d9812e218cc65b96694cb08.svg",
     "index.html": "/portfolio/index.html",
-    "main.51e17cfe.css.map": "/portfolio/static/css/main.51e17cfe.css.map",
-    "main.ccdb2faf.js.map": "/portfolio/static/js/main.ccdb2faf.js.map",
+    "static/media/logo-branca-01.svg": "/portfolio/static/media/logo-branca-01.c20e8d3ea92d103ce1cc35f9f821efa9.svg",
+    "static/media/sign-01.svg": "/portfolio/static/media/sign-01.e94fb467848ae21320c28a1b4cc5f78f.svg",
+    "main.067fa9c1.css.map": "/portfolio/static/css/main.067fa9c1.css.map",
+    "main.ac95c028.js.map": "/portfolio/static/js/main.ac95c028.js.map",
     "787.1ed0c42c.chunk.js.map": "/portfolio/static/js/787.1ed0c42c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.51e17cfe.css",
-    "static/js/main.ccdb2faf.js"
+    "static/css/main.067fa9c1.css",
+    "static/js/main.ac95c028.js"
   ]
 }
