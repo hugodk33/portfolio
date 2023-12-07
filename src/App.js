@@ -49,13 +49,13 @@ function App() {
 
       if (rect.top >= 0 && rect.bottom <= windowHeight) {
         setPageScroll([true, false, false, false])
-      } else if (rect1.top >= 0 && rect1.bottom <= windowHeight) {
+      } else if (rect1.top >= 0 && rect1.bottom <= windowHeight - 20) {
         setPageScroll([false, true, false, false])
         setArrayMenu([])
         setArrayMenu2([])
-      } else if (rect2.top >= 0 && rect2.bottom <= windowHeight) {
+      } else if (rect2.top >= 0 && rect2.bottom <= windowHeight - 20) {
         setPageScroll([false, false, true, false])
-      } else if (rect3.top >= 0 && rect3.bottom <= windowHeight) {
+      } else if (rect3.top >= 0 && rect3.bottom <= windowHeight - 20) {
         setPageScroll([false, false, false, true])
       }
     }
@@ -254,11 +254,11 @@ function App() {
         <img src={logobranca} className='mr-auto ml-auto' style={{ width: 15 }} />
         <span className='flex flex-wrap text-white gap-2 w-full pt-1 mt-3 mr-auto ml-auto' style={{ height: 70 }}>
           <button className={pageScroll[0] ? "flex justify-center items-center azl-bg w-full h-5 " : null + ' mr-auto ml-auto text-white w-full h-5'} onClick={() => urlGoTo("inicio")}>
-            <HiOutlineUserCircle className={pageScroll[0] ? " text-black " : " azl " + "mr-auto ml-auto shadow"} />
+            <HiOutlineIdentification className={pageScroll[0] ? " text-black " : " azl " + "mr-auto ml-auto shadow"} />
             {pageScroll[0] ? <img src={sign} className="absolute" style={{ right: "-7px", width: 7 }} /> : null}
           </button>
           <button className={pageScroll[1] ? "flex justify-center items-center azl-bg w-full h-5 " : null + ' mr-auto ml-auto text-white w-full h-5'} onClick={() => urlGoTo("bio")}>
-            <HiOutlineIdentification className={pageScroll[1] ? " text-black " : " azl " + "mr-auto ml-auto shadow"} />
+            <HiOutlineUserCircle className={pageScroll[1] ? " text-black " : " azl " + "mr-auto ml-auto shadow"} />
             {pageScroll[1] ? <img src={sign} className="absolute" style={{ right: "-7px", width: 7 }} /> : null}
           </button>
           <button className={pageScroll[2] ? "flex justify-center items-center azl-bg w-full h-5 " : null + ' mr-auto ml-auto text-white w-full h-5'} onClick={() => urlGoTo("carreira")}>
