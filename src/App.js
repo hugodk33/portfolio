@@ -8,7 +8,7 @@ import { BsWhatsapp, BsLinkedin, BsGithub, BsWordpress, BsFiletypeCss, BsFiletyp
 import { BiLogoJavascript, BiLogoTypescript, BiLogoGithub, BiLogoReact, BiLogoAngular, BiLogoVuejs, BiLogoPhp, BiLogoTailwindCss, BiLogoBootstrap, BiLogoGitlab } from 'react-icons/bi'
 import { FaGitSquare } from 'react-icons/fa'
 import { AiFillGitlab, AiFillCodepenCircle } from 'react-icons/ai'
-import { HiOutlineMail , HiOutlineUserCircle , HiOutlineIdentification , HiOutlineFastForward } from 'react-icons/hi'
+import { HiOutlineMail, HiOutlineUserCircle, HiOutlineIdentification, HiOutlineFastForward } from 'react-icons/hi'
 import { SiCsharp, SiExpress, SiDotnet, SiNestjs, SiAdonisjs, SiMysql, SiAmazonaws, SiMongodb, SiJquery } from 'react-icons/si'
 import { FaNodeJs } from 'react-icons/fa'
 import { DiPhotoshop, DiIllustrator } from 'react-icons/di'
@@ -97,24 +97,20 @@ function App() {
 
     // Restante do seu código
     if (novaParteDaUrl === 'inicio') {
-        setPageScroll([true, false, false, false]);
+      setPageScroll([true, false, false, false]);
     } else if (novaParteDaUrl === 'portfolio') {
-        setPageScroll([false, true, false, false]);
-        setArrayMenu([]);
-        setArrayMenu2([]);
+      setPageScroll([false, true, false, false]);
+      setArrayMenu([]);
+      setArrayMenu2([]);
     } else if (novaParteDaUrl === 'carreira') {
-        setPageScroll([false, false, true, false]);
+      setPageScroll([false, false, true, false]);
     } else if (novaParteDaUrl === 'outra-coisa') {
-        setPageScroll([false, false, false, true]);
+      setPageScroll([false, false, false, true]);
     }
 
     // Redireciona para a nova URL
     window.location.href = novaUrl;
-}
-
-
-
-  
+  }
 
   const techIconMap = {
     wordpress: <BsWordpress className='vrd-2' />,
@@ -254,24 +250,24 @@ function App() {
     <div className="App flex flex-row">
       <header className="App-header">
       </header>
-      <nav class="bg-black flex flex-col border-gray-200 fixed" style={{width: 30 , height: "100vh" , paddingTop: 7, shadow: "2px 2px 3px black"}}>
-        <img src={logobranca} className='mr-auto ml-auto' style={{width: 15}}/>
-        <span className='flex flex-wrap text-white gap-2 w-full pt-1 mt-3 mr-auto ml-auto' style={{height: 70}}>
-          <button className={pageScroll[0]?"flex justify-center items-center azl-bg w-full h-5 ":null + ' mr-auto ml-auto text-white w-full h-5'} onClick={() => urlGoTo("inicio")}>
-            <HiOutlineUserCircle className={pageScroll[0]?" text-black ":" azl " + "mr-auto ml-auto shadow"}/>
-            {pageScroll[0]?<img src={sign} className="absolute" style={{right: "-7px" , width: 7}}/>:null}
+      <nav class="bg-black flex flex-col border-gray-200 fixed" style={{ width: 30, height: "100vh", paddingTop: 7, shadow: "2px 2px 3px black" }}>
+        <img src={logobranca} className='mr-auto ml-auto' style={{ width: 15 }} />
+        <span className='flex flex-wrap text-white gap-2 w-full pt-1 mt-3 mr-auto ml-auto' style={{ height: 70 }}>
+          <button className={pageScroll[0] ? "flex justify-center items-center azl-bg w-full h-5 " : null + ' mr-auto ml-auto text-white w-full h-5'} onClick={() => urlGoTo("inicio")}>
+            <HiOutlineUserCircle className={pageScroll[0] ? " text-black " : " azl " + "mr-auto ml-auto shadow"} />
+            {pageScroll[0] ? <img src={sign} className="absolute" style={{ right: "-7px", width: 7 }} /> : null}
           </button>
-          <button className={pageScroll[1]?"flex justify-center items-center azl-bg w-full h-5 ":null + ' mr-auto ml-auto text-white w-full h-5'} onClick={() => urlGoTo("bio")}>
-            <HiOutlineIdentification className={pageScroll[1]?" text-black ":" azl " + "mr-auto ml-auto shadow"}/>
-            {pageScroll[1]?<img src={sign} className="absolute" style={{right: "-7px" , width: 7}}/>:null}
+          <button className={pageScroll[1] ? "flex justify-center items-center azl-bg w-full h-5 " : null + ' mr-auto ml-auto text-white w-full h-5'} onClick={() => urlGoTo("bio")}>
+            <HiOutlineIdentification className={pageScroll[1] ? " text-black " : " azl " + "mr-auto ml-auto shadow"} />
+            {pageScroll[1] ? <img src={sign} className="absolute" style={{ right: "-7px", width: 7 }} /> : null}
           </button>
-          <button className={pageScroll[2]?"flex justify-center items-center azl-bg w-full h-5 ":null + ' mr-auto ml-auto text-white w-full h-5'} onClick={() => urlGoTo("carreira")}>
-            <HiOutlineFastForward className={pageScroll[2]?" text-black ":" azl " + "mr-auto ml-auto shadow"}/>
-            {pageScroll[2]?<img src={sign} className="absolute" style={{right: "-7px" , width: 7}}/>:null}
+          <button className={pageScroll[2] ? "flex justify-center items-center azl-bg w-full h-5 " : null + ' mr-auto ml-auto text-white w-full h-5'} onClick={() => urlGoTo("carreira")}>
+            <HiOutlineFastForward className={pageScroll[2] ? " text-black " : " azl " + "mr-auto ml-auto shadow"} />
+            {pageScroll[2] ? <img src={sign} className="absolute" style={{ right: "-7px", width: 7 }} /> : null}
           </button>
         </span>
       </nav>
-      <div className="Main w-full" style={{marginLeft: 30}}>
+      <div className="Main w-full" style={{ marginLeft: 30 }}>
         <Sessao>
           <div id="inicio" className="flex items-center justify-center mr-auto ml-auto overflow-hidden" style={{ maxWidth: '600px' }} ref={myRef}>
             <div className="flex justify-center items-center flex-col p-5 rounded-md">
@@ -289,7 +285,7 @@ function App() {
                   <span id="header-3" className='flex gap-2 mt-1 mb-1'>
                     {
                       arrayMenu.map((a, b) => (
-                        <button className='btn bg-gray-800 text-white px-3 py-1 rounded-md text-sm' onClick={() =>urlGoTo(a.link)} style={{fontSize: 10}}>
+                        <button className='btn bg-gray-800 text-white px-3 py-1 rounded-md text-sm' onClick={() => urlGoTo(a.link)} style={{ fontSize: 10 }}>
                           {a.label}
                         </button>
                       ))
