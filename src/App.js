@@ -22,6 +22,7 @@ import knight from './assets/knight.png'
 import huguim from './img/huguim.jpg'
 import logobranca from './assets/logo/logo-branca-01.svg'
 import sign from './assets/logo/sign-01.svg'
+import curriculo from './assets/curriculo-victor-hugo.pdf'
 
 function App() {
 
@@ -142,7 +143,7 @@ function App() {
     },
     {
       label: 'Curriculo',
-      link: '#'
+      link: '/assets/curriculo-victor-hugo.pdf'
     }
   ];
 
@@ -211,7 +212,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    if (arrayMenu.length < 3 && pageScroll[0] === true) {
+    if (arrayMenu.length < 4 && pageScroll[0] === true) {
       const MenuDump = bannerMenu[arrayMenu.length];
 
       const timerId = setTimeout(() => {
@@ -279,9 +280,14 @@ function App() {
                   <span id="header-3" className='flex gap-2 mt-1 mb-1'>
                     {
                       arrayMenu.map((a, b) => (
+                        b !== 3?
                         <button className='btn bg-gray-800 text-white px-3 py-1 rounded-md text-sm' onClick={() => urlGoTo(a.link)} style={{ fontSize: 10 }}>
                           {a.label}
                         </button>
+                        :
+                        <a className='btn bg-gray-800 text-white px-3 py-1 rounded-md text-sm' href={curriculo} download="curriculo-victor-hugo.pdf" style={{ fontSize: 10 }}>
+                          {a.label}
+                        </a>
                       ))
                     }
                   </span>
