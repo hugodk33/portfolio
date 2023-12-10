@@ -5,7 +5,7 @@
             "year": "<= 2021",
             "services": [
                 {
-                    "title": "Alpha Systemas",
+                    "title": "Alpha Sistemas",
                     "service": "Desenvolvedor React e C#",
                     "link": "https://alphasystemas.com.br/",
                     "techs": [
@@ -62,7 +62,7 @@
                         "jquery"
                     ],
                     "challenge": null,
-                    "description": "Criação de um site onde a interface fosse fácil de conhecer as lojas e obter informações, como mídas, telefone e localização dentro do condomínio; Foi desenvolvido um plugin para wordpress em que era possível atualizar sem necessidade de programador."
+                    "description": "Criação de um site onde a interface fosse fácil de conhecer as lojas e obter informações, como mídias, telefone e localização dentro do condomínio; Foi desenvolvido um plugin para wordpress em que era possível atualizar sem necessidade de programador."
                 }
             ]
         },
@@ -152,7 +152,7 @@
                         "javascript",
                         "mysql"
                     ],
-                    "challenge": "tratar de todos os processos da criação do software, desde os requisitos até o deploy, realizar o deploy da aplicação em núvem do zero",
+                    "challenge": "tratar de todos os processos da criação do software, desde os requisitos até o deploy, realizar o deploy da aplicação em nuvem do zero",
                     "description": "Transformar um processo burocrático da ong em um sistema; Foi realizado tudo, de levantamento de requisitos, desenvolvimento do back end, front e deploy da aplicação em nuvem."
                 },
                 {

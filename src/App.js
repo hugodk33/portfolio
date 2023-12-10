@@ -89,13 +89,8 @@ function App() {
   }
 
   function urlGoTo(novaParteDaUrl) {
-    // Obtenha a URL atual sem a parte após o '#'
     let urlAtual = window.location.href.split('#')[0];
-
-    // Adicione a nova parte da URL
     let novaUrl = urlAtual + '#' + novaParteDaUrl;
-
-    // Restante do seu código
     if (novaParteDaUrl === 'inicio') {
       setPageScroll([true, false, false, false]);
     } else if (novaParteDaUrl === 'portfolio') {
@@ -108,7 +103,6 @@ function App() {
       setPageScroll([false, false, false, true]);
     }
 
-    // Redireciona para a nova URL
     window.location.href = novaUrl;
   }
 
@@ -367,7 +361,7 @@ function App() {
                     </div>
                   </div>
                   <div className='flex flex-col gap-2'>
-                    <label className='vrd-2 w-full' style={{ fontSize: 9 }}>
+                    <label className='text-blue-200 w-full uppercase' style={{ fontSize: 9 }}>
                       front end
                     </label>
                     <hr className="w-full" />
@@ -380,7 +374,7 @@ function App() {
                     </div>
                   </div>
                   <div className='flex flex-col gap-2'>
-                    <label className='vrd-2 w-full' style={{ fontSize: 9 }}>
+                    <label className='text-blue-200 w-full uppercase' style={{ fontSize: 9 }}>
                       versioning
                     </label>
                     <hr className="w-full" />
@@ -391,7 +385,7 @@ function App() {
                     </div>
                   </div>
                   <div className='flex flex-col gap-2'>
-                    <label className='vrd-2 w-full' style={{ fontSize: 9 }}>
+                    <label className='text-blue-200 w-full uppercase' style={{ fontSize: 9 }}>
                       graphic design
                     </label>
                     <hr className="w-full" />
