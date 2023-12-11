@@ -154,7 +154,7 @@ function App() {
     },
     {
       label: 'linkedin',
-      link: 'https://www.linkedin.com/in/hugo-arruda-852aa8161/'
+      link: 'https://www.linkedin.com/in/victor-hugo-amorim-arruda/'
     },
     {
       label: 'github',
