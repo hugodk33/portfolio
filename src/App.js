@@ -282,9 +282,9 @@ function App() {
       </nav>
       <div className="Main w-full" style={{ width: 'calc( 100% - 70px)' , marginLeft: 70 }}>
         <Sessao>
-          <div id="inicio" className="pt-10" ref={myRef}>
+          <div id="inicio" ref={myRef}>
               {pageScroll[0] && pageLoaded ?
-                <div className="flex flex-wrap w-full mr-auto ml-auto" style={{maxWidth: 700}}>
+                <div className="flex justify-center flex-wrap w-full mr-auto ml-auto" style={{maxWidth: 700}}>
                   <div
                     className="md:w-2/5 w-full overflow-hidden"
                     style={{
@@ -376,19 +376,19 @@ function App() {
                     <label className='text-xl text-white w-full lrj'>HARD <b>SKILLS</b></label>
                     <hr className="w-full border-gray-500" />
                     <div className='flex flex-row gap-4 mb-2'>
-                      <span className='flex flex-row text-xl text-white vrd'>
+                      <span className='flex flex-row text-base text-white vrd'>
                         <BiLogoJavascript className='text-white text-md mt-1 mr-1' /> JavaScript
                       </span>
-                      <span className='flex flex-row text-xl text-white vrd'>
+                      <span className='flex flex-row text-base text-white vrd'>
                         <BiLogoTypescript className='text-white text-md mt-1 mr-1' /> TypeScript
                       </span>
-                      <span className='flex flex-row text-xl text-white vrd'>
+                      <span className='flex flex-row text-base text-white vrd'>
                         <FaNodeJs className='text-white text-md mt-1 mr-1' /> NodeJS
                       </span>
-                      <span className='flex flex-row text-xl text-white vrd'>
+                      <span className='flex flex-row text-base text-white vrd'>
                         <SiCsharp className='text-white text-md mt-1 mr-1' /> Csharp
                       </span>
-                      <span className='flex flex-row text-xl text-white vrd'>
+                      <span className='flex flex-row text-base text-white vrd'>
                         <BsWordpress className='text-white text-md mt-1 mr-1' /> WordPress
                       </span>
                     </div>
@@ -397,10 +397,10 @@ function App() {
                     <label className='text-xl text-white w-full lrj'>SOFT <b>SKILLS</b></label>
                     <hr className="w-full border-gray-500" />
                     <div className='flex flex-row gap-4 mb-2'>
-                      <span className='flex flex-row text-xl text-white vrd'>
+                      <span className='flex flex-row text-base text-white vrd'>
                         <FaCloudUploadAlt className='text-white text-md mt-1 mr-1' /> DevOps
                       </span>
-                      <span className='flex flex-row text-xl text-white vrd'>
+                      <span className='flex flex-row text-base text-white vrd'>
                         <SiDocker  className='text-white text-md mt-1 mr-1' /> Docker
                       </span>
                     </div>
@@ -414,16 +414,16 @@ function App() {
                     </label>
                     <hr className="w-full border-gray-500" />
                     <div className='flex flex-row gap-3 mb-1'>
-                      <span className='flex flex-row text-xl text-white vrd'>
+                      <span className='flex flex-row text-base text-white vrd'>
                         <SiExpress className='text-white text-xl mt-1 mr-1' /> ExpressJS
                       </span>
-                      <span className='flex flex-row text-xl text-white vrd'>
+                      <span className='flex flex-row text-base text-white vrd'>
                         <SiNestjs className='text-white text-xl mt-1 mr-1' /> NestJS
                       </span>
-                      <span className='flex flex-row text-xl text-white vrd'>
+                      <span className='flex flex-row text-base text-white vrd'>
                         <SiAdonisjs className='text-white text-xl mt-1 mr-1' /> AdonisJS
                       </span>
-                      <span className='flex flex-row text-xl text-white vrd'>
+                      <span className='flex flex-row text-base text-white vrd'>
                         <SiDotnet className='text-white text-xl mt-1 mr-1' /> .NET 
                       </span>
                     </div>
@@ -434,19 +434,19 @@ function App() {
                     </label>
                     <hr className="w-full border-gray-500" />
                     <div className='flex flex-row gap-3 mb-1'>
-                      <span className='flex flex-row text-xl text-white vrd'>
+                      <span className='flex flex-row text-base text-white vrd'>
                         <BiLogoReact className='text-white text-xl mt-1 mr-1' /> ReactJS
                       </span>
-                      <span className='flex flex-row text-xl text-white vrd'>
+                      <span className='flex flex-row text-base text-white vrd'>
                         <TbBrandNextjs className='text-white text-xl mt-1 mr-1' /> NextJS
                       </span>
-                      <span className='flex flex-row text-xl text-white vrd'>
+                      <span className='flex flex-row text-base text-white vrd'>
                         <BiLogoTailwindCss className='text-white text-xl mt-1 mr-1' /> Tailwind
                       </span>
-                      <span className='flex flex-row text-xl text-white vrd'>
+                      <span className='flex flex-row text-base text-white vrd'>
                         <BiLogoVuejs className='text-white text-xl mt-1 mr-1' /> VueJS
                       </span>
-                      <span className='flex flex-row text-xl text-white vrd'>
+                      <span className='flex flex-row text-base text-white vrd'>
                         <BiLogoAngular className='text-white text-xl mt-1 mr-1' /> AngularJS
                       </span>
                     </div>
@@ -457,7 +457,7 @@ function App() {
                     </label>
                     <hr className="w-full border-gray-500" />
                     <div className='flex flex-row gap-3'>
-                      <span className='flex flex-row text-xl text-white vrd'>
+                      <span className='flex flex-row text-base text-white vrd'>
                         <FaGitSquare className='text-white text-xl mt-1 mr-1' /> GitFlow
                       </span>
                     </div>
