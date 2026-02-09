@@ -273,7 +273,7 @@ function App() {
             Bio
             {pageScroll[1] ? <img src={sign} className="absolute" style={{ right: "-7px", width: 7 }} /> : null}
           </button>
-          <button className={pageScroll[2] ? "flex flex-col justify-center items-center bg-gray-500 w-full pt-2 pb-2" : null + 'flex-col mr-auto ml-auto text-gray-300 w-full '} onClick={() => urlGoTo("carreira")}>
+          <button className={pageScroll[2] ? "flex flex-col justify-center items-center r bg-gray-500 w-full pt-2 pb-2" : null + 'flex-col mr-auto ml-auto text-gray-300 w-full '} onClick={() => urlGoTo("carreira")}>
             <HiOutlineFastForward className={pageScroll[2] ? " text-gray-200 " : "azl-lev " + "mr-auto ml-auto shadow text-xl"} />
             Portfolio
             {pageScroll[2] ? <img src={sign} className="absolute" style={{ right: "-7px", width: 7 }} /> : null}
