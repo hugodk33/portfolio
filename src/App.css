@@ -61,7 +61,7 @@ body , html {
   background-color: #1f1f1f;
   background-size: 100% auto;
   background-repeat: no-repeat;
-  max-height: 400px;
+  max-height: 340px;
 }
 
 .Sessao:nth-child(2) {
@@ -89,6 +89,7 @@ body , html {
   .Sessao:first-child {
     background-size: auto 100%;
     background-position: center center;
+    max-height: 550px;
   }
 }
 

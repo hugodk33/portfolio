@@ -282,11 +282,11 @@ function App() {
       </nav>
       <div className="Main w-full" style={{ width: 'calc( 100% - 70px)' , marginLeft: 70 }}>
         <Sessao>
-          <div id="inicio" className="flex items-center justify-center mr-auto ml-auto pt-10" style={{ maxWidth: '600px' }} ref={myRef}>
-            <div className="flex justify-center items-center p-5 rounded-md">
+          <div id="inicio" className="pt-10" ref={myRef}>
               {pageScroll[0] && pageLoaded ?
-                <>
+                <div className="flex flex-wrap w-full mr-auto ml-auto" style={{maxWidth: 700}}>
                   <div
+                    className="md:w-2/5 w-full overflow-hidden"
                     style={{
                       whiteSpace: 'pre',
                       fontFamily: 'monospace',
@@ -300,7 +300,7 @@ function App() {
                   >
                     {LogoAnimaAsci.logo[frame].join('\n')}
                   </div>
-                  <span className='flex justify-center align-center flex-col pl-5 ml-5' style={{borderLeft: "1px solid gray"}}>
+                  <span className='md:w-3/5 w-full  justify-center align-center flex-col pl-5' style={{borderLeft: "1px solid gray"}}>
                     <h1 id="header-1" className="mt-1 mb-1 bg-transparency-2 text-2xl azl" style={{fontSize: "2em"}}>
                       Hugo<b>Amorim</b>
                     </h1>
@@ -338,10 +338,9 @@ function App() {
                       </a>
                     </p>
                   </span>
-                </>
+                </div>
                 : null
               }
-            </div>
           </div>
         </Sessao>
         <Sessao>
