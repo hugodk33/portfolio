@@ -284,7 +284,7 @@ function App() {
         <Sessao>
           <div id="inicio" ref={myRef}>
               {pageScroll[0] && pageLoaded ?
-                <div className="flex justify-center flex-wrap w-full mr-auto ml-auto" style={{maxWidth: 700}}>
+                <div className="flex justify-center items-center align-center flex-wrap w-full mr-auto ml-auto pb-10 pt-10" style={{maxWidth: 700}}>
                   <div
                     className="md:w-2/5 w-full overflow-hidden"
                     style={{
@@ -354,23 +354,28 @@ function App() {
             </span>
           </div>
             <div className="flex flex-wrap w-full" style={{ zIndex: 10 }}>
-              <div className="pt-10 md:w-1/4 md:pr-5 w-full">
+              {/* <div className="md:w-1/4 md:pr-5 w-full">
                 <img className='flex w-full border-2 border-white avatar' src={huguim} />
-              </div>
-              <div className="md:w-3/4 sm:w-full white text-left pt-5 pb-6">
+              </div> */}
+              <div className="w-full white text-left pt-5 pb-6">
                 <div className='flex'>
                   <h1 className="text-3xl mb-1 mt-4 text-white tracking-widest azl-lev">FullStack Developer</h1>
                 </div>
-                <p className="text-base text-gray-300 pt-1 text-justify" style={{textIndent: 12}}>
-                  I have been working as a software developer since <b>2019</b>, with solid experience in developing, maintaining, and modernizing <b>full-stack applications</b>, including both greenfield projects and legacy systems. I am involved throughout the entire software development lifecycle, from requirements analysis and system architecture to <b>implementation, testing, deployment, and maintenance</b>.
-                </p>
-                <p className="text-base text-gray-300 pt-1 text-justify" style={{textIndent: 12}}>
-                  My technical background is centered on <b>backend development</b>, with strong expertise in <b>RESTful API</b> design, authentication and authorization, third-party integrations, and <b>relational database modeling</b> and optimization. I also develop responsive, <b>component-based frontend applications</b> and create custom plugins and <b>extensions for CMS platforms</b>, always following best practices for maintainability, security, and performance.
-                </p>
-                <p className="text-base text-gray-300 pt-1 text-justify" style={{textIndent: 12}}>
-                  My primary focus is on <b>Node.js</b> and <b>C#</b>, using frameworks such as <b>Express</b>, <b>AdonisJS</b>, and <b>.NET</b>, along with <b>React on the frontend</b>. I apply principles like <b>SOLID</b>, <b>Clean Architecture</b>, and <b>layered architectures</b> to build scalable, robust, and maintainable software solutions aligned with business needs.
-                </p>
-                <br />
+                <div>
+                  <p className='flex flex-row flex-wrap gap-3'>
+                    <img className='border-2 border-white avatar mt-7' style={{maxWidth: 230}} src={huguim} />
+                    <span className="text-base text-gray-300 pt-1 text-justify" style={{textIndent: 12}}>
+                      I have been working as a software developer since <b>2019</b>, with solid experience in developing, maintaining, and modernizing <b>full-stack applications</b>, including both greenfield projects and legacy systems. I am involved throughout the entire software development lifecycle, from requirements analysis and system architecture to <b>implementation, testing, deployment, and maintenance</b>.
+                    </span>
+                    <span className="text-base w-full text-gray-300 pt-1 text-justify" style={{textIndent: 12}}>
+                      My technical background is centered on <b>backend development</b>, with strong expertise in <b>RESTful API</b> design, authentication and authorization, third-party integrations, and <b>relational database modeling</b> and optimization. I also develop responsive, <b>component-based frontend applications</b> and create custom plugins and <b>extensions for CMS platforms</b>, always following best practices for maintainability, security, and performance.
+                    </span>
+                    <span className="text-base w-full text-gray-300 pt-1 text-justify" style={{textIndent: 12}}>
+                      My primary focus is on <b>Node.js</b> and <b>C#</b>, using frameworks such as <b>Express</b>, <b>AdonisJS</b>, and <b>.NET</b>, along with <b>React on the frontend</b>. I apply principles like <b>SOLID</b>, <b>Clean Architecture</b>, and <b>layered architectures</b> to build scalable, robust, and maintainable software solutions aligned with business needs.
+                    </span>
+                  </p>
+                  <br />
+                </div>
                 <div className='flex flex-wrap gap-4'>
                   <div className='flex flex-col gap-2'>
                     <label className='text-xl text-white w-full lrj'>HARD <b>SKILLS</b></label>
