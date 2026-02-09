@@ -1,31 +1,29 @@
 import React, { useState, useEffect, useRef } from 'react';
 
-import LogoAnima from './logo.js';
+import LogoAnimaAsci from './LOGO-ASCI/logoasci.json'
 import './App.css';
-import { Btn } from './components/Btn';
 import { Sessao } from './components/Section'
 import { BsWhatsapp, BsLinkedin, BsGithub, BsWordpress, BsFiletypeCss, BsFiletypeHtml } from 'react-icons/bs'
 import { BiLogoJavascript, BiLogoTypescript, BiLogoGithub, BiLogoReact, BiLogoAngular, BiLogoVuejs, BiLogoPhp, BiLogoTailwindCss, BiLogoBootstrap, BiLogoGitlab } from 'react-icons/bi'
-import { FaGitSquare } from 'react-icons/fa'
+import { FaGitSquare , FaCloudUploadAlt } from 'react-icons/fa'
 import { AiFillGitlab, AiFillCodepenCircle } from 'react-icons/ai'
 import { HiOutlineMail, HiOutlineUserCircle, HiOutlineIdentification, HiOutlineFastForward } from 'react-icons/hi'
-import { SiCsharp, SiExpress, SiDotnet, SiNestjs, SiAdonisjs, SiMysql, SiAmazonaws, SiMongodb, SiJquery } from 'react-icons/si'
+import { SiCsharp, SiExpress, SiDotnet, SiNestjs, SiAdonisjs, SiMysql, SiAmazonaws , SiJquery , SiDocker } from 'react-icons/si'
 import { FaNodeJs } from 'react-icons/fa'
-import { DiPhotoshop, DiIllustrator } from 'react-icons/di'
-import { FiFigma } from 'react-icons/fi'
 import { TbBrandNextjs, TbWorldWww } from 'react-icons/tb'
 import { GoAlert } from "react-icons/go";
 import { RiToolsLine } from "react-icons/ri";
 
 import career from './career.json'
 import knight from './assets/knight.png'
-import huguim from './img/huguim.jpg'
+import huguim from './img/huguim.png'
 import logobranca from './assets/logo/logo-branca-01.svg'
 import sign from './assets/logo/sign-01.svg'
 import curriculo from './assets/curriculo-victor-hugo.pdf'
 
 function App() {
 
+  const [frame, setFrame] = useState(0)
   const [timeLine,] = useState(career)
   const [actualTime, setActualTime] = useState(timeLine.carrer.length - 1)
   const [actualService, setActualService] = useState(0)
@@ -129,23 +127,25 @@ function App() {
 
   const bannerMenu = [
     {
-      label: 'bio & skills',
+      label: 'Bio',
       link: '#bio'
     },
     {
-      label: 'Carreira',
+      label: 'TimeLine',
       link: '#carreira'
 
     },
     {
-      label: 'Portfólio',
+      label: 'Portfolio',
       link: '#portfolio'
-    },
-    {
-      label: 'Curriculo',
-      link: '/assets/curriculo-victor-hugo.pdf'
     }
   ];
+
+  
+  // {
+  //   label: 'Curriculo',
+  //   link: '/assets/curriculo-victor-hugo.pdf'
+  // }
 
   const bannerMenu2 = [
     {
@@ -175,12 +175,12 @@ function App() {
   ];
 
   const iconMap = {
-    wpp: <BsWhatsapp style={{ fontSize: '0.6em' }} />,
-    linkedin: <BsLinkedin style={{ fontSize: '0.6em' }} />,
-    github: <BsGithub style={{ fontSize: '0.6em' }} />,
-    gitlab: <AiFillGitlab style={{ fontSize: '0.6em' }} />,
-    codepen: <AiFillCodepenCircle style={{ fontSize: '0.6em' }} />,
-    email: <HiOutlineMail style={{ fontSize: '0.6em' }} />,
+    wpp: <BsWhatsapp style={{ fontSize: '1em' }} />,
+    linkedin: <BsLinkedin style={{ fontSize: '1em' }} />,
+    github: <BsGithub style={{ fontSize: '1em' }} />,
+    gitlab: <AiFillGitlab style={{ fontSize: '1em' }} />,
+    codepen: <AiFillCodepenCircle style={{ fontSize: '1em' }} />,
+    email: <HiOutlineMail style={{ fontSize: '1em' }} />,
   };
 
   // new URL("/", baseUrl)
@@ -237,69 +237,107 @@ function App() {
   }, [arrayMenu2, pageScroll]);
 
   useEffect(() => {
-    // console.log('arrayMenu2')
-    // console.log(arrayMenu2)
-  }, [arrayMenu2])
+    const maxFrames = LogoAnimaAsci.logo.length - 1
+
+    // chegou ao fim → pausa
+    if (frame === maxFrames) {
+      const timeout = setTimeout(() => {
+        setFrame(0)
+      }, 4000)
+
+      return () => clearTimeout(timeout)
+    }
+
+    // animação normal
+    const interval = setInterval(() => {
+      setFrame(prev => prev + 1)
+    }, 10)
+
+    return () => clearInterval(interval)
+  }, [frame])
 
   return (
     <div className="App flex flex-row">
       <header className="App-header">
       </header>
-      <nav class="bg-black flex flex-col border-gray-200 fixed" style={{ width: 30, height: "100vh", paddingTop: 7, shadow: "2px 2px 3px black" }}>
+      <nav className="bg-gray-900 flex flex-col border-gray-200 fixed" style={{ width: 70, height: "100vh", paddingTop: 7, shadow: "2px 2px 3px black" }}>
         <img src={logobranca} className='mr-auto ml-auto' style={{ width: 15 }} />
         <span className='flex flex-wrap text-white gap-2 w-full pt-1 mt-3 mr-auto ml-auto' style={{ height: 70 }}>
-          <button className={pageScroll[0] ? "flex justify-center items-center azl-bg w-full h-5 " : null + ' mr-auto ml-auto text-white w-full h-5'} onClick={() => urlGoTo("inicio")}>
-            <HiOutlineIdentification className={pageScroll[0] ? " text-black " : " azl " + "mr-auto ml-auto shadow"} />
+          <button className={pageScroll[0] ? "flex flex-col justify-center items-center bg-gray-500 w-full pt-2 pb-2" : null + 'flex-col mr-auto ml-auto text-gray-300 w-full '} onClick={() => urlGoTo("inicio")}>
+            <HiOutlineIdentification className={pageScroll[0] ? " text-gray-200 " : "azl-lev " + "mr-auto ml-auto shadow text-xl"} />
+            Home
             {pageScroll[0] ? <img src={sign} className="absolute" style={{ right: "-7px", width: 7 }} /> : null}
           </button>
-          <button className={pageScroll[1] ? "flex justify-center items-center azl-bg w-full h-5 " : null + ' mr-auto ml-auto text-white w-full h-5'} onClick={() => urlGoTo("bio")}>
-            <HiOutlineUserCircle className={pageScroll[1] ? " text-black " : " azl " + "mr-auto ml-auto shadow"} />
+          <button className={pageScroll[1] ? "flex flex-col justify-center items-center bg-gray-500 w-full pt-2 pb-2" : null + 'flex-col mr-auto ml-auto text-gray-300 w-full '} onClick={() => urlGoTo("bio")}>
+            <HiOutlineUserCircle className={pageScroll[1] ? " text-gray-200 " : "azl-lev " + "mr-auto ml-auto shadow text-xl"} />
+            Bio
             {pageScroll[1] ? <img src={sign} className="absolute" style={{ right: "-7px", width: 7 }} /> : null}
           </button>
-          <button className={pageScroll[2] ? "flex justify-center items-center azl-bg w-full h-5 " : null + ' mr-auto ml-auto text-white w-full h-5'} onClick={() => urlGoTo("carreira")}>
-            <HiOutlineFastForward className={pageScroll[2] ? " text-black " : " azl " + "mr-auto ml-auto shadow"} />
+          <button className={pageScroll[2] ? "flex flex-col justify-center items-center bg-gray-500 w-full pt-2 pb-2" : null + 'flex-col mr-auto ml-auto text-gray-300 w-full '} onClick={() => urlGoTo("carreira")}>
+            <HiOutlineFastForward className={pageScroll[2] ? " text-gray-200 " : "azl-lev " + "mr-auto ml-auto shadow text-xl"} />
+            Portfolio
             {pageScroll[2] ? <img src={sign} className="absolute" style={{ right: "-7px", width: 7 }} /> : null}
           </button>
         </span>
       </nav>
-      <div className="Main w-full" style={{ marginLeft: 30 }}>
+      <div className="Main w-full" style={{ width: 'calc( 100% - 70px)' , marginLeft: 70 }}>
         <Sessao>
-          <div id="inicio" className="flex items-center justify-center mr-auto ml-auto overflow-hidden" style={{ maxWidth: '600px' }} ref={myRef}>
-            <div className="flex justify-center items-center flex-col p-5 rounded-md">
+          <div id="inicio" className="flex items-center justify-center mr-auto ml-auto pt-10" style={{ maxWidth: '600px' }} ref={myRef}>
+            <div className="flex justify-center items-center p-5 rounded-md">
               {pageScroll[0] && pageLoaded ?
                 <>
-                  <LogoAnima />
-                  <h1 id="header-1" className="bg-opacity-70 bg-black px-3 py-0 borded mr-auto ml-auto w-full mt-1 mb-1 bg-transparency-2 text-2xl text-white rounded-md">
-                    Victor Hugo Amorim Arruda
-                  </h1>
-                  <span className='bg-black bg-opacity-50 mt-1 mb-1 pr-4 pl-4 rounded-md'>
-                    <p id="header-2" className="mr-auto ml-auto w-full azl text-rose-500 text-xl text-white">
-                      - softwareDeveloper -
+                  <div
+                    style={{
+                      whiteSpace: 'pre',
+                      fontFamily: 'monospace',
+                      color: 'rgb(142 142 142)',
+                      fontSize: 12,
+                      marginBottom: 10,
+                      lineHeight: '13px',
+                      letterSpacing: '2px',
+                      height: 227.06
+                    }}
+                  >
+                    {LogoAnimaAsci.logo[frame].join('\n')}
+                  </div>
+                  <span className='flex justify-center align-center flex-col pl-5 ml-5' style={{borderLeft: "1px solid gray"}}>
+                    <h1 id="header-1" className="mt-1 mb-1 bg-transparency-2 text-2xl azl" style={{fontSize: "2em"}}>
+                      Hugo<b>Amorim</b>
+                    </h1>
+                    {/* <hr className='w-full aml-background mt-2 mb-2'/> */}
+                    <span className='mt-1 mb-1'>
+                      <p id="header-2" className="azl-lev text-rose-500" style={{fontSize: "1.7em"}}>
+                        {'< '} FullStackDeveloper {' />'}
+                      </p>
+                    </span>
+                    <span className='mb-1'>
+                      <b id="header-2" className="vrd text-rose-500" style={{fontSize: "1.4em"}}>
+                        NodeJS & Csharp
+                      </b>
+                    </span>
+                    <span id="header-3" className='flex gap-2 mt-1 mb-1'>
+                      <button className='btn px-3 py-1 text-base lrj lrj-borda' onClick={() => urlGoTo('bio')}>
+                        Bio
+                      </button>
+                      <button className='btn px-3 py-1 text-base lrj lrj-borda' onClick={() => urlGoTo('timeline')}>
+                        TimeLine
+                      </button>
+                      <button className='btn px-3 py-1 text-base lrj lrj-borda' onClick={() => urlGoTo('portfolio')}>
+                        Portfolio
+                      </button>
+                    </span>
+                    <p id="header-4" className="flex gap-2 mt-2 white text-md" style={{ fontSize: '2rem' }}>
+                      <a className={"flex p-2 text-xl vrl"}>
+                        <BsWhatsapp style={{ fontSize: '1em' }} />
+                      </a>
+                      <a className={"flex p-2 text-xl vrl"}>
+                        <BsLinkedin style={{ fontSize: '1em' }} />
+                      </a>
+                      <a className={"flex p-2 text-xl vrl"}>
+                        <HiOutlineMail style={{ fontSize: '1em' }} />
+                      </a>
                     </p>
                   </span>
-                  <span id="header-3" className='flex gap-2 mt-1 mb-1'>
-                    {
-                      arrayMenu.map((a, b) => (
-                        b !== 3?
-                        <button className='btn bg-gray-800 text-white px-3 py-1 rounded-md text-sm' onClick={() => urlGoTo(a.link)} style={{ fontSize: 10 }}>
-                          {a.label}
-                        </button>
-                        :
-                        <a className='btn bg-gray-800 text-white px-3 py-1 rounded-md text-sm' href={curriculo} download="curriculo-victor-hugo.pdf" style={{ fontSize: 10 }}>
-                          {a.label}
-                        </a>
-                      ))
-                    }
-                  </span>
-                  <p id="header-4" className="flex justify-center items-center gap-2 mr-auto ml-auto w-full mt-2 white text-md text-white" style={{ fontSize: '2rem' }}>
-                    {
-                      arrayMenu2.map((item, index) => (
-                        <a className={"flex p-2 bg-opacity-75 bg-blue-600 rounded-full text-xl"} key={index} href={item.link}>
-                          {item.icon}
-                        </a>
-                      ))
-                    }
-                  </p>
                 </>
                 : null
               }
@@ -307,98 +345,122 @@ function App() {
           </div>
         </Sessao>
         <Sessao>
-          <div id="bio" className="flex w-full relative justify-center items-center flex-col mr-auto ml-auto md:pr-6 md:pl-6 overflow-hidden" ref={myRef1}>
-            <div className="flex w-full absolute top-2 text-center" style={{ maxWidth: 600, zIndex: 10 }}>
-              <div className='h-1 w-full flex bg-white mt-9' style={{ height: 2 }} />
-              <h1 className="w-full mt-4 flex justify-center text-2xl text-white">
-                skills/bio
-              </h1>
-              <div className='h-1 w-full flex bg-white mt-9' style={{ height: 2 }} />
-              <div />
-            </div>
+          <div id="bio" className="flex w-full relative items-center flex-col mr-auto ml-auto md:pr-6 md:pl-6 overflow-hidden" style={{maxWidth: 1300 , marginLeft: 'auto', marginRight: 'auto'}} ref={myRef1}>
+          <div className="flex flex-row text-left top-2 text-center pl-6 mb-4" style={{ zIndex: 10 , maxWidth: 80 }}>
+            <span className="w-full mt-4 flex justify-center align-center text-white vrl" style={{fontSize: 35 , marginTop: 23}}>
+              <HiOutlineUserCircle />
+            </span>
+            <span className="w-full mt-4 flex justify-center align-center text-white vrl" style={{fontSize: 35}}>
+              BIO
+            </span>
+          </div>
             <div className="flex flex-wrap w-full" style={{ zIndex: 10 }}>
-              <div className="flex items-center justify-center md:w-1/3 w-full md:p-10 sm:p-0">
-                <img className='flex rounded-full w-full border-2 border-white avatar' src={huguim} />
+              <div className="pt-10 md:w-1/4 md:pr-5 w-full">
+                <img className='flex w-full border-2 border-white avatar' src={huguim} />
               </div>
-              <div className="md:w-2/3 sm:w-full white text-left pt-5 pb-6">
+              <div className="md:w-3/4 sm:w-full white text-left pt-5 pb-6">
                 <div className='flex'>
-                  <h1 className="text-xl mb-1 mt-4 text-white tracking-widest text-blue-300">JavaScript Developer</h1>
+                  <h1 className="text-3xl mb-1 mt-4 text-white tracking-widest azl-lev">FullStack Developer</h1>
                 </div>
-                <p className="text-sm text-gray-400 pt-2 mb-2 max-w-xl">Profisional desenvolvedor desde <b>2019</b>, especialista na
-                  criação de sites, <b>templates</b> e <b>plugins</b> para <b>wordpress</b>, aplicativos web em frameworks baseados
-                  em <b>NodeJS</b>, atuando paralelamente como desenvolvedor na tecnologia <b>C#</b>.</p>
+                <p className="text-base text-gray-300 pt-1 text-justify" style={{textIndent: 12}}>
+                  I have been working as a software developer since <b>2019</b>, with solid experience in developing, maintaining, and modernizing <b>full-stack applications</b>, including both greenfield projects and legacy systems. I am involved throughout the entire software development lifecycle, from requirements analysis and system architecture to <b>implementation, testing, deployment, and maintenance</b>.
+                </p>
+                <p className="text-base text-gray-300 pt-1 text-justify" style={{textIndent: 12}}>
+                  My technical background is centered on <b>backend development</b>, with strong expertise in <b>RESTful API</b> design, authentication and authorization, third-party integrations, and <b>relational database modeling</b> and optimization. I also develop responsive, <b>component-based frontend applications</b> and create custom plugins and <b>extensions for CMS platforms</b>, always following best practices for maintainability, security, and performance.
+                </p>
+                <p className="text-base text-gray-300 pt-1 text-justify" style={{textIndent: 12}}>
+                  My primary focus is on <b>Node.js</b> and <b>C#</b>, using frameworks such as <b>Express</b>, <b>AdonisJS</b>, and <b>.NET</b>, along with <b>React on the frontend</b>. I apply principles like <b>SOLID</b>, <b>Clean Architecture</b>, and <b>layered architectures</b> to build scalable, robust, and maintainable software solutions aligned with business needs.
+                </p>
+                <br />
                 <div className='flex flex-wrap gap-4'>
                   <div className='flex flex-col gap-2'>
-                    <label className='text-sm flex mb-1 text-white w-full azl'>primary stack</label>
-                    <hr className="w-full" />
-                    <div className='flex flex-row gap-3 mb-2'>
-                      <BiLogoJavascript className='text-blue-300 text-md' />
-                      <FaNodeJs className='text-blue-300 text-md' />
-                      <BiLogoTypescript className='text-blue-300 text-md' />
-                      <BsWordpress className='text-blue-300 text-md' />
-                      <BsFiletypeCss className='text-blue-300 text-md' />
-                      <BsFiletypeHtml className='text-blue-300 text-md' />
+                    <label className='text-xl text-white w-full lrj'>HARD <b>SKILLS</b></label>
+                    <hr className="w-full border-gray-500" />
+                    <div className='flex flex-row gap-4 mb-2'>
+                      <span className='flex flex-row text-xl text-white vrd'>
+                        <BiLogoJavascript className='text-white text-md mt-1 mr-1' /> JavaScript
+                      </span>
+                      <span className='flex flex-row text-xl text-white vrd'>
+                        <BiLogoTypescript className='text-white text-md mt-1 mr-1' /> TypeScript
+                      </span>
+                      <span className='flex flex-row text-xl text-white vrd'>
+                        <FaNodeJs className='text-white text-md mt-1 mr-1' /> NodeJS
+                      </span>
+                      <span className='flex flex-row text-xl text-white vrd'>
+                        <SiCsharp className='text-white text-md mt-1 mr-1' /> Csharp
+                      </span>
+                      <span className='flex flex-row text-xl text-white vrd'>
+                        <BsWordpress className='text-white text-md mt-1 mr-1' /> WordPress
+                      </span>
                     </div>
                   </div>
                   <div className='flex flex-col gap-2'>
-                    <label className='text-sm mb-1 text-white w-full azl'>secondary stack</label>
-                    <hr className="w-full" />
-                    <div className='flex flex-row gap-3 mb-2'>
-                      <SiCsharp className='text-blue-300 text-md' />
-                      <SiDotnet className='text-blue-300 text-md' />
-                      <BiLogoPhp className='text-blue-300 text-md' />
-                      <SiMysql className='text-blue-300 text-md' />
-                      <SiMongodb className='text-blue-300 text-md' />
-                      <SiAmazonaws className='text-blue-300 text-md' />
+                    <label className='text-xl text-white w-full lrj'>SOFT <b>SKILLS</b></label>
+                    <hr className="w-full border-gray-500" />
+                    <div className='flex flex-row gap-4 mb-2'>
+                      <span className='flex flex-row text-xl text-white vrd'>
+                        <FaCloudUploadAlt className='text-white text-md mt-1 mr-1' /> DevOps
+                      </span>
+                      <span className='flex flex-row text-xl text-white vrd'>
+                        <SiDocker  className='text-white text-md mt-1 mr-1' /> Docker
+                      </span>
                     </div>
                   </div>
                 </div>
-                <label className='text-sm mb-5 azl w-full'>skills</label>
+                <label className='flex text-xl text-white w-full lrj mt-4'>FRAME<b>WORKS</b></label>
                 <div className='flex flex-wrap gap-4'>
                   <div className='flex flex-col gap-2'>
-                    <label className='vrd-2 w-full' style={{ fontSize: 9 }}>
-                      back end
+                    <label className='azl-lev w-full uppercase text-base'>
+                      BACK <b>END</b>
                     </label>
-                    <hr className="w-full" />
+                    <hr className="w-full border-gray-500" />
                     <div className='flex flex-row gap-3 mb-1'>
-                      <SiExpress className='text-blue-300 text-md' />
-                      <SiNestjs className='text-blue-300 text-md' />
-                      <SiAdonisjs className='text-blue-300 text-md' />
+                      <span className='flex flex-row text-xl text-white vrd'>
+                        <SiExpress className='text-white text-xl mt-1 mr-1' /> ExpressJS
+                      </span>
+                      <span className='flex flex-row text-xl text-white vrd'>
+                        <SiNestjs className='text-white text-xl mt-1 mr-1' /> NestJS
+                      </span>
+                      <span className='flex flex-row text-xl text-white vrd'>
+                        <SiAdonisjs className='text-white text-xl mt-1 mr-1' /> AdonisJS
+                      </span>
+                      <span className='flex flex-row text-xl text-white vrd'>
+                        <SiDotnet className='text-white text-xl mt-1 mr-1' /> .NET 
+                      </span>
                     </div>
                   </div>
                   <div className='flex flex-col gap-2'>
-                    <label className='text-blue-200 w-full uppercase' style={{ fontSize: 9 }}>
-                      front end
+                    <label className='azl-lev w-full text-base uppercase'>
+                      FRONT<b>END</b>
                     </label>
-                    <hr className="w-full" />
+                    <hr className="w-full border-gray-500" />
                     <div className='flex flex-row gap-3 mb-1'>
-                      <BiLogoReact className='text-blue-300 text-md' />
-                      <BiLogoAngular className='text-blue-300 text-md' />
-                      <BiLogoVuejs className='text-blue-300 text-md' />
-                      <TbBrandNextjs className='text-blue-300 text-md' />
-                      <BiLogoTailwindCss className='text-blue-300 text-md' />
+                      <span className='flex flex-row text-xl text-white vrd'>
+                        <BiLogoReact className='text-white text-xl mt-1 mr-1' /> ReactJS
+                      </span>
+                      <span className='flex flex-row text-xl text-white vrd'>
+                        <TbBrandNextjs className='text-white text-xl mt-1 mr-1' /> NextJS
+                      </span>
+                      <span className='flex flex-row text-xl text-white vrd'>
+                        <BiLogoTailwindCss className='text-white text-xl mt-1 mr-1' /> Tailwind
+                      </span>
+                      <span className='flex flex-row text-xl text-white vrd'>
+                        <BiLogoVuejs className='text-white text-xl mt-1 mr-1' /> VueJS
+                      </span>
+                      <span className='flex flex-row text-xl text-white vrd'>
+                        <BiLogoAngular className='text-white text-xl mt-1 mr-1' /> AngularJS
+                      </span>
                     </div>
                   </div>
                   <div className='flex flex-col gap-2'>
-                    <label className='text-blue-200 w-full uppercase' style={{ fontSize: 9 }}>
-                      versioning
+                    <label className='azl-lev w-full uppercase text-base'>
+                      VERSIONING
                     </label>
-                    <hr className="w-full" />
+                    <hr className="w-full border-gray-500" />
                     <div className='flex flex-row gap-3'>
-                      <FaGitSquare className='text-blue-300 text-md' />
-                      <BiLogoGithub className='text-blue-300 text-md' />
-                      <BiLogoGitlab className='text-blue-300 text-md' />
-                    </div>
-                  </div>
-                  <div className='flex flex-col gap-2'>
-                    <label className='text-blue-200 w-full uppercase' style={{ fontSize: 9 }}>
-                      graphic design
-                    </label>
-                    <hr className="w-full" />
-                    <div className='flex flex-row gap-3'>
-                      <FiFigma className='text-blue-300 text-md' />
-                      <DiPhotoshop className='text-blue-300 text-md' />
-                      <DiIllustrator className='text-blue-300 text-md' />
+                      <span className='flex flex-row text-xl text-white vrd'>
+                        <FaGitSquare className='text-white text-xl mt-1 mr-1' /> GitFlow
+                      </span>
                     </div>
                   </div>
                 </div>
