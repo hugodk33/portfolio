@@ -89,6 +89,9 @@ body , html {
     background-size: auto 100%;
     background-position: center center;
   }
+  .Sessao:first-child {
+    
+  }
 }
 
 .Sessao:nth-child(3) {
