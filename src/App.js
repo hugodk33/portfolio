@@ -5,10 +5,10 @@ import './App.css';
 import { Sessao } from './components/Section'
 import { BsWhatsapp, BsLinkedin, BsGithub, BsWordpress, BsFiletypeCss, BsFiletypeHtml } from 'react-icons/bs'
 import { BiLogoJavascript, BiLogoTypescript, BiLogoGithub, BiLogoReact, BiLogoAngular, BiLogoVuejs, BiLogoPhp, BiLogoTailwindCss, BiLogoBootstrap, BiLogoGitlab } from 'react-icons/bi'
-import { FaGitSquare , FaCloudUploadAlt } from 'react-icons/fa'
+import { FaGitSquare, FaCloudUploadAlt } from 'react-icons/fa'
 import { AiFillGitlab, AiFillCodepenCircle } from 'react-icons/ai'
 import { HiOutlineMail, HiOutlineUserCircle, HiOutlineIdentification, HiOutlineFastForward } from 'react-icons/hi'
-import { SiCsharp, SiExpress, SiDotnet, SiNestjs, SiAdonisjs, SiMysql, SiAmazonaws , SiJquery , SiDocker } from 'react-icons/si'
+import { SiCsharp, SiExpress, SiDotnet, SiNestjs, SiAdonisjs, SiMysql, SiAmazonaws, SiJquery, SiDocker } from 'react-icons/si'
 import { FaNodeJs } from 'react-icons/fa'
 import { TbBrandNextjs, TbWorldWww } from 'react-icons/tb'
 import { GoAlert } from "react-icons/go";
@@ -141,7 +141,7 @@ function App() {
     }
   ];
 
-  
+
   // {
   //   label: 'Curriculo',
   //   link: '/assets/curriculo-victor-hugo.pdf'
@@ -280,103 +280,220 @@ function App() {
           </button>
         </span>
       </nav>
-      <div className="Main w-full" style={{ width: 'calc( 100% - 70px)' , marginLeft: 70 }}>
+      <div className="Main w-full" style={{ width: 'calc( 100% - 70px)', marginLeft: 70 }}>
         <Sessao>
           <div id="inicio" ref={myRef}>
-              {pageScroll[0] && pageLoaded ?
-                <div className="flex justify-center items-center align-center flex-wrap w-full mr-auto ml-auto pb-10 pt-10" style={{maxWidth: 700}}>
-                  <div
-                    className="md:w-2/5 w-full overflow-hidden"
-                    style={{
-                      whiteSpace: 'pre',
-                      fontFamily: 'monospace',
-                      color: 'rgb(142 142 142)',
-                      fontSize: 12,
-                      marginBottom: 10,
-                      lineHeight: '13px',
-                      letterSpacing: '2px',
-                      height: 227.06
-                    }}
-                  >
-                    {LogoAnimaAsci.logo[frame].join('\n')}
-                  </div>
-                  <span className='md:w-3/5 w-full  justify-center align-center flex-col pl-5' style={{borderLeft: "1px solid gray"}}>
-                    <h1 id="header-1" className="mt-1 mb-1 bg-transparency-2 text-2xl azl" style={{fontSize: "2em"}}>
-                      Hugo<b>Amorim</b>
-                    </h1>
-                    {/* <hr className='w-full aml-background mt-2 mb-2'/> */}
-                    <span className='mt-1 mb-1'>
-                      <p id="header-2" className="azl-lev text-rose-500" style={{fontSize: "1.7em"}}>
-                        {'< '} FullStackDeveloper {' />'}
-                      </p>
-                    </span>
-                    <span className='mb-1'>
-                      <b id="header-2" className="vrd text-rose-500" style={{fontSize: "1.4em"}}>
-                        NodeJS & Csharp
-                      </b>
-                    </span>
-                    <span id="header-3" className='flex gap-2 mt-1 mb-1'>
-                      <button className='btn px-3 py-1 text-base lrj lrj-borda' onClick={() => urlGoTo('bio')}>
-                        Bio
-                      </button>
-                      <button className='btn px-3 py-1 text-base lrj lrj-borda' onClick={() => urlGoTo('timeline')}>
-                        TimeLine
-                      </button>
-                      <button className='btn px-3 py-1 text-base lrj lrj-borda' onClick={() => urlGoTo('portfolio')}>
-                        Portfolio
-                      </button>
-                    </span>
-                    <p id="header-4" className="flex gap-2 mt-2 white text-md" style={{ fontSize: '2rem' }}>
-                      <a className={"flex p-2 text-xl vrl"}>
-                        <BsWhatsapp style={{ fontSize: '1em' }} />
-                      </a>
-                      <a className={"flex p-2 text-xl vrl"}>
-                        <BsLinkedin style={{ fontSize: '1em' }} />
-                      </a>
-                      <a className={"flex p-2 text-xl vrl"}>
-                        <HiOutlineMail style={{ fontSize: '1em' }} />
-                      </a>
+            {pageScroll[0] && pageLoaded ?
+              <div className="flex justify-center items-center align-center flex-wrap w-full mr-auto ml-auto pb-10 pt-10" style={{ maxWidth: 700 }}>
+                <div
+                  className="md:w-2/5 w-full overflow-hidden"
+                  style={{
+                    whiteSpace: 'pre',
+                    fontFamily: 'monospace',
+                    color: 'rgb(142 142 142)',
+                    fontSize: 12,
+                    marginBottom: 10,
+                    lineHeight: '13px',
+                    letterSpacing: '2px',
+                    height: 227.06
+                  }}
+                >
+                  {LogoAnimaAsci.logo[frame].join('\n')}
+                </div>
+                <span className='md:w-3/5 w-full  justify-center align-center flex-col pl-5' style={{ borderLeft: "1px solid gray" }}>
+                  <h1 id="header-1" className="mt-1 mb-1 bg-transparency-2 text-2xl azl" style={{ fontSize: "2em" }}>
+                    Hugo<b> Amorim</b>
+                  </h1>
+                  {/* <hr className='w-full aml-background mt-2 mb-2'/> */}
+                  <span className='mt-1 mb-1'>
+                    <p id="header-2" className="azl-lev text-rose-500" style={{ fontSize: "1.7em" }}>
+                      {'< '} FullStackDeveloper {' />'}
                     </p>
                   </span>
-                </div>
-                : null
-              }
+                  <span className='mb-1'>
+                    <b id="header-2" className="vrd text-rose-500" style={{ fontSize: "1.4em" }}>
+                      NodeJS & Csharp
+                    </b>
+                  </span>
+                  <span id="header-3" className='flex gap-2 mt-1 mb-1'>
+                    <button className='btn px-3 py-1 text-base lrj lrj-borda' onClick={() => urlGoTo('bio')}>
+                      Bio
+                    </button>
+                    <button className='btn px-3 py-1 text-base lrj lrj-borda' onClick={() => urlGoTo('timeline')}>
+                      TimeLine
+                    </button>
+                    <button className='btn px-3 py-1 text-base lrj lrj-borda' onClick={() => urlGoTo('portfolio')}>
+                      Portfolio
+                    </button>
+                  </span>
+                  <p id="header-4" className="flex gap-2 mt-2 white text-md" style={{ fontSize: '2rem' }}>
+                    <a className={"flex p-2 text-xl vrl"}>
+                      <BsWhatsapp style={{ fontSize: '1em' }} />
+                    </a>
+                    <a className={"flex p-2 text-xl vrl"}>
+                      <BsLinkedin style={{ fontSize: '1em' }} />
+                    </a>
+                    <a className={"flex p-2 text-xl vrl"}>
+                      <HiOutlineMail style={{ fontSize: '1em' }} />
+                    </a>
+                  </p>
+                </span>
+              </div>
+              : null
+            }
           </div>
         </Sessao>
         <Sessao>
-          <div id="bio" className="flex w-full relative items-center flex-col mr-auto ml-auto md:pr-6 md:pl-6 overflow-hidden" style={{maxWidth: 1300 , marginLeft: 'auto', marginRight: 'auto'}} ref={myRef1}>
-          <div className="flex flex-row text-left top-2 text-center pl-6 mb-4" style={{ zIndex: 10 , maxWidth: 80 }}>
-            <span className="w-full mt-4 flex justify-center align-center text-white vrl" style={{fontSize: 35 , marginTop: 23}}>
-              <HiOutlineUserCircle />
-            </span>
-            <span className="w-full mt-4 flex justify-center align-center text-white vrl" style={{fontSize: 35}}>
-              BIO
-            </span>
-          </div>
+          <div id="bio" className="flex w-full relative items-center flex-col mr-auto ml-auto md:pr-6 md:pl-6 overflow-hidden" style={{ maxWidth: 1300, marginLeft: 'auto', marginRight: 'auto' }} ref={myRef1}>
+            <div className="flex flex-row text-left top-2 text-center pl-6 mb-4" style={{ zIndex: 10, maxWidth: 80 }}>
+              <span className="w-full mt-4 flex justify-center align-center text-white vrl" style={{ fontSize: 35, marginTop: 23 }}>
+                <HiOutlineUserCircle />
+              </span>
+              <span className="w-full mt-4 flex justify-center align-center text-white vrl" style={{ fontSize: 35 }}>
+                BIO
+              </span>
+            </div>
             <div className="flex flex-wrap w-full" style={{ zIndex: 10 }}>
               {/* <div className="md:w-1/4 md:pr-5 w-full">
                 <img className='flex w-full border-2 border-white avatar' src={huguim} />
               </div> */}
               <div className="w-full white text-left pt-5 pb-6">
-                <div className='flex'>
-                  <h1 className="text-3xl mb-1 mt-4 text-white tracking-widest azl-lev">FullStack Developer</h1>
+                <div className='flex flex-wrap'>
+                  <span className='flex pr-3 pb-3 md:w-1/5 w-full'>
+                    {/* style={{ aspectRatio: '1 / 1', maxWidth: 230 , maxHeight: 255 }} */}
+                    <img className=' avatar w-full mb-2 border-2 border-white' style={{maxHeight: 230 , maxWidth: 230 }} src={huguim} />
+                  </span>
+                  <span className='md:w-4/5 w-full' >
+                    <span>
+                      <h1 className="text-3xl mb-1 text-white tracking-widest azl-lev">Hugo<b> Amorim</b></h1>
+                      <h2 className="text-2xl mb-1 mt-1 text-white tracking-widest vrd">FullStack Developer</h2>
+                      <span id="header-4" className="flex gap-2 mt-2 white text-md mb-4" style={{ fontSize: '2rem' }}>
+                        <a className={"flex border-1 rounded-full p-2 vrl-borda text-xl vrl"}>
+                          <BsWhatsapp style={{ fontSize: '1em' }} />
+                        </a>
+                        <a className={"flex border-1 rounded-full p-2 vrl-borda text-xl vrl"}>
+                          <BsLinkedin style={{ fontSize: '1em' }} />
+                        </a>
+                        <a className={"flex border-1 rounded-full vrl-borda p-2 text-xl vrl"}>
+                          <HiOutlineMail style={{ fontSize: '1em' }} />
+                        </a>
+                      </span>
+                    </span>
+                      <>
+                      <div className='flex flex-wrap gap-4'>
+                        <div className='flex flex-wrap flex-col gap-2'>
+                          <label className='text-xl text-white w-full lrj'>HARD <b>SKILLS</b></label>
+                          <hr className="w-full border-gray-500" />
+                          <div className='flex flex-wrap flex-row gap-4 mb-2'>
+                            <span className='flex flex-row text-base text-white vrd'>
+                              <BiLogoJavascript className='text-white text-md mt-1 mr-1' /> JavaScript
+                            </span>
+                            <span className='flex flex-row text-base text-white vrd'>
+                              <BiLogoTypescript className='text-white text-md mt-1 mr-1' /> TypeScript
+                            </span>
+                            <span className='flex flex-row text-base text-white vrd'>
+                              <FaNodeJs className='text-white text-md mt-1 mr-1' /> NodeJS
+                            </span>
+                            <span className='flex flex-row text-base text-white vrd'>
+                              <SiCsharp className='text-white text-md mt-1 mr-1' /> Csharp
+                            </span>
+                            <span className='flex flex-row text-base text-white vrd'>
+                              <BsWordpress className='text-white text-md mt-1 mr-1' /> WordPress
+                            </span>
+                          </div>
+                        </div>
+                        <div className='flex flex-wrap flex-col gap-2'>
+                          <label className='text-xl text-white w-full lrj'>SOFT <b>SKILLS</b></label>
+                          <hr className="w-full border-gray-500" />
+                          <div className='flex flex-wrap flex-row gap-4 mb-2'>
+                            <span className='flex flex-row text-base text-white vrd'>
+                              <FaCloudUploadAlt className='text-white text-md mt-1 mr-1' /> DevOps
+                            </span>
+                            <span className='flex flex-row text-base text-white vrd'>
+                              <SiDocker className='text-white text-md mt-1 mr-1' /> Docker
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                      <label className='flex text-xl text-white w-full lrj mt-4'>FRAME<b>WORKS</b></label>
+                      <div className='flex flex-wrap flex-wrap gap-4'>
+                        <div className='flex flex-wrap flex-col gap-2'>
+                          <label className='azl-lev w-full uppercase text-base'>
+                            BACK <b>END</b>
+                          </label>
+                          <hr className="w-full border-gray-500" />
+                          <div className='flex flex-row gap-3 mb-1'>
+                            <span className='flex flex-row text-base text-white vrd'>
+                              <SiExpress className='text-white text-xl mt-1 mr-1' /> ExpressJS
+                            </span>
+                            <span className='flex flex-row text-base text-white vrd'>
+                              <SiNestjs className='text-white text-xl mt-1 mr-1' /> NestJS
+                            </span>
+                            <span className='flex flex-row text-base text-white vrd'>
+                              <SiAdonisjs className='text-white text-xl mt-1 mr-1' /> AdonisJS
+                            </span>
+                            <span className='flex flex-row text-base text-white vrd'>
+                              <SiDotnet className='text-white text-xl mt-1 mr-1' /> .NET
+                            </span>
+                          </div>
+                        </div>
+                        <div className='flex flex-col gap-2'>
+                          <label className='azl-lev w-full text-base uppercase'>
+                            FRONT<b>END</b>
+                          </label>
+                          <hr className="w-full border-gray-500" />
+                          <div className='flex flex-row gap-3 mb-1'>
+                            <span className='flex flex-row text-base text-white vrd'>
+                              <BiLogoReact className='text-white text-xl mt-1 mr-1' /> ReactJS
+                            </span>
+                            <span className='flex flex-row text-base text-white vrd'>
+                              <TbBrandNextjs className='text-white text-xl mt-1 mr-1' /> NextJS
+                            </span>
+                            <span className='flex flex-row text-base text-white vrd'>
+                              <BiLogoTailwindCss className='text-white text-xl mt-1 mr-1' /> Tailwind
+                            </span>
+                            <span className='flex flex-row text-base text-white vrd'>
+                              <BiLogoVuejs className='text-white text-xl mt-1 mr-1' /> VueJS
+                            </span>
+                            <span className='flex flex-row text-base text-white vrd'>
+                              <BiLogoAngular className='text-white text-xl mt-1 mr-1' /> AngularJS
+                            </span>
+                          </div>
+                        </div>
+                        <div className='flex flex-col gap-2'>
+                          <label className='azl-lev w-full uppercase text-base'>
+                            VERSIONING
+                          </label>
+                          <hr className="w-full border-gray-500" />
+                          <div className='flex flex-row gap-3'>
+                            <span className='flex flex-row text-base text-white vrd'>
+                              <FaGitSquare className='text-white text-xl mt-1 mr-1' /> GitFlow
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </>
+                  </span>
+                  <div>
+                  </div>
+                  <br />
+                  <hr className='w-full border-gray-500 mt-4 mb-4' />
                 </div>
                 <div>
                   <p className='flex flex-row flex-wrap gap-3'>
-                    <img className='border-2 border-white avatar mt-7' style={{maxWidth: 230}} src={huguim} />
-                    <span className="text-base text-gray-300 pt-1 text-justify" style={{textIndent: 12}}>
+                    <span className="text-base text-gray-300 pt-1 text-justify" style={{ textIndent: 12 }}>
                       I have been working as a software developer since <b>2019</b>, with solid experience in developing, maintaining, and modernizing <b>full-stack applications</b>, including both greenfield projects and legacy systems. I am involved throughout the entire software development lifecycle, from requirements analysis and system architecture to <b>implementation, testing, deployment, and maintenance</b>.
                     </span>
-                    <span className="text-base w-full text-gray-300 pt-1 text-justify" style={{textIndent: 12}}>
+                    <span className="text-base w-full text-gray-300 pt-1 text-justify" style={{ textIndent: 12 }}>
                       My technical background is centered on <b>backend development</b>, with strong expertise in <b>RESTful API</b> design, authentication and authorization, third-party integrations, and <b>relational database modeling</b> and optimization. I also develop responsive, <b>component-based frontend applications</b> and create custom plugins and <b>extensions for CMS platforms</b>, always following best practices for maintainability, security, and performance.
                     </span>
-                    <span className="text-base w-full text-gray-300 pt-1 text-justify" style={{textIndent: 12}}>
+                    <span className="text-base w-full text-gray-300 pt-1 text-justify" style={{ textIndent: 12 }}>
                       My primary focus is on <b>Node.js</b> and <b>C#</b>, using frameworks such as <b>Express</b>, <b>AdonisJS</b>, and <b>.NET</b>, along with <b>React on the frontend</b>. I apply principles like <b>SOLID</b>, <b>Clean Architecture</b>, and <b>layered architectures</b> to build scalable, robust, and maintainable software solutions aligned with business needs.
                     </span>
                   </p>
                   <br />
                 </div>
-                <div className='flex flex-wrap gap-4'>
+                {/* <div className='flex flex-wrap gap-4'>
                   <div className='flex flex-col gap-2'>
                     <label className='text-xl text-white w-full lrj'>HARD <b>SKILLS</b></label>
                     <hr className="w-full border-gray-500" />
@@ -467,7 +584,7 @@ function App() {
                       </span>
                     </div>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
