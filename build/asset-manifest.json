@@ -1,20 +1,19 @@
 {
   "files": {
-    "main.css": "/portfolio/static/css/main.0c140353.css",
-    "main.js": "/portfolio/static/js/main.41a6ac65.js",
+    "main.css": "/portfolio/static/css/main.43fd942b.css",
+    "main.js": "/portfolio/static/js/main.7e25d919.js",
     "static/js/787.1ed0c42c.chunk.js": "/portfolio/static/js/787.1ed0c42c.chunk.js",
+    "static/media/5eb05643-bf01-48c5-a134-cd0af3a6f489.png": "/portfolio/static/media/5eb05643-bf01-48c5-a134-cd0af3a6f489.c248a66fdcc71bfddbaa.png",
     "static/media/knight.png": "/portfolio/static/media/knight.669cd894ff5f7a624aa1.png",
-    "static/media/huguim.png": "/portfolio/static/media/huguim.e68a42609013cd879ffd.png",
     "static/media/curriculo-victor-hugo.pdf": "/portfolio/static/media/curriculo-victor-hugo.e2c5987ba2920141d3c4.pdf",
     "index.html": "/portfolio/index.html",
     "static/media/logo-branca-01.svg": "/portfolio/static/media/logo-branca-01.c20e8d3ea92d103ce1cc35f9f821efa9.svg",
-    "static/media/sign-01.svg": "/portfolio/static/media/sign-01.19198f79d8eda8532b9ffa7bc93b9c90.svg",
-    "main.0c140353.css.map": "/portfolio/static/css/main.0c140353.css.map",
-    "main.41a6ac65.js.map": "/portfolio/static/js/main.41a6ac65.js.map",
+    "main.43fd942b.css.map": "/portfolio/static/css/main.43fd942b.css.map",
+    "main.7e25d919.js.map": "/portfolio/static/js/main.7e25d919.js.map",
     "787.1ed0c42c.chunk.js.map": "/portfolio/static/js/787.1ed0c42c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.0c140353.css",
-    "static/js/main.41a6ac65.js"
+    "static/css/main.43fd942b.css",
+    "static/js/main.7e25d919.js"
   ]
 }

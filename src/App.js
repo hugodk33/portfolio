@@ -15,18 +15,23 @@ import { GoAlert } from "react-icons/go";
 import { RiToolsLine } from "react-icons/ri";
 
 import career from './career.json'
+import careerEn from './career-en.json'
+import translations from './i18n/translations'
 import knight from './assets/knight.png'
-import huguim from './img/huguim.png'
+import huguim from './img/5eb05643-bf01-48c5-a134-cd0af3a6f489.png'
 import logobranca from './assets/logo/logo-branca-01.svg'
-import sign from './assets/logo/sign-01.svg'
 import curriculo from './assets/curriculo-victor-hugo.pdf'
 
 function App() {
 
   const [frame, setFrame] = useState(0)
-  const [timeLine,] = useState(career)
-  const [actualTime, setActualTime] = useState(timeLine.carrer.length - 1)
+  const [language, setLanguage] = useState('en')
+  const [timeLine, setTimeLine] = useState(careerEn)
+  const [actualTime, setActualTime] = useState(0)
   const [actualService, setActualService] = useState(0)
+
+  const t = (key) => key.split('.').reduce((obj, k) => obj?.[k], translations[language]) || key
+
   const [pageScroll, setPageScroll] = useState([true, false, false, false]);
   const [pageLoaded, setPageLoaded] = useState(false);
   const [arrayMenu, setArrayMenu] = useState([]);
@@ -260,25 +265,35 @@ function App() {
     <div className="App flex flex-row">
       <header className="App-header">
       </header>
-      <nav className="bg-gray-900 flex flex-col border-gray-200 fixed" style={{ width: 70, height: "100vh", paddingTop: 7, shadow: "2px 2px 3px black" }}>
+      <nav className="flex flex-col border-gray-200 fixed" style={{ width: 70, height: "100vh", paddingTop: 7, shadow: "2px 2px 3px black" , backgroundColor: "#141414" }}>
         <img src={logobranca} className='mr-auto ml-auto' style={{ width: 15 }} />
-        <span className='flex flex-wrap text-white gap-2 w-full pt-1 mt-3 mr-auto ml-auto' style={{ height: 70 }}>
-          <button className={pageScroll[0] ? "flex flex-col justify-center items-center bg-gray-500 w-full pt-2 pb-2" : null + 'flex-col mr-auto ml-auto text-gray-300 w-full '} onClick={() => urlGoTo("inicio")}>
+        <span className='flex flex-col text-white gap-1 w-full pt-1 mt-3 mr-auto ml-auto'>
+          <button className={pageScroll[0] ? "flex flex-col justify-center items-center bg-[#c6462b] w-full pt-2 pb-2" : null + 'flex-col mr-auto ml-auto text-gray-300 w-full '} onClick={() => urlGoTo("inicio")}>
             <HiOutlineIdentification className={pageScroll[0] ? " text-gray-200 " : "azl-lev " + "mr-auto ml-auto shadow text-xl"} />
-            Home
-            {pageScroll[0] ? <img src={sign} className="absolute" style={{ right: "-7px", width: 7 }} /> : null}
+            {t('nav.home')}
+            {pageScroll[0] ? <span className="absolute" style={{ right: "-7px", width: 7, color: '#c6462b' }}><svg viewBox="0 0 12.8 27.9" className="w-full h-auto"><path fill="currentColor" d="M0.2,0.8l11.2,11.7c1,1,0.9,2.7-0.1,3.6L0.1,26.9L0.2,0.8z"/></svg></span> : null}
           </button>
-          <button className={pageScroll[1] ? "flex flex-col justify-center items-center bg-gray-500 w-full pt-2 pb-2" : null + 'flex-col mr-auto ml-auto text-gray-300 w-full '} onClick={() => urlGoTo("bio")}>
+          <button className={pageScroll[1] ? "flex flex-col justify-center items-center bg-[#c6462b] w-full pt-2 pb-2" : null + 'flex-col mr-auto ml-auto text-gray-300 w-full '} onClick={() => urlGoTo("bio")}>
             <HiOutlineUserCircle className={pageScroll[1] ? " text-gray-200 " : "azl-lev " + "mr-auto ml-auto shadow text-xl"} />
-            Bio
-            {pageScroll[1] ? <img src={sign} className="absolute" style={{ right: "-7px", width: 7 }} /> : null}
+            {t('nav.bio')}
+            {pageScroll[1] ? <span className="absolute" style={{ right: "-7px", width: 7, color: '#c6462b' }}><svg viewBox="0 0 12.8 27.9" className="w-full h-auto"><path fill="currentColor" d="M0.2,0.8l11.2,11.7c1,1,0.9,2.7-0.1,3.6L0.1,26.9L0.2,0.8z"/></svg></span> : null}
           </button>
-          <button className={pageScroll[2] ? "flex flex-col justify-center items-center r bg-gray-500 w-full pt-2 pb-2" : null + 'flex-col mr-auto ml-auto text-gray-300 w-full '} onClick={() => urlGoTo("carreira")}>
+          <button className={pageScroll[2] ? "flex flex-col justify-center items-center r bg-[#c6462b] w-full pt-2 pb-2" : null + 'flex-col mr-auto ml-auto text-gray-300 w-full '} onClick={() => urlGoTo("carreira")}>
             <HiOutlineFastForward className={pageScroll[2] ? " text-gray-200 " : "azl-lev " + "mr-auto ml-auto shadow text-xl"} />
-            Portfolio
-            {pageScroll[2] ? <img src={sign} className="absolute" style={{ right: "-7px", width: 7 }} /> : null}
+            {t('nav.timeline')}
+            {pageScroll[2] ? <span className="absolute" style={{ right: "-7px", width: 7, color: '#c6462b' }}><svg viewBox="0 0 12.8 27.9" className="w-full h-auto"><path fill="currentColor" d="M0.2,0.8l11.2,11.7c1,1,0.9,2.7-0.1,3.6L0.1,26.9L0.2,0.8z"/></svg></span> : null}
           </button>
         </span>
+        <div className="flex flex-row flex-wrap justify-center gap-1 w-full mt-auto mb-3 px-1">
+          <button className={"flex-1 flex items-center justify-center gap-1 py-1.5 rounded text-xs font-semibold transition-all duration-200 " + (language === 'en' ? 'bg-blue-600 text-white shadow' : 'bg-gray-700 text-gray-400 hover:bg-gray-600')} onClick={() => { setLanguage('en'); setTimeLine(careerEn); setActualTime(0); setActualService(0); }}>
+            <svg viewBox="0 0 640 480" className="w-4 h-3 shrink-0"><rect width="640" height="480" fill="#fff"/><rect width="640" height="53.3" fill="#b22234" y="0"/><rect width="640" height="53.3" fill="#fff" y="106.6"/><rect width="640" height="53.3" fill="#b22234" y="213.3"/><rect width="640" height="53.3" fill="#fff" y="319.9"/><rect width="304" height="200" fill="#3c3b6e"/></svg>
+            EN
+          </button>
+          <button className={"flex-1 flex items-center justify-center gap-1 py-1.5 rounded text-xs font-semibold transition-all duration-200 " + (language === 'pt' ? 'bg-blue-600 text-white shadow' : 'bg-gray-700 text-gray-400 hover:bg-gray-600')} onClick={() => { setLanguage('pt'); setTimeLine(career); setActualTime(0); setActualService(0); }}>
+            <svg viewBox="0 0 640 480" className="w-4 h-3 shrink-0"><rect width="640" height="480" fill="#009739"/><polygon points="320,60 580,240 320,420 60,240" fill="#FEDD00"/><circle cx="320" cy="240" r="100" fill="#002776"/></svg>
+            PT
+          </button>
+        </div>
       </nav>
       <div className="Main w-full" style={{ width: 'calc( 100% - 70px)', marginLeft: 70 }}>
         <Sessao>
@@ -286,7 +301,7 @@ function App() {
             {pageScroll[0] && pageLoaded ?
               <div className="flex justify-center items-center align-center flex-wrap w-full mr-auto ml-auto pb-10 pt-10" style={{ maxWidth: 700 }}>
                 <div
-                  className="md:w-2/5 w-full overflow-hidden"
+                  className="md:w-2/5 w-full overflow-hidden text-center mb-4"
                   style={{
                     whiteSpace: 'pre',
                     fontFamily: 'monospace',
@@ -300,33 +315,33 @@ function App() {
                 >
                   {LogoAnimaAsci.logo[frame].join('\n')}
                 </div>
-                <span className='md:w-3/5 w-full  justify-center align-center flex-col pl-5' style={{ borderLeft: "1px solid gray" }}>
-                  <h1 id="header-1" className="mt-1 mb-1 bg-transparency-2 text-2xl azl" style={{ fontSize: "2em" }}>
+                <span className='md:w-3/5 w-full justify-center align-center flex-col mt-4 pl-5' style={{ borderLeft: "1px solid gray" }}>
+                  <h1 id="header-1" className="mt-1 mb-1 bg-transparency-2 text-2xl vrl" style={{ fontSize: "2em" }}>
                     Hugo<b> Amorim</b>
                   </h1>
                   {/* <hr className='w-full aml-background mt-2 mb-2'/> */}
                   <span className='mt-1 mb-1'>
-                    <p id="header-2" className="azl-lev text-rose-500" style={{ fontSize: "1.7em" }}>
-                      {'< '} FullStackDeveloper {' />'}
+                    <p id="header-2" className="azl-lev" style={{ fontSize: "1.7em" }}>
+                      {t('hero.fullstack')}
                     </p>
                   </span>
                   <span className='mb-1'>
-                    <b id="header-2" className="vrd text-rose-500" style={{ fontSize: "1.4em" }}>
-                      NodeJS & Csharp
+                    <b id="header-2" className="vrd" style={{ fontSize: "1.4em" }}>
+                      {t('hero.nodeCsharp')}
                     </b>
                   </span>
                   <span id="header-3" className='flex gap-2 mt-1 mb-1'>
                     <button className='btn px-3 py-1 text-base lrj lrj-borda' onClick={() => urlGoTo('bio')}>
-                      Bio
+                      {t('hero.bio')}
                     </button>
                     <button className='btn px-3 py-1 text-base lrj lrj-borda' onClick={() => urlGoTo('timeline')}>
-                      TimeLine
+                      {t('hero.timeline')}
                     </button>
                     <button className='btn px-3 py-1 text-base lrj lrj-borda' onClick={() => urlGoTo('portfolio')}>
-                      Portfolio
+                      {t('hero.portfolio')}
                     </button>
                   </span>
-                  <p id="header-4" className="flex gap-2 mt-2 white text-md" style={{ fontSize: '2rem' }}>
+                  {/* <div id="header-4" className="flex gap-2 mt-2 white text-md" style={{ fontSize: '2rem' }}>
                     <a className={"flex p-2 text-xl vrl"}>
                       <BsWhatsapp style={{ fontSize: '1em' }} />
                     </a>
@@ -336,7 +351,7 @@ function App() {
                     <a className={"flex p-2 text-xl vrl"}>
                       <HiOutlineMail style={{ fontSize: '1em' }} />
                     </a>
-                  </p>
+                  </div> */}
                 </span>
               </div>
               : null
@@ -344,142 +359,133 @@ function App() {
           </div>
         </Sessao>
         <Sessao>
-          <div id="bio" className="flex w-full relative items-center flex-col mr-auto ml-auto md:pr-6 md:pl-6 overflow-hidden" style={{ maxWidth: 1300, marginLeft: 'auto', marginRight: 'auto' }} ref={myRef1}>
-            <div className="flex flex-row text-left top-2 text-center pl-6 mb-4" style={{ zIndex: 10, maxWidth: 80 }}>
-              <span className="w-full mt-4 flex justify-center align-center text-white vrl" style={{ fontSize: 35, marginTop: 23 }}>
-                <HiOutlineUserCircle />
-              </span>
-              <span className="w-full mt-4 flex justify-center align-center text-white vrl" style={{ fontSize: 35 }}>
-                BIO
-              </span>
-            </div>
+          <div className="flex flex-row justify-left text-left top-2 mb-4 w-full md:pr-6 md:pl-6" style={{ maxWidth: 1300, marginLeft: 'auto', marginRight: 'auto' }} ref={myRef1}>
+            <span className="mt-4 flex justify-center align-center vrl" style={{ fontSize: 35, marginTop: 23 }}>
+              <HiOutlineUserCircle />
+            </span>
+            <span className="mt-4 flex justify-center align-center text-gray-400" style={{ fontSize: 35 }}>
+              {t('bio.title')}
+            </span>
+          </div>
+          <div id="bio" className="flex w-full relative items-center flex-col mr-auto ml-auto md:pr-6 md:pl-6 overflow-hidden" style={{ maxWidth: 1300, marginLeft: 'auto', marginRight: 'auto' }}>
             <div className="flex flex-wrap w-full" style={{ zIndex: 10 }}>
               {/* <div className="md:w-1/4 md:pr-5 w-full">
                 <img className='flex w-full border-2 border-white avatar' src={huguim} />
               </div> */}
-              <div className="w-full white text-left pt-5 pb-6">
-                <div className='flex flex-wrap'>
-                  <span className='flex pr-3 pb-3 md:w-1/5 w-full'>
-                    {/* style={{ aspectRatio: '1 / 1', maxWidth: 230 , maxHeight: 255 }} */}
-                    <img className=' avatar w-full mb-2 border-2 border-white' style={{maxHeight: 230 , maxWidth: 230 }} src={huguim} />
-                  </span>
-                  <span className='md:w-4/5 w-full' >
-                    <span>
-                      <h1 className="text-3xl mb-1 text-white tracking-widest azl-lev">Hugo<b> Amorim</b></h1>
-                      <h2 className="text-2xl mb-1 mt-1 text-white tracking-widest vrd">FullStack Developer</h2>
-                      <span id="header-4" className="flex gap-2 mt-2 white text-md mb-4" style={{ fontSize: '2rem' }}>
-                        <a className={"flex border-1 rounded-full p-2 vrl-borda text-xl vrl"}>
-                          <BsWhatsapp style={{ fontSize: '1em' }} />
-                        </a>
-                        <a className={"flex border-1 rounded-full p-2 vrl-borda text-xl vrl"}>
-                          <BsLinkedin style={{ fontSize: '1em' }} />
-                        </a>
-                        <a className={"flex border-1 rounded-full vrl-borda p-2 text-xl vrl"}>
-                          <HiOutlineMail style={{ fontSize: '1em' }} />
-                        </a>
+              <div className="w-full flex flex-wrap white text-left pt-5 pb-6">
+                <div className='flex flex-wrap w-full'>
+                  <div className='flex flex-wrap flex-row w-full'>
+                    <span className='pr-3 pb-3'>
+                      {/* style={{ aspectRatio: '1 / 1', maxWidth: 230 , maxHeight: 255 }} */}
+                      <img className=' avatar w-full mb-2 border-2 border-white' style={{ maxHeight: 230, maxWidth: 230 }} src={huguim} />
+                    </span>
+                    <span className=' flex items-center' >
+                      <span>
+                        <h1 className="text-3xl mb-1 text-white tracking-widest vrd">Hugo<b> Amorim</b></h1>
+                        <h2 className="text-2xl mb-1 mt-1 text-white tracking-widest azl-lev">Full<b>Stack</b> DEV</h2>
+                        <span id="header-4" className="flex gap-1 mt-2 white text-md mb-4" style={{ fontSize: '2rem' }}>
+                          <a className={"flex border-1 rounded-full p-2 vrl-borda text-xl vrl"}>
+                            <BsWhatsapp style={{ fontSize: '1em' }} />
+                          </a>
+                          <a className={"flex border-1 rounded-full p-2 vrl-borda text-xl vrl"}>
+                            <BsLinkedin style={{ fontSize: '1em' }} />
+                          </a>
+                          <a className={"flex border-1 rounded-full vrl-borda p-2 text-xl vrl"}>
+                            <HiOutlineMail style={{ fontSize: '1em' }} />
+                          </a>
+                        </span>
                       </span>
                     </span>
-                      <>
-                      <div className='flex flex-wrap gap-4'>
-                        <div className='flex flex-wrap flex-col gap-2'>
-                          <label className='text-xl text-white w-full lrj'>HARD <b>SKILLS</b></label>
-                          <hr className="w-full border-gray-500" />
-                          <div className='flex flex-wrap flex-row gap-4 mb-2'>
-                            <span className='flex flex-row text-base text-white vrd'>
-                              <BiLogoJavascript className='text-white text-md mt-1 mr-1' /> JavaScript
-                            </span>
-                            <span className='flex flex-row text-base text-white vrd'>
-                              <BiLogoTypescript className='text-white text-md mt-1 mr-1' /> TypeScript
-                            </span>
-                            <span className='flex flex-row text-base text-white vrd'>
-                              <FaNodeJs className='text-white text-md mt-1 mr-1' /> NodeJS
-                            </span>
-                            <span className='flex flex-row text-base text-white vrd'>
-                              <SiCsharp className='text-white text-md mt-1 mr-1' /> Csharp
-                            </span>
-                            <span className='flex flex-row text-base text-white vrd'>
-                              <BsWordpress className='text-white text-md mt-1 mr-1' /> WordPress
-                            </span>
-                          </div>
-                        </div>
-                        <div className='flex flex-wrap flex-col gap-2'>
-                          <label className='text-xl text-white w-full lrj'>SOFT <b>SKILLS</b></label>
-                          <hr className="w-full border-gray-500" />
-                          <div className='flex flex-wrap flex-row gap-4 mb-2'>
-                            <span className='flex flex-row text-base text-white vrd'>
-                              <FaCloudUploadAlt className='text-white text-md mt-1 mr-1' /> DevOps
-                            </span>
-                            <span className='flex flex-row text-base text-white vrd'>
-                              <SiDocker className='text-white text-md mt-1 mr-1' /> Docker
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                      <label className='flex text-xl text-white w-full lrj mt-4'>FRAME<b>WORKS</b></label>
-                      <div className='flex flex-wrap flex-wrap gap-4'>
-                        <div className='flex flex-wrap flex-col gap-2'>
-                          <label className='azl-lev w-full uppercase text-base'>
-                            BACK <b>END</b>
-                          </label>
-                          <hr className="w-full border-gray-500" />
-                          <div className='flex flex-row gap-3 mb-1'>
-                            <span className='flex flex-row text-base text-white vrd'>
-                              <SiExpress className='text-white text-xl mt-1 mr-1' /> ExpressJS
-                            </span>
-                            <span className='flex flex-row text-base text-white vrd'>
-                              <SiNestjs className='text-white text-xl mt-1 mr-1' /> NestJS
-                            </span>
-                            <span className='flex flex-row text-base text-white vrd'>
-                              <SiAdonisjs className='text-white text-xl mt-1 mr-1' /> AdonisJS
-                            </span>
-                            <span className='flex flex-row text-base text-white vrd'>
-                              <SiDotnet className='text-white text-xl mt-1 mr-1' /> .NET
-                            </span>
-                          </div>
-                        </div>
-                        <div className='flex flex-col gap-2'>
-                          <label className='azl-lev w-full text-base uppercase'>
-                            FRONT<b>END</b>
-                          </label>
-                          <hr className="w-full border-gray-500" />
-                          <div className='flex flex-row gap-3 mb-1'>
-                            <span className='flex flex-row text-base text-white vrd'>
-                              <BiLogoReact className='text-white text-xl mt-1 mr-1' /> ReactJS
-                            </span>
-                            <span className='flex flex-row text-base text-white vrd'>
-                              <TbBrandNextjs className='text-white text-xl mt-1 mr-1' /> NextJS
-                            </span>
-                            <span className='flex flex-row text-base text-white vrd'>
-                              <BiLogoTailwindCss className='text-white text-xl mt-1 mr-1' /> Tailwind
-                            </span>
-                            <span className='flex flex-row text-base text-white vrd'>
-                              <BiLogoVuejs className='text-white text-xl mt-1 mr-1' /> VueJS
-                            </span>
-                            <span className='flex flex-row text-base text-white vrd'>
-                              <BiLogoAngular className='text-white text-xl mt-1 mr-1' /> AngularJS
-                            </span>
-                          </div>
-                        </div>
-                        <div className='flex flex-col gap-2'>
-                          <label className='azl-lev w-full uppercase text-base'>
-                            VERSIONING
-                          </label>
-                          <hr className="w-full border-gray-500" />
-                          <div className='flex flex-row gap-3'>
-                            <span className='flex flex-row text-base text-white vrd'>
-                              <FaGitSquare className='text-white text-xl mt-1 mr-1' /> GitFlow
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                    </>
-                  </span>
-                  <div>
                   </div>
+                  <>
+                    <div className='flex flex-wrap gap-4'>
+                      <div className='flex flex-wrap flex-col gap-1'>
+                        <label className='text-base text-white w-full lrj'>HARD <b>SKILLS</b></label>
+                        <hr className="w-full border-gray-500" />
+                        <div className='flex flex-wrap flex-row gap-2 mb-2'>
+                          <span className='flex flex-row text-xl text-white vrd'>
+                            <BiLogoJavascript className='text-white text-md mt-1 mr-1' /> JavaScript
+                          </span>
+                          <span className='flex flex-row text-xl text-white vrd'>
+                            <BiLogoTypescript className='text-white text-md mt-1 mr-1' /> TypeScript
+                          </span>
+                          <span className='flex flex-row text-xl text-white vrd'>
+                            <FaNodeJs className='text-white text-md mt-1 mr-1' /> NodeJS
+                          </span>
+                          <span className='flex flex-row text-xl text-white vrd'>
+                            <SiCsharp className='text-white text-md mt-1 mr-1' /> Csharp
+                          </span>
+                        </div>
+                      </div>
+                      <div className='flex flex-wrap flex-col gap-1'>
+                        <label className='text-base text-white w-full lrj'>SOFT <b>SKILLS</b></label>
+                        <hr className="w-full border-gray-500" />
+                        <div className='flex flex-wrap flex-row gap-4 mb-2'>
+                          <span className='flex flex-row text-xl text-white vrd'>
+                            <FaCloudUploadAlt className='text-white text-md mt-1 mr-1' /> DevOps
+                          </span>
+                          <span className='flex flex-row text-xl text-white vrd'>
+                            <SiDocker className='text-white text-md mt-1 mr-1' /> Docker
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    <label className='flex text-base text-white w-full lrj mt-1'>FRAME<b>WORKS</b></label>
+                    <div className='flex flex-wrap flex-wrap gap-4'>
+                      <div className='flex flex-wrap flex-col gap-1'>
+                        <label className='azl-lev w-full uppercase text-base'>BACK <b>END</b></label>
+                        <hr className="w-full border-gray-500" />
+                        <div className='flex flex-row flex-wrap gap-3 mb-1'>
+                          <span className='flex flex-row text-xl text-white vrd'>
+                            <SiExpress className='text-white text-xl mt-1 mr-1' /> ExpressJS
+                          </span>
+                          <span className='flex flex-row text-xl text-white vrd'>
+                            <SiNestjs className='text-white text-xl mt-1 mr-1' /> NestJS
+                          </span>
+                          <span className='flex flex-row text-xl text-white vrd'>
+                            <SiAdonisjs className='text-white text-xl mt-1 mr-1' /> AdonisJS
+                          </span>
+                          <span className='flex flex-row text-xl text-white vrd'>
+                            <SiDotnet className='text-white text-xl mt-1 mr-1' /> .NET
+                          </span>
+                        </div>
+                      </div>
+                      <div className='flex flex-col flex-wrap gap-1'>
+                        <label className='azl-lev w-full text-base uppercase'>FRONT<b> END</b></label>
+                        <hr className="w-full border-gray-500" />
+                        <div className='flex flex-row flex-wrap gap-3 mb-1'>
+                          <span className='flex flex-row text-xl text-white vrd'>
+                            <BiLogoReact className='text-white text-xl mt-1 mr-1' /> ReactJS
+                          </span>
+                          <span className='flex flex-row text-xl text-white vrd'>
+                            <TbBrandNextjs className='text-white text-xl mt-1 mr-1' /> NextJS
+                          </span>
+                          <span className='flex flex-row text-xl text-white vrd'>
+                            <BiLogoTailwindCss className='text-white text-xl mt-1 mr-1' /> Tailwind
+                          </span>
+                          <span className='flex flex-row text-xl text-white vrd'>
+                            <BiLogoVuejs className='text-white text-xl mt-1 mr-1' /> VueJS
+                          </span>
+                          <span className='flex flex-row text-xl text-white vrd'>
+                            <BiLogoAngular className='text-white text-xl mt-1 mr-1' /> AngularJS
+                          </span>
+                        </div>
+                      </div>
+                      <div className='flex flex-col gap-1'>
+                        <label className='azl-lev w-full uppercase text-base'>VERSIONING</label>
+                        <hr className="w-full border-gray-500" />
+                        <div className='flex flex-row gap-3'>
+                          <span className='flex flex-row text-xl text-white vrd'>
+                            <FaGitSquare className='text-white text-xl mt-1 mr-1' /> GitFlow
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </>
                   <br />
-                  <hr className='w-full border-gray-500 mt-4 mb-4' />
                 </div>
-                <div>
+                <div className='flex flex-wrap w-full'>
+                  <hr className='w-full border-gray-500 mt-4 mb-4 pr-3 pl-3' />
                   <p className='flex flex-row flex-wrap gap-3'>
                     <span className="text-base text-gray-300 pt-1 text-justify" style={{ textIndent: 12 }}>
                       I have been working as a software developer since <b>2019</b>, with solid experience in developing, maintaining, and modernizing <b>full-stack applications</b>, including both greenfield projects and legacy systems. I am involved throughout the entire software development lifecycle, from requirements analysis and system architecture to <b>implementation, testing, deployment, and maintenance</b>.
@@ -491,6 +497,7 @@ function App() {
                       My primary focus is on <b>Node.js</b> and <b>C#</b>, using frameworks such as <b>Express</b>, <b>AdonisJS</b>, and <b>.NET</b>, along with <b>React on the frontend</b>. I apply principles like <b>SOLID</b>, <b>Clean Architecture</b>, and <b>layered architectures</b> to build scalable, robust, and maintainable software solutions aligned with business needs.
                     </span>
                   </p>
+                  <hr className='w-full border-gray-500 mt-4 mb-4 pr-3 pl-3' />
                   <br />
                 </div>
                 {/* <div className='flex flex-wrap gap-4'>
@@ -591,90 +598,92 @@ function App() {
         </Sessao>
         <Sessao>
           <div id="carreira" className="flex relative items-center flex-col mr-auto ml-auto md:pr-6 md:pl-6 pt-4 overflow-hidden" ref={myRef2}>
-            <div className="flex w-full absolute top-2 text-center" style={{ width: 600 }}>
-              <div className='h-1 w-full flex bg-white mt-9' style={{ height: 2 }} />
-              <h1 className="w-full mt-4 flex justify-center white text-2xl text-white">
-                Carreira
-              </h1>
-              <div className='h-1 w-full flex bg-white mt-9' style={{ height: 2 }} />
-              <div />
+            <div className="flex flex-row justify-left text-left top-2 mb-4 w-full md:pr-6 md:pl-6" style={{ maxWidth: 1300, marginLeft: 'auto', marginRight: 'auto' }}>
+              <span className="mt-4 flex justify-center align-center vrl" style={{ fontSize: 35, marginTop: 23 }}>
+                <HiOutlineFastForward />
+              </span>
+              <span className="mt-4 flex justify-center align-center text-gray-400" style={{ fontSize: 35 }}>
+                {t('carreira.title')}
+              </span>
             </div>
-            <span className='flex w-full mt-5 mb-3 mr-auto ml-auto' style={{ maxWidth: 180, marginTop: 70 }}>
-              <ol id="steppter" className="flex items-center w-full mr-auto ml-auto" style={{ maxWidth: 300 }}>
+
+            <div className="w-full" style={{ maxWidth: 1300, marginLeft: 'auto', marginRight: 'auto' }}>
+              <div className="flex flex-col items-center mb-6">
+                <ol id="steppter" className="flex items-center w-full" style={{ maxWidth: 400 }}>
+                  {
+                    timeLine.carrer.map((a, b) => {
+                      switch (b) {
+                        case 0:
+                        case 1:
+                          return (
+                            <React.Fragment key={b}>
+                              <li className="flex w-full items-center" onClick={() => changeTimeLine(b)}>
+                                <span className={"flex items-center justify-center w-10 h-10 rounded-full shrink-0 cursor-pointer transition-all duration-300 hover:scale-110" + (b < actualTime ? ' bg-emerald-500 shadow-lg shadow-emerald-500/30 ' : b === actualTime ? ' bg-gradient-to-b from-blue-500 to-indigo-600 border-blue-300 border-2 shadow-lg shadow-blue-500/30 ' : ' bg-gray-700 hover:bg-gray-600 ')}>
+                                  <span className={"font-bold text-xs" + (b < actualTime ? ' text-white ' : b === actualTime ? ' text-white' : ' text-gray-400 ')}>{a.year}</span>
+                                </span>
+                              </li>
+                              <hr className={'w-full border' + (b < actualTime ? ' border-emerald-500/60 ' : b === actualTime ? ' border-blue-400/60' : ' border-gray-700 ')} />
+                            </React.Fragment>
+                          );
+                        default:
+                          return (
+                            <React.Fragment key={b}>
+                              <li className="flex w-full items-center" onClick={() => setActualTime(b)}>
+                                <span className={"flex items-center justify-center w-10 h-10 rounded-full shrink-0 cursor-pointer transition-all duration-300 hover:scale-110" + (b < actualTime ? ' bg-emerald-500 shadow-lg shadow-emerald-500/30 ' : b === actualTime ? ' bg-gradient-to-b from-blue-500 to-indigo-600 border-blue-300 border-2 shadow-lg shadow-blue-500/30 ' : ' bg-gray-700 hover:bg-gray-600 ')}>
+                                  <span className={"font-bold text-xs" + (b < actualTime ? ' text-white ' : b === actualTime ? ' text-white' : ' text-gray-400 ')}>{a.year}</span>
+                                </span>
+                              </li>
+                            </React.Fragment>
+                          );
+                      }
+                    })
+                  }
+                </ol>
+              </div>
+
+              <div className='flex w-full mb-4 gap-2 justify-center'>
                 {
-                  timeLine.carrer.map((a, b) => {
-                    switch (b) {
-                      case 0:
-                      case 1:
-                        return (
-                          <React.Fragment key={b}>
-                            <li className="flex w-full items-center" onClick={() => changeTimeLine(b)}>
-                              <span className={"flex items-center justify-center w-8 h-8 bg-gray-300 rounded-full shrink-0" + (b < actualTime ? ' bg-green-300 ' : b === actualTime ? ' bg-gradient-to-b from-cyan-500 to-blue-700 border-white border-2 ' : ' bg-gray-200')}>
-                                <span className={"font-bold" + (b < actualTime ? ' text-blue-700 ' : b === actualTime ? ' text-white font-bolder' : ' text-blue-800 ')} style={{ lineHeight: 1 }}>{a.year}</span>
-                              </span>
-                            </li>
-                            <hr className={'w-full border-2' + (b < actualTime ? ' border-green-300 ' : b === actualTime ? ' border-white' : ' border-gray-200 ')} />
-                          </React.Fragment>
-                        );
-                      default:
-                        return (
-                          <React.Fragment key={b}>
-                            <li className="flex w-full items-center" onClick={() => setActualTime(b)}>
-                              <span className={"flex items-center justify-center w-8 h-8 bg-gray-300 rounded-full shrink-0" + (b < actualTime ? ' bg-green-300 ' : b === actualTime ? ' bg-gradient-to-b from-cyan-500 to-blue-700 border-white border-2 ' : ' bg-gray-200')}>
-                                <span className={"font-bold" + (b < actualTime ? ' text-blue-700 ' : b === actualTime ? ' text-white font-bolder' : ' text-blue-800 ')}>{a.year}</span>
-                              </span>
-                            </li>
-                          </React.Fragment>
-                        );
-                    }
+                  timeLine.carrer[actualTime].services.map((a, b) => {
+                    return (
+                      <button key={'timeline-' + b} className={"w-8 h-8 text-sm font-semibold rounded-full transition-all duration-200" + (b === actualService ? ' bg-blue-500 text-white shadow-md shadow-blue-500/40' : ' bg-gray-700 text-gray-400 border border-gray-600 hover:bg-gray-600')} onClick={() => setActualService(b)}>{b + 1}</button>
+                    )
                   })
                 }
+              </div>
 
-              </ol>
-            </span>
-            <div className='flex w-full mt-2 mb-2 mr-auto ml-auto gap-3 justify-center' style={{ maxWidth: 300 }}>
-              {
-                timeLine.carrer[actualTime].services.map((a, b) => {
-                  return (
-                    <button key={'timeline-' + b} className={"outline outline-offset-2 outline-1 border-gray-300 font-semibold w-5 h-5 rounded-full text-gray-300" + (b === actualService ? ' bg-blue-500 ' : ' ')} onClick={() => setActualService(b)}>{b + 1}</button>
-                  )
-                })
-              }
-            </div>
-            <div className="md:w-2/3 white text-left pt-2 pb-3 mr-auto ml-auto" style={{ maxWidth: 650 }}>
-              <hr className='w-full mt-1 mb-3 vrd' />
-              <p className="text-xl text-white mb-1 mt-1 text-left tracking-widest">{timeLine.carrer[actualTime].services[actualService].title}</p>
-              <p className="flex text-md mb-1 mt-1 text-left text-justify bold text-white font-semibold azl">{timeLine.carrer[actualTime].services[actualService].service}</p>
-              <p className="flex text-sm mb-1 mt-1 text-left text-left text-white text-lg flex-wrap font-medium vrd">
-                {generateTechOutput(timeLine.carrer[actualTime].services[actualService].techs)}
-              </p>
-              <hr className='w-full mt-3 mb-1 vrd' />
-              {
-                timeLine.carrer[actualTime].services[actualService].challenge ?
-                  <>
-                    <label className='text-blue-300 mt-1 uppercase' style={{ fontSize: 9 }}>desafio:</label>
-                    <div className="flex items-center azl-bg text-white px-2 py-1 mt-1 mb-2 uppercase" style={{ fontSize: 10 }} role="alert">
-                      <GoAlert className='text-white text-2xl mr-2' />
-                      <p>{timeLine.carrer[actualTime].services[actualService].challenge}</p>
-                    </div>
-                  </>
-                  : null
-              }
-              <label className='text-blue-300 mt-1 uppercase' style={{ fontSize: 9 }}>descrição:</label>
-              <div className="text-gray-200">{transformarQuebraDeLinhaEmParagrafo(timeLine.carrer[actualTime].services[actualService].description)}</div>
-              {
-                timeLine.carrer[actualTime].services[actualService].link ?
-                  <a
-                    href={timeLine.carrer[actualTime].services[actualService].link}
-                    target="_blank" rel="noopener noreferrer"
-                    className='flex flex-row bg-blue-600 text-white py-2 mt-2 px-5 rounded-full'
-                    style={{ maxWidth: '130px' }}
-                  >
-                    <TbWorldWww className='mr-2 text-xl' style={{ marginTop: '2px' }} />
-                    ver site.
-                  </a>
-                  : null
-              }
+              <div className="bg-gray-800/40 rounded-xl p-5 md:p-7 border border-gray-700/50" style={{ maxWidth: 750, marginLeft: 'auto', marginRight: 'auto' }}>
+                <p className="text-xl text-white mb-1 tracking-widest font-semibold">{timeLine.carrer[actualTime].services[actualService].title}</p>
+                <p className="text-md mb-2 text-amber-300 font-semibold">{timeLine.carrer[actualTime].services[actualService].service}</p>
+                <hr className='w-full my-3 border-blue-400/40' />
+                <p className="flex text-sm text-white flex-wrap font-medium text-cyan-400 gap-1">
+                  {generateTechOutput(timeLine.carrer[actualTime].services[actualService].techs)}
+                </p>
+                {
+                  timeLine.carrer[actualTime].services[actualService].challenge ?
+                    <>
+                      <label className='text-blue-400 mt-3 uppercase tracking-wider' style={{ fontSize: 9 }}>{t('carreira.challenge')}</label>
+                      <div className="flex items-start bg-blue-500/10 border border-blue-400/20 text-blue-200 px-3 py-2 mt-1 mb-3 rounded-lg" style={{ fontSize: 11 }} role="alert">
+                        <GoAlert className='text-blue-400 text-lg mr-2 mt-0.5 shrink-0' />
+                        <p>{timeLine.carrer[actualTime].services[actualService].challenge}</p>
+                      </div>
+                    </>
+                    : null
+                }
+                <label className='text-blue-400 mt-1 uppercase tracking-wider' style={{ fontSize: 9 }}>{t('carreira.description')}</label>
+                <div className="text-gray-300 mt-1">{transformarQuebraDeLinhaEmParagrafo(timeLine.carrer[actualTime].services[actualService].description)}</div>
+                {
+                  timeLine.carrer[actualTime].services[actualService].link ?
+                    <a
+                      href={timeLine.carrer[actualTime].services[actualService].link}
+                      target="_blank" rel="noopener noreferrer"
+                      className='inline-flex flex-row items-center bg-blue-600 hover:bg-blue-500 text-white py-2 mt-3 px-5 rounded-full transition-colors duration-200'
+                    >
+                      <TbWorldWww className='mr-2 text-xl' />
+                      {t('carreira.verSite')}
+                    </a>
+                    : null
+                }
+              </div>
             </div>
           </div>
         </Sessao>
@@ -683,14 +692,14 @@ function App() {
             <div className="flex w-full absolute top-2 text-center" style={{ width: 600 }}>
               <div className='h-1 w-full flex bg-white mt-9' style={{ height: 2 }} />
               <h1 className="w-full mt-4 flex justify-center white text-2xl text-white">
-                Portfólio
+                {t('portfolio.title')}
               </h1>
               <div className='h-1 w-full flex bg-white mt-9' style={{ height: 2 }} />
               <div />
             </div>
             <div className="flex flex-col gap-3 mr-auto ml-auto w-full mt-4 white text-xl text-center justify-center items-center text-white p-5" style={{ border: "3px dotted gray" }}>
               <RiToolsLine className='text-3xl' />
-              <h1>área em <br />manutenção</h1>
+              <h1>{t('portfolio.maintenance').split(' ')[0]} <br />{t('portfolio.maintenance').split(' ').slice(1).join(' ')}</h1>
             </div>
           </div>
         </Sessao>

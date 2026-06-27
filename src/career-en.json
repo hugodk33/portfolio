@@ -1,0 +1,178 @@
+{
+    "carrer":
+    [
+        {
+            "year": "<= 2021",
+            "services": [
+                {
+                    "title": "Alpha Sistemas",
+                    "service": "React and C# Developer",
+                    "link": "https://alphasystemas.com.br/",
+                    "techs": [
+                        "wordpress",
+                        "html",
+                        "css",
+                        "php",
+                        "node",
+                        "javascript",
+                        "typescript",
+                        "jquery",
+                        "csharp",
+                        "dotnet"
+                    ],
+                    "challenge": "Mastering obsolete and undocumented legacy stacks.",
+                    "description": "Worked on several different projects, including developing new solutions and legacy maintenance, learning how all IT sectors work, from service to installation."
+                },
+                {
+                    "title": "Soluthec",
+                    "service": "Institutional Website",
+                    "link": "https://soluthec.com.br/",
+                    "techs": [
+                        "wordpress",
+                        "html",
+                        "css",
+                        "php",
+                        "javascript",
+                        "jquery"
+                    ],
+                    "challenge": null,
+                    "description": "Simple institutional website."
+                },
+                {
+                    "title": "Freelance Client",
+                    "service": "Front End",
+                    "link": "https://codepen.io/Hugodk33/details/vYEammO",
+                    "techs": [
+                        "react",
+                        "javascript"
+                    ],
+                    "challenge": null,
+                    "description": "Develop an interface that met the client's expectations."
+                },
+                {
+                    "title": "Shopping Fortaleza Sul",
+                    "service": "Website with Store Locator",
+                    "link": "https://shoppingfortalezasul.com.br/",
+                    "techs": [
+                        "wordpress",
+                        "html",
+                        "css",
+                        "php",
+                        "javascript",
+                        "jquery"
+                    ],
+                    "challenge": null,
+                    "description": "Created a website where the interface made it easy to find stores and get information such as media, phone number, and location within the mall. A WordPress plugin was developed that could be updated without needing a programmer."
+                }
+            ]
+        },
+        {
+            "year": 2022,
+            "services": [
+                {
+                    "title": "Tecla T",
+                    "service": "Software Development",
+                    "link": "https://codepen.io/Hugodk33/details/vYEammO",
+                    "techs": [
+                        "node",
+                        "adonis",
+                        "aws",
+                        "next",
+                        "react",
+                        "javascript",
+                        "typescript",
+                        "mysql"
+                    ],
+                    "challenge": "High-level challenges from a software house with high demand.",
+                    "description": "Worked as a front-end developer, working on multiple projects over a year and a half."
+                },
+                {
+                    "title": "Água Santa Sophia",
+                    "service": "Institutional Website",
+                    "link": null,
+                    "techs": [
+                        "wordpress",
+                        "html",
+                        "css",
+                        "php",
+                        "javascript",
+                        "jquery"
+                    ],
+                    "challenge": null,
+                    "description": "Created an institutional website for the brand."
+                }
+            ]
+        },
+        {
+            "year": 2023,
+            "services": [
+                {
+                    "title": "Mob Telecom | Grupo Alloha",
+                    "service": "Support and Software Development",
+                    "link": "https://mobtelecom.com.br/",
+                    "techs": [
+                        "node",
+                        "adonis",
+                        "express",
+                        "react",
+                        "javascript",
+                        "mysql",
+                        "aws"
+                    ],
+                    "challenge": "Participate in all processes of a large company with several distinct and dynamic departments.",
+                    "description": "Maintenance of integration endpoints, website maintenance and development, monitoring new solutions."
+                },
+                {
+                    "title": "Fábrica Tataluga",
+                    "service": "Integrated Ecommerce",
+                    "link": "https://www.tataluga.com.br/",
+                    "techs": [
+                        "wordpress",
+                        "html",
+                        "css",
+                        "php",
+                        "javascript",
+                        "jquery",
+                        "csharp",
+                        "dotnet"
+                    ],
+                    "challenge": "The ecommerce would need to share stock with the already registered desktop system.",
+                    "description": "Created a virtual store based on WordPress and WooCommerce, integrating with a system already used in all brand processes, incorporating CRM rules."
+                },
+                {
+                    "title": "ONG Maria Sooder",
+                    "service": "Complete Software Planning and Development",
+                    "link": "https://soodermaria.org/v1/pt/",
+                    "techs": [
+                        "node",
+                        "adonis",
+                        "aws",
+                        "next",
+                        "react",
+                        "javascript",
+                        "mysql"
+                    ],
+                    "challenge": "Handle all software creation processes, from requirements to deployment, performing cloud deployment from scratch.",
+                    "description": "Transformed the NGO's bureaucratic process into a system. Everything was done from requirements gathering, backend development, frontend, and cloud deployment."
+                },
+                {
+                    "title": "Fábrica Kero Mais",
+                    "link": "http://pskeromais.com.br/",
+                    "service": "Full-stack Software",
+                    "techs": [
+                        "node",
+                        "csharp",
+                        "dotnet",
+                        "aws",
+                        "react",
+                        "javascript",
+                        "mysql",
+                        "tailwind"
+                    ],
+                    "challenge": "Transform the abstract idea into a viable project.",
+                    "description": "Complete software: requirements gathering, design, kernel, frontend, database, and deployment."
+                }
+            ]
+        }
+    ]
+}

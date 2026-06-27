@@ -58,13 +58,13 @@ body , html {
 
 .Sessao:first-child {
   /* background-image: url('./assets/bg-tech-03.jpg'); */
-  background-color: #1f1f1f;
+  background-color: #000;
   background-size: 100% auto;
   background-repeat: no-repeat;
 }
 
 .Sessao:nth-child(2) {
-  background-color: #303030;
+  background-color: #101010;
   /* background-image: radial-gradient(circle at 50% -10%, #393939 , black) */
   /* background: radial-gradient(circle, rgba(136,159,255,1) 0%, rgba(18,176,81,1) 87%, rgba(57,52,49,1) 100%); */
 }
@@ -94,8 +94,7 @@ body , html {
 }
 
 .Sessao:nth-child(3) {
-  background-color: #1f2c59;
-  /* background-image: radial-gradient(circle at 50% -10%, #203479 , #1f2c59) */
+  background-color: #303030;
 }
 
 .Sessao:nth-child(4) {
