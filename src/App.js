@@ -18,7 +18,7 @@ import career from './career.json'
 import careerEn from './career-en.json'
 import translations from './i18n/translations'
 import knight from './assets/knight.png'
-import huguim from './img/5eb05643-bf01-48c5-a134-cd0af3a6f489.png'
+import huguim from './img/eu.png'
 import logobranca from './assets/logo/logo-branca-01.svg'
 import curriculo from './assets/curriculo-victor-hugo.pdf'
 
@@ -43,25 +43,36 @@ function App() {
   const myRef3 = useRef(null);
 
   const checkPosition = () => {
-    if (myRef.current || myRef1.current || myRef2.current || myRef3.current) {
-      const rect = myRef.current.getBoundingClientRect();
-      const rect1 = myRef1.current.getBoundingClientRect();
-      const rect2 = myRef2.current.getBoundingClientRect();
-      const rect3 = myRef3.current.getBoundingClientRect();
+    const sections = [
+      { el: myRef.current, idx: 0 },
+      { el: myRef1.current, idx: 1 },
+      { el: myRef2.current, idx: 2 },
+      { el: myRef3.current, idx: 3 }
+    ];
 
-      const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+    let minDist = Infinity;
+    let activeIdx = -1;
 
-      if (rect.top >= 0 && rect.bottom <= windowHeight) {
-        setPageScroll([true, false, false, false])
-      } else if (rect1.top >= 0 && rect1.bottom <= windowHeight - 20) {
-        setPageScroll([false, true, false, false])
-        setArrayMenu([])
-        setArrayMenu2([])
-      } else if (rect2.top >= 0 && rect2.bottom <= windowHeight - 20) {
-        setPageScroll([false, false, true, false])
-      } else if (rect3.top >= 0 && rect3.bottom <= windowHeight - 20) {
-        setPageScroll([false, false, false, true])
+    sections.forEach(({ el, idx }) => {
+      if (el) {
+        const rect = el.getBoundingClientRect();
+        const dist = Math.abs(rect.top);
+        if (dist < minDist) {
+          minDist = dist;
+          activeIdx = idx;
+        }
       }
+    });
+
+    if (activeIdx >= 0) {
+      const newScroll = [false, false, false, false];
+      newScroll[activeIdx] = true;
+      setPageScroll(newScroll);
+    }
+
+    if (activeIdx === 1) {
+      setArrayMenu([]);
+      setArrayMenu2([]);
     }
   };
 
@@ -315,7 +326,7 @@ function App() {
                 >
                   {LogoAnimaAsci.logo[frame].join('\n')}
                 </div>
-                <span className='md:w-3/5 w-full justify-center align-center flex-col mt-4 pl-5' style={{ borderLeft: "1px solid gray" }}>
+                <span className='md:w-3/5 w-full justify-center align-center flex-col mt-4 pl-5' style={{ borderLeft: "1px solid #2c2c2c" }}>
                   <h1 id="header-1" className="mt-1 mb-1 bg-transparency-2 text-2xl vrl" style={{ fontSize: "2em" }}>
                     Hugo<b> Amorim</b>
                   </h1>
@@ -358,244 +369,246 @@ function App() {
             }
           </div>
         </Sessao>
-        <Sessao>
-          <div className="flex flex-row justify-left text-left top-2 mb-4 w-full md:pr-6 md:pl-6" style={{ maxWidth: 1300, marginLeft: 'auto', marginRight: 'auto' }} ref={myRef1}>
-            <span className="mt-4 flex justify-center align-center vrl" style={{ fontSize: 35, marginTop: 23 }}>
-              <HiOutlineUserCircle />
-            </span>
-            <span className="mt-4 flex justify-center align-center text-gray-400" style={{ fontSize: 35 }}>
-              {t('bio.title')}
-            </span>
-          </div>
-          <div id="bio" className="flex w-full relative items-center flex-col mr-auto ml-auto md:pr-6 md:pl-6 overflow-hidden" style={{ maxWidth: 1300, marginLeft: 'auto', marginRight: 'auto' }}>
-            <div className="flex flex-wrap w-full" style={{ zIndex: 10 }}>
-              {/* <div className="md:w-1/4 md:pr-5 w-full">
-                <img className='flex w-full border-2 border-white avatar' src={huguim} />
-              </div> */}
-              <div className="w-full flex flex-wrap white text-left pt-5 pb-6">
-                <div className='flex flex-wrap w-full'>
-                  <div className='flex flex-wrap flex-row w-full'>
-                    <span className='pr-3 pb-3'>
-                      {/* style={{ aspectRatio: '1 / 1', maxWidth: 230 , maxHeight: 255 }} */}
-                      <img className=' avatar w-full mb-2 border-2 border-white' style={{ maxHeight: 230, maxWidth: 230 }} src={huguim} />
-                    </span>
-                    <span className=' flex items-center' >
-                      <span>
-                        <h1 className="text-3xl mb-1 text-white tracking-widest vrd">Hugo<b> Amorim</b></h1>
-                        <h2 className="text-2xl mb-1 mt-1 text-white tracking-widest azl-lev">Full<b>Stack</b> DEV</h2>
-                        <span id="header-4" className="flex gap-1 mt-2 white text-md mb-4" style={{ fontSize: '2rem' }}>
-                          <a className={"flex border-1 rounded-full p-2 vrl-borda text-xl vrl"}>
-                            <BsWhatsapp style={{ fontSize: '1em' }} />
-                          </a>
-                          <a className={"flex border-1 rounded-full p-2 vrl-borda text-xl vrl"}>
-                            <BsLinkedin style={{ fontSize: '1em' }} />
-                          </a>
-                          <a className={"flex border-1 rounded-full vrl-borda p-2 text-xl vrl"}>
-                            <HiOutlineMail style={{ fontSize: '1em' }} />
-                          </a>
+        <div className="w-full bg-gradient-to-r from-slate-900 to-slate-800 flex flex-col">
+          <div style={{ maxWidth: 1300, marginLeft: 'auto', marginRight: 'auto' }} ref={myRef1}>
+            <div className="flex flex-row justify-left text-left top-2 mb-4 w-full md:pr-6 md:pl-6" style={{ maxWidth: 1300, marginLeft: 'auto', marginRight: 'auto' }} ref={myRef1}>
+              <span className="mt-4 flex justify-center align-center vrl" style={{ fontSize: 35, marginTop: 23 }}>
+                <HiOutlineUserCircle />
+              </span>
+              <span className="mt-4 flex justify-center align-center text-gray-400" style={{ fontSize: 35 }}>
+                {t('bio.title')}
+              </span>
+            </div>
+            <div id="bio" className="flex w-full relative items-center flex-col mr-auto ml-auto md:pr-6 md:pl-6 overflow-hidden" style={{ maxWidth: 1300, marginLeft: 'auto', marginRight: 'auto' }}>
+              <div className="flex flex-wrap w-full" style={{ zIndex: 10 }}>
+                {/* <div className="md:w-1/4 md:pr-5 w-full">
+                  <img className='flex w-full border-2 border-white avatar' src={huguim} />
+                </div> */}
+                <div className="w-full flex flex-wrap white text-left pt-5 pb-6 px-2">
+                  <div className='flex flex-wrap w-full'>
+                    <div className='flex flex-wrap flex-row w-full'>
+                      <span className='pr-3 pb-3'>
+                        {/* style={{ aspectRatio: '1 / 1', maxWidth: 230 , maxHeight: 255 }} */}
+                        <img className=' avatar w-full mb-2 border-2 border-white' style={{ maxHeight: 230, maxWidth: 230 }} src={huguim} />
+                      </span>
+                      <span className=' flex items-center' >
+                        <span>
+                          <h1 className="text-3xl mb-1 text-white tracking-widest vrd">Hugo<b> Amorim</b></h1>
+                          <h2 className="text-2xl mb-1 mt-1 text-white tracking-widest azl-lev">Full<b>Stack</b> DEV</h2>
+                          <span id="header-4" className="flex gap-1 mt-2 white text-md mb-4" style={{ fontSize: '2rem' }}>
+                            <a className={"flex border-1 rounded-full p-2 vrl-borda text-xl vrl"}>
+                              <BsWhatsapp style={{ fontSize: '1em' }} />
+                            </a>
+                            <a className={"flex border-1 rounded-full p-2 vrl-borda text-xl vrl"}>
+                              <BsLinkedin style={{ fontSize: '1em' }} />
+                            </a>
+                            <a className={"flex border-1 rounded-full vrl-borda p-2 text-xl vrl"}>
+                              <HiOutlineMail style={{ fontSize: '1em' }} />
+                            </a>
+                          </span>
                         </span>
                       </span>
-                    </span>
+                    </div>
+                    <>
+                      <div className='flex flex-wrap gap-4'>
+                        <div className='flex flex-wrap flex-col gap-1'>
+                          <label className='text-base text-white w-full lrj'>HARD <b>SKILLS</b></label>
+                          <hr className="w-full border-gray-500" />
+                          <div className='flex flex-wrap flex-row gap-2 mb-2'>
+                            <span className='flex flex-row text-xl text-white vrd'>
+                              <BiLogoJavascript className='text-white text-md mt-1 mr-1' /> JavaScript
+                            </span>
+                            <span className='flex flex-row text-xl text-white vrd'>
+                              <BiLogoTypescript className='text-white text-md mt-1 mr-1' /> TypeScript
+                            </span>
+                            <span className='flex flex-row text-xl text-white vrd'>
+                              <FaNodeJs className='text-white text-md mt-1 mr-1' /> NodeJS
+                            </span>
+                            <span className='flex flex-row text-xl text-white vrd'>
+                              <SiCsharp className='text-white text-md mt-1 mr-1' /> Csharp
+                            </span>
+                          </div>
+                        </div>
+                        <div className='flex flex-wrap flex-col gap-1'>
+                          <label className='text-base text-white w-full lrj'>SOFT <b>SKILLS</b></label>
+                          <hr className="w-full border-gray-500" />
+                          <div className='flex flex-wrap flex-row gap-4 mb-2'>
+                            <span className='flex flex-row text-xl text-white vrd'>
+                              <FaCloudUploadAlt className='text-white text-md mt-1 mr-1' /> DevOps
+                            </span>
+                            <span className='flex flex-row text-xl text-white vrd'>
+                              <SiDocker className='text-white text-md mt-1 mr-1' /> Docker
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                      <label className='flex text-base text-white w-full lrj mt-1'>FRAME<b>WORKS</b></label>
+                      <div className='flex flex-wrap flex-wrap gap-4'>
+                        <div className='flex flex-wrap flex-col gap-1'>
+                          <label className='azl-lev w-full uppercase text-base'>BACK <b>END</b></label>
+                          <hr className="w-full border-gray-500" />
+                          <div className='flex flex-row flex-wrap gap-3 mb-1'>
+                            <span className='flex flex-row text-xl text-white vrd'>
+                              <SiExpress className='text-white text-xl mt-1 mr-1' /> ExpressJS
+                            </span>
+                            <span className='flex flex-row text-xl text-white vrd'>
+                              <SiNestjs className='text-white text-xl mt-1 mr-1' /> NestJS
+                            </span>
+                            <span className='flex flex-row text-xl text-white vrd'>
+                              <SiAdonisjs className='text-white text-xl mt-1 mr-1' /> AdonisJS
+                            </span>
+                            <span className='flex flex-row text-xl text-white vrd'>
+                              <SiDotnet className='text-white text-xl mt-1 mr-1' /> .NET
+                            </span>
+                          </div>
+                        </div>
+                        <div className='flex flex-col flex-wrap gap-1'>
+                          <label className='azl-lev w-full text-base uppercase'>FRONT<b> END</b></label>
+                          <hr className="w-full border-gray-500" />
+                          <div className='flex flex-row flex-wrap gap-3 mb-1'>
+                            <span className='flex flex-row text-xl text-white vrd'>
+                              <BiLogoReact className='text-white text-xl mt-1 mr-1' /> ReactJS
+                            </span>
+                            <span className='flex flex-row text-xl text-white vrd'>
+                              <TbBrandNextjs className='text-white text-xl mt-1 mr-1' /> NextJS
+                            </span>
+                            <span className='flex flex-row text-xl text-white vrd'>
+                              <BiLogoTailwindCss className='text-white text-xl mt-1 mr-1' /> Tailwind
+                            </span>
+                            <span className='flex flex-row text-xl text-white vrd'>
+                              <BiLogoVuejs className='text-white text-xl mt-1 mr-1' /> VueJS
+                            </span>
+                            <span className='flex flex-row text-xl text-white vrd'>
+                              <BiLogoAngular className='text-white text-xl mt-1 mr-1' /> AngularJS
+                            </span>
+                          </div>
+                        </div>
+                        <div className='flex flex-col gap-1'>
+                          <label className='azl-lev w-full uppercase text-base'>VERSIONING</label>
+                          <hr className="w-full border-gray-500" />
+                          <div className='flex flex-row gap-3'>
+                            <span className='flex flex-row text-xl text-white vrd'>
+                              <FaGitSquare className='text-white text-xl mt-1 mr-1' /> GitFlow
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </>
+                    <br />
                   </div>
-                  <>
-                    <div className='flex flex-wrap gap-4'>
-                      <div className='flex flex-wrap flex-col gap-1'>
-                        <label className='text-base text-white w-full lrj'>HARD <b>SKILLS</b></label>
-                        <hr className="w-full border-gray-500" />
-                        <div className='flex flex-wrap flex-row gap-2 mb-2'>
-                          <span className='flex flex-row text-xl text-white vrd'>
-                            <BiLogoJavascript className='text-white text-md mt-1 mr-1' /> JavaScript
-                          </span>
-                          <span className='flex flex-row text-xl text-white vrd'>
-                            <BiLogoTypescript className='text-white text-md mt-1 mr-1' /> TypeScript
-                          </span>
-                          <span className='flex flex-row text-xl text-white vrd'>
-                            <FaNodeJs className='text-white text-md mt-1 mr-1' /> NodeJS
-                          </span>
-                          <span className='flex flex-row text-xl text-white vrd'>
-                            <SiCsharp className='text-white text-md mt-1 mr-1' /> Csharp
-                          </span>
-                        </div>
-                      </div>
-                      <div className='flex flex-wrap flex-col gap-1'>
-                        <label className='text-base text-white w-full lrj'>SOFT <b>SKILLS</b></label>
-                        <hr className="w-full border-gray-500" />
-                        <div className='flex flex-wrap flex-row gap-4 mb-2'>
-                          <span className='flex flex-row text-xl text-white vrd'>
-                            <FaCloudUploadAlt className='text-white text-md mt-1 mr-1' /> DevOps
-                          </span>
-                          <span className='flex flex-row text-xl text-white vrd'>
-                            <SiDocker className='text-white text-md mt-1 mr-1' /> Docker
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                    <label className='flex text-base text-white w-full lrj mt-1'>FRAME<b>WORKS</b></label>
-                    <div className='flex flex-wrap flex-wrap gap-4'>
-                      <div className='flex flex-wrap flex-col gap-1'>
-                        <label className='azl-lev w-full uppercase text-base'>BACK <b>END</b></label>
-                        <hr className="w-full border-gray-500" />
-                        <div className='flex flex-row flex-wrap gap-3 mb-1'>
-                          <span className='flex flex-row text-xl text-white vrd'>
-                            <SiExpress className='text-white text-xl mt-1 mr-1' /> ExpressJS
-                          </span>
-                          <span className='flex flex-row text-xl text-white vrd'>
-                            <SiNestjs className='text-white text-xl mt-1 mr-1' /> NestJS
-                          </span>
-                          <span className='flex flex-row text-xl text-white vrd'>
-                            <SiAdonisjs className='text-white text-xl mt-1 mr-1' /> AdonisJS
-                          </span>
-                          <span className='flex flex-row text-xl text-white vrd'>
-                            <SiDotnet className='text-white text-xl mt-1 mr-1' /> .NET
-                          </span>
-                        </div>
-                      </div>
-                      <div className='flex flex-col flex-wrap gap-1'>
-                        <label className='azl-lev w-full text-base uppercase'>FRONT<b> END</b></label>
-                        <hr className="w-full border-gray-500" />
-                        <div className='flex flex-row flex-wrap gap-3 mb-1'>
-                          <span className='flex flex-row text-xl text-white vrd'>
-                            <BiLogoReact className='text-white text-xl mt-1 mr-1' /> ReactJS
-                          </span>
-                          <span className='flex flex-row text-xl text-white vrd'>
-                            <TbBrandNextjs className='text-white text-xl mt-1 mr-1' /> NextJS
-                          </span>
-                          <span className='flex flex-row text-xl text-white vrd'>
-                            <BiLogoTailwindCss className='text-white text-xl mt-1 mr-1' /> Tailwind
-                          </span>
-                          <span className='flex flex-row text-xl text-white vrd'>
-                            <BiLogoVuejs className='text-white text-xl mt-1 mr-1' /> VueJS
-                          </span>
-                          <span className='flex flex-row text-xl text-white vrd'>
-                            <BiLogoAngular className='text-white text-xl mt-1 mr-1' /> AngularJS
-                          </span>
-                        </div>
-                      </div>
-                      <div className='flex flex-col gap-1'>
-                        <label className='azl-lev w-full uppercase text-base'>VERSIONING</label>
-                        <hr className="w-full border-gray-500" />
-                        <div className='flex flex-row gap-3'>
-                          <span className='flex flex-row text-xl text-white vrd'>
-                            <FaGitSquare className='text-white text-xl mt-1 mr-1' /> GitFlow
-                          </span>
-                        </div>
+                  <div className='flex flex-wrap w-full'>
+                    <hr className='w-full border-gray-500 mt-4 mb-4 pr-3 pl-3' />
+                    <p className='flex flex-row flex-wrap gap-3'>
+                      <span className="text-base text-gray-300 pt-1 text-justify" style={{ textIndent: 12 }}>
+                        I have been working as a software developer since <b>2019</b>, with solid experience in developing, maintaining, and modernizing <b>full-stack applications</b>, including both greenfield projects and legacy systems. I am involved throughout the entire software development lifecycle, from requirements analysis and system architecture to <b>implementation, testing, deployment, and maintenance</b>.
+                      </span>
+                      <span className="text-base w-full text-gray-300 pt-1 text-justify" style={{ textIndent: 12 }}>
+                        My technical background is centered on <b>backend development</b>, with strong expertise in <b>RESTful API</b> design, authentication and authorization, third-party integrations, and <b>relational database modeling</b> and optimization. I also develop responsive, <b>component-based frontend applications</b> and create custom plugins and <b>extensions for CMS platforms</b>, always following best practices for maintainability, security, and performance.
+                      </span>
+                      <span className="text-base w-full text-gray-300 pt-1 text-justify" style={{ textIndent: 12 }}>
+                        My primary focus is on <b>Node.js</b> and <b>C#</b>, using frameworks such as <b>Express</b>, <b>AdonisJS</b>, and <b>.NET</b>, along with <b>React on the frontend</b>. I apply principles like <b>SOLID</b>, <b>Clean Architecture</b>, and <b>layered architectures</b> to build scalable, robust, and maintainable software solutions aligned with business needs.
+                      </span>
+                    </p>
+                    <hr className='w-full border-gray-500 mt-4 mb-4 pr-3 pl-3' />
+                    <br />
+                  </div>
+                  {/* <div className='flex flex-wrap gap-4'>
+                    <div className='flex flex-col gap-2'>
+                      <label className='text-xl text-white w-full lrj'>HARD <b>SKILLS</b></label>
+                      <hr className="w-full border-gray-500" />
+                      <div className='flex flex-row gap-4 mb-2'>
+                        <span className='flex flex-row text-base text-white vrd'>
+                          <BiLogoJavascript className='text-white text-md mt-1 mr-1' /> JavaScript
+                        </span>
+                        <span className='flex flex-row text-base text-white vrd'>
+                          <BiLogoTypescript className='text-white text-md mt-1 mr-1' /> TypeScript
+                        </span>
+                        <span className='flex flex-row text-base text-white vrd'>
+                          <FaNodeJs className='text-white text-md mt-1 mr-1' /> NodeJS
+                        </span>
+                        <span className='flex flex-row text-base text-white vrd'>
+                          <SiCsharp className='text-white text-md mt-1 mr-1' /> Csharp
+                        </span>
+                        <span className='flex flex-row text-base text-white vrd'>
+                          <BsWordpress className='text-white text-md mt-1 mr-1' /> WordPress
+                        </span>
                       </div>
                     </div>
-                  </>
-                  <br />
+                    <div className='flex flex-col gap-2'>
+                      <label className='text-xl text-white w-full lrj'>SOFT <b>SKILLS</b></label>
+                      <hr className="w-full border-gray-500" />
+                      <div className='flex flex-row gap-4 mb-2'>
+                        <span className='flex flex-row text-base text-white vrd'>
+                          <FaCloudUploadAlt className='text-white text-md mt-1 mr-1' /> DevOps
+                        </span>
+                        <span className='flex flex-row text-base text-white vrd'>
+                          <SiDocker  className='text-white text-md mt-1 mr-1' /> Docker
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <label className='flex text-xl text-white w-full lrj mt-4'>FRAME<b>WORKS</b></label>
+                  <div className='flex flex-wrap gap-4'>
+                    <div className='flex flex-col gap-2'>
+                      <label className='azl-lev w-full uppercase text-base'>
+                        BACK <b>END</b>
+                      </label>
+                      <hr className="w-full border-gray-500" />
+                      <div className='flex flex-row gap-3 mb-1'>
+                        <span className='flex flex-row text-base text-white vrd'>
+                          <SiExpress className='text-white text-xl mt-1 mr-1' /> ExpressJS
+                        </span>
+                        <span className='flex flex-row text-base text-white vrd'>
+                          <SiNestjs className='text-white text-xl mt-1 mr-1' /> NestJS
+                        </span>
+                        <span className='flex flex-row text-base text-white vrd'>
+                          <SiAdonisjs className='text-white text-xl mt-1 mr-1' /> AdonisJS
+                        </span>
+                        <span className='flex flex-row text-base text-white vrd'>
+                          <SiDotnet className='text-white text-xl mt-1 mr-1' /> .NET 
+                        </span>
+                      </div>
+                    </div>
+                    <div className='flex flex-col gap-2'>
+                      <label className='azl-lev w-full text-base uppercase'>
+                        FRONT<b>END</b>
+                      </label>
+                      <hr className="w-full border-gray-500" />
+                      <div className='flex flex-row gap-3 mb-1'>
+                        <span className='flex flex-row text-base text-white vrd'>
+                          <BiLogoReact className='text-white text-xl mt-1 mr-1' /> ReactJS
+                        </span>
+                        <span className='flex flex-row text-base text-white vrd'>
+                          <TbBrandNextjs className='text-white text-xl mt-1 mr-1' /> NextJS
+                        </span>
+                        <span className='flex flex-row text-base text-white vrd'>
+                          <BiLogoTailwindCss className='text-white text-xl mt-1 mr-1' /> Tailwind
+                        </span>
+                        <span className='flex flex-row text-base text-white vrd'>
+                          <BiLogoVuejs className='text-white text-xl mt-1 mr-1' /> VueJS
+                        </span>
+                        <span className='flex flex-row text-base text-white vrd'>
+                          <BiLogoAngular className='text-white text-xl mt-1 mr-1' /> AngularJS
+                        </span>
+                      </div>
+                    </div>
+                    <div className='flex flex-col gap-2'>
+                      <label className='azl-lev w-full uppercase text-base'>
+                        VERSIONING
+                      </label>
+                      <hr className="w-full border-gray-500" />
+                      <div className='flex flex-row gap-3'>
+                        <span className='flex flex-row text-base text-white vrd'>
+                          <FaGitSquare className='text-white text-xl mt-1 mr-1' /> GitFlow
+                        </span>
+                      </div>
+                    </div>
+                  </div> */}
                 </div>
-                <div className='flex flex-wrap w-full'>
-                  <hr className='w-full border-gray-500 mt-4 mb-4 pr-3 pl-3' />
-                  <p className='flex flex-row flex-wrap gap-3'>
-                    <span className="text-base text-gray-300 pt-1 text-justify" style={{ textIndent: 12 }}>
-                      I have been working as a software developer since <b>2019</b>, with solid experience in developing, maintaining, and modernizing <b>full-stack applications</b>, including both greenfield projects and legacy systems. I am involved throughout the entire software development lifecycle, from requirements analysis and system architecture to <b>implementation, testing, deployment, and maintenance</b>.
-                    </span>
-                    <span className="text-base w-full text-gray-300 pt-1 text-justify" style={{ textIndent: 12 }}>
-                      My technical background is centered on <b>backend development</b>, with strong expertise in <b>RESTful API</b> design, authentication and authorization, third-party integrations, and <b>relational database modeling</b> and optimization. I also develop responsive, <b>component-based frontend applications</b> and create custom plugins and <b>extensions for CMS platforms</b>, always following best practices for maintainability, security, and performance.
-                    </span>
-                    <span className="text-base w-full text-gray-300 pt-1 text-justify" style={{ textIndent: 12 }}>
-                      My primary focus is on <b>Node.js</b> and <b>C#</b>, using frameworks such as <b>Express</b>, <b>AdonisJS</b>, and <b>.NET</b>, along with <b>React on the frontend</b>. I apply principles like <b>SOLID</b>, <b>Clean Architecture</b>, and <b>layered architectures</b> to build scalable, robust, and maintainable software solutions aligned with business needs.
-                    </span>
-                  </p>
-                  <hr className='w-full border-gray-500 mt-4 mb-4 pr-3 pl-3' />
-                  <br />
-                </div>
-                {/* <div className='flex flex-wrap gap-4'>
-                  <div className='flex flex-col gap-2'>
-                    <label className='text-xl text-white w-full lrj'>HARD <b>SKILLS</b></label>
-                    <hr className="w-full border-gray-500" />
-                    <div className='flex flex-row gap-4 mb-2'>
-                      <span className='flex flex-row text-base text-white vrd'>
-                        <BiLogoJavascript className='text-white text-md mt-1 mr-1' /> JavaScript
-                      </span>
-                      <span className='flex flex-row text-base text-white vrd'>
-                        <BiLogoTypescript className='text-white text-md mt-1 mr-1' /> TypeScript
-                      </span>
-                      <span className='flex flex-row text-base text-white vrd'>
-                        <FaNodeJs className='text-white text-md mt-1 mr-1' /> NodeJS
-                      </span>
-                      <span className='flex flex-row text-base text-white vrd'>
-                        <SiCsharp className='text-white text-md mt-1 mr-1' /> Csharp
-                      </span>
-                      <span className='flex flex-row text-base text-white vrd'>
-                        <BsWordpress className='text-white text-md mt-1 mr-1' /> WordPress
-                      </span>
-                    </div>
-                  </div>
-                  <div className='flex flex-col gap-2'>
-                    <label className='text-xl text-white w-full lrj'>SOFT <b>SKILLS</b></label>
-                    <hr className="w-full border-gray-500" />
-                    <div className='flex flex-row gap-4 mb-2'>
-                      <span className='flex flex-row text-base text-white vrd'>
-                        <FaCloudUploadAlt className='text-white text-md mt-1 mr-1' /> DevOps
-                      </span>
-                      <span className='flex flex-row text-base text-white vrd'>
-                        <SiDocker  className='text-white text-md mt-1 mr-1' /> Docker
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <label className='flex text-xl text-white w-full lrj mt-4'>FRAME<b>WORKS</b></label>
-                <div className='flex flex-wrap gap-4'>
-                  <div className='flex flex-col gap-2'>
-                    <label className='azl-lev w-full uppercase text-base'>
-                      BACK <b>END</b>
-                    </label>
-                    <hr className="w-full border-gray-500" />
-                    <div className='flex flex-row gap-3 mb-1'>
-                      <span className='flex flex-row text-base text-white vrd'>
-                        <SiExpress className='text-white text-xl mt-1 mr-1' /> ExpressJS
-                      </span>
-                      <span className='flex flex-row text-base text-white vrd'>
-                        <SiNestjs className='text-white text-xl mt-1 mr-1' /> NestJS
-                      </span>
-                      <span className='flex flex-row text-base text-white vrd'>
-                        <SiAdonisjs className='text-white text-xl mt-1 mr-1' /> AdonisJS
-                      </span>
-                      <span className='flex flex-row text-base text-white vrd'>
-                        <SiDotnet className='text-white text-xl mt-1 mr-1' /> .NET 
-                      </span>
-                    </div>
-                  </div>
-                  <div className='flex flex-col gap-2'>
-                    <label className='azl-lev w-full text-base uppercase'>
-                      FRONT<b>END</b>
-                    </label>
-                    <hr className="w-full border-gray-500" />
-                    <div className='flex flex-row gap-3 mb-1'>
-                      <span className='flex flex-row text-base text-white vrd'>
-                        <BiLogoReact className='text-white text-xl mt-1 mr-1' /> ReactJS
-                      </span>
-                      <span className='flex flex-row text-base text-white vrd'>
-                        <TbBrandNextjs className='text-white text-xl mt-1 mr-1' /> NextJS
-                      </span>
-                      <span className='flex flex-row text-base text-white vrd'>
-                        <BiLogoTailwindCss className='text-white text-xl mt-1 mr-1' /> Tailwind
-                      </span>
-                      <span className='flex flex-row text-base text-white vrd'>
-                        <BiLogoVuejs className='text-white text-xl mt-1 mr-1' /> VueJS
-                      </span>
-                      <span className='flex flex-row text-base text-white vrd'>
-                        <BiLogoAngular className='text-white text-xl mt-1 mr-1' /> AngularJS
-                      </span>
-                    </div>
-                  </div>
-                  <div className='flex flex-col gap-2'>
-                    <label className='azl-lev w-full uppercase text-base'>
-                      VERSIONING
-                    </label>
-                    <hr className="w-full border-gray-500" />
-                    <div className='flex flex-row gap-3'>
-                      <span className='flex flex-row text-base text-white vrd'>
-                        <FaGitSquare className='text-white text-xl mt-1 mr-1' /> GitFlow
-                      </span>
-                    </div>
-                  </div>
-                </div> */}
               </div>
             </div>
           </div>
-        </Sessao>
+        </div>
         <Sessao>
           <div id="carreira" className="flex relative items-center flex-col mr-auto ml-auto md:pr-6 md:pl-6 pt-4 overflow-hidden" ref={myRef2}>
             <div className="flex flex-row justify-left text-left top-2 mb-4 w-full md:pr-6 md:pl-6" style={{ maxWidth: 1300, marginLeft: 'auto', marginRight: 'auto' }}>
@@ -618,7 +631,7 @@ function App() {
                           return (
                             <React.Fragment key={b}>
                               <li className="flex w-full items-center" onClick={() => changeTimeLine(b)}>
-                                <span className={"flex items-center justify-center w-10 h-10 rounded-full shrink-0 cursor-pointer transition-all duration-300 hover:scale-110" + (b < actualTime ? ' bg-emerald-500 shadow-lg shadow-emerald-500/30 ' : b === actualTime ? ' bg-gradient-to-b from-blue-500 to-indigo-600 border-blue-300 border-2 shadow-lg shadow-blue-500/30 ' : ' bg-gray-700 hover:bg-gray-600 ')}>
+                                <span className={"flex items-center justify-center w-10 h-10 rounded-full shrink-0 cursor-pointer transition-all duration-300 hover:scale-110" + (b < actualTime ? ' bg-emerald-500 shadow-lg shadow-emerald-500/30 text-center' : b === actualTime ? ' bg-gradient-to-b from-blue-500 to-indigo-600 border-blue-300 border-2 shadow-lg shadow-blue-500/30 text-center' : ' bg-gray-700 hover:bg-gray-600 ')}>
                                   <span className={"font-bold text-xs" + (b < actualTime ? ' text-white ' : b === actualTime ? ' text-white' : ' text-gray-400 ')}>{a.year}</span>
                                 </span>
                               </li>
