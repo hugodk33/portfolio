@@ -369,7 +369,7 @@ function App() {
             }
           </div>
         </Sessao>
-        <div className="w-full bg-gradient-to-r from-slate-900 to-slate-800 flex flex-col">
+        <div className="Sessao w-full bg-gradient-to-r from-slate-900 to-slate-800 flex flex-col pt-3">
           <div style={{ maxWidth: 1300, marginLeft: 'auto', marginRight: 'auto' }} ref={myRef1}>
             <div className="flex flex-row justify-left text-left top-2 mb-4 w-full md:pr-6 md:pl-6" style={{ maxWidth: 1300, marginLeft: 'auto', marginRight: 'auto' }} ref={myRef1}>
               <span className="mt-4 flex justify-center align-center vrl" style={{ fontSize: 35, marginTop: 23 }}>
