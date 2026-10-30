@@ -101,7 +101,7 @@ export const Hero = ({ t }) => {
     }
 
     if (frame === lastFrame) {
-      const pause = setTimeout(() => setFrame(0), 4000);
+      const pause = setTimeout(() => setFrame(0), 1000);
       return () => clearTimeout(pause);
     }
 
@@ -111,49 +111,58 @@ export const Hero = ({ t }) => {
 
   return (
     <section id="inicio" className="hero nebula grain">
-      <pre className="hero-ascii" aria-hidden="true">
-        {LogoAnimaAsci.logo[frame].join('\n')}
-      </pre>
-
       <div className="container hero-grid">
+        
         <div className="hero-copy">
-          <p className="eyebrow">{t('hero.eyebrow')}</p>
+        
+          <div> 
 
-          <h1 className="display">
-            Hugo <span>Amorim</span>
-          </h1>
+              <p className="eyebrow">{t('hero.eyebrow')}</p>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                <div>
+                  <pre className="hero-ascii" aria-hidden="true">
+                    {LogoAnimaAsci.logo[frame].join('\n')}
+                  </pre>
+                </div>
+                <div>
+                  <h1 className="display">
+                    Hugo <span>Amorim</span>
+                  </h1>
+                  <p className="role" aria-label={t('hero.fullstackLabel')}>
+                    <span>
+                      <span className="tok-punc">&lt;</span>
+                      <span className="tok-type">FullStack</span>
+                      <span className="tok-fn">Developer</span>
+                      <span className="tok-punc"> /&gt;</span>
+                    </span>
+                </p>
+                </div>
+              </div>
+            <p className="lede">{t('hero.lede')}</p>
 
-          <p className="role" aria-label={t('hero.fullstackLabel')}>
-            <span className="tok-punc">&lt;</span>
-            <span className="tok-type">FullStack</span>
-            <span className="tok-fn">Developer</span>
-            <span className="tok-punc"> /&gt;</span>
-          </p>
+            <div className="hero-actions">
+              <a className="btn btn-primary" href="#carreira">
+                {t('hero.career')}
+                <HiArrowRight aria-hidden="true" />
+              </a>
+              <a className="btn btn-ghost" href="#bio">
+                {t('hero.bio')}
+              </a>
+              <a className="btn btn-quiet" href={curriculo} download="Hugo-Amorim-CV.pdf">
+                <HiOutlineDownload aria-hidden="true" />
+                {t('hero.cv')}
+              </a>
+            </div>
 
-          <p className="lede">{t('hero.lede')}</p>
-
-          <div className="hero-actions">
-            <a className="btn btn-primary" href="#carreira">
-              {t('hero.career')}
-              <HiArrowRight aria-hidden="true" />
-            </a>
-            <a className="btn btn-ghost" href="#bio">
-              {t('hero.bio')}
-            </a>
-            <a className="btn btn-quiet" href={curriculo} download="Hugo-Amorim-CV.pdf">
-              <HiOutlineDownload aria-hidden="true" />
-              {t('hero.cv')}
-            </a>
+            <ul className="hero-meta">
+              <li>
+                <span className="status-dot" aria-hidden="true" />
+                {t('hero.status')}
+              </li>
+              <li>{t('hero.location')}</li>
+              <li>{t('hero.since')}</li>
+            </ul>
           </div>
-
-          <ul className="hero-meta">
-            <li>
-              <span className="status-dot" aria-hidden="true" />
-              {t('hero.status')}
-            </li>
-            <li>{t('hero.location')}</li>
-            <li>{t('hero.since')}</li>
-          </ul>
         </div>
 
         <div className="hero-editor">
